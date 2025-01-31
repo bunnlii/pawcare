@@ -44,7 +44,19 @@
 •    can dispute bad reviews with admin if not reasonable/honest
 
 3. SysAdmin:
-    1. Manage user access - approve tutor applications, ban users.
-    2. Moderate services - remove/unpublish classes.
-    3. Moderate reviews - remove/hide reviews.
-    4. View usage statistics - view app membership.
+    1.  manage user access
+•    approve and suspend accounts if they don’t follow the policy.
+•    reset user passwords upon request.
+    2. Moderate Services
+•    approve service provider 
+•    approve listings before they go live.
+•    remove inappropriate content in listings.
+•    handle customer disputes when necessary.
+    3. moderate reviews
+•    remove spam reviews or reviews violating guidelines.
+•    prevent fake ratings or unfairness.
+•    send warnings or bans for users that violate policy.
+    4.   view usage statistics
+•    track the total number of users, bookings, and reviews.
+•    monitor service categories.
+•    platform performance reports.
