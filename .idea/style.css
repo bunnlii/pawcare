@@ -1,0 +1,27 @@
+header {
+    text-align: center;
+    padding: 40px;
+    color: white;
+    background-color: #B0C4B1
+}
+
+nav {
+    float: bottom;
+    background: #4A5759;
+    padding: 20px;
+}
+
+nav ul {
+    display:inline-flex;
+    list-style-type: none;
+    padding: 10;
+}
+
+td{
+    color: white;
+}
+
+rightside{
+    display: flex-right;
+}
+
