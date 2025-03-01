@@ -25,3 +25,8 @@ rightside{
     display: flex-right;
 }
 
+backstyle{
+background-color: #DEDBD2;
+padding: 20px;
+text-align: center;
+}
