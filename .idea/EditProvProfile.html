@@ -86,7 +86,7 @@
 </nav>
 
 <div style = "background-color: #DEDBD2; padding: 20px; text-align: center;">
-  <form action="EditProvProfile.html" method="post">
+  <form action="ProvHome.html" method="post">
     <label>Select Roles:</label><br>
     <input type="checkbox" id="pet_sitter" name="roles[]" value="pet_sitter">
     <label for="pet_sitter">Pet Sitter</label><br>
@@ -98,10 +98,12 @@
     <label for="dog_walker">Dog Walker</label><br>
     <input type="checkbox" id="special_services" name="roles[]" value="special_services">
     <label for="special_services">Special Services</label><br><br>
+    <label for="profile_picture">Upload Profile Picture:</label>
+    <input type="file" name="profile_picture" id="profile_picture" accept="image/*">
+    <br><br>
     <button type="submit">Next</button>
   </form>
 </div>
-
 
 </body>
 </html>

@@ -48,11 +48,6 @@
         table, th, td {
         border:1px solid black;
         }
-
-        center-align{
-        text-align: center;
-        }
-
     </style>
 
 </head>
@@ -87,26 +82,12 @@
 </nav>
 
 <div style = "background-color: #DEDBD2; padding: 20px; text-align: center;">
-    <form action="EditProvProfile.html" method="post">
-        <label>What do you provide?</label><br>
-        <input type="checkbox" id="pet_sitter" name="roles[]" value="pet_sitter">
-        <label for="pet_sitter">Pet Sitter</label><br>
-        <input type="checkbox" id="vet" name="roles[]" value="vet">
-        <label for="vet">Vet</label><br>
-        <input type="checkbox" id="groomer" name="roles[]" value="groomer">
-        <label for="groomer">Groomer</label><br>
-        <input type="checkbox" id="dog_walker" name="roles[]" value="dog_walker">
-        <label for="dog_walker">Dog Walker</label><br>
-        <input type="checkbox" id="special_services" name="roles[]" value="special_services">
-        <label for="special_services">Special Services</label><br><br>
-
-        <label for="profile_picture">Upload Profile Picture:</label>
-        <input type="file" name="profile_picture" id="profile_picture" accept="image/*">
-        <br><br>
-
+    <form action = "EditProvProfile.html" method = "post">
+        First name:<br> <input type= "text" name = "firstname"><br>
+        Last name: <br> <input type = "text" name = "lastname"><br>
+        Username: <br> <input type = "text" name = "username"><br>
+        Password: <br> <input type = "text" name = "password"> <br> <br>
         <button type="submit">Next</button>
-
-
     </form>
 </div>
 
