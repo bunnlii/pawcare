@@ -2,7 +2,7 @@ header {
     text-align: center;
     padding: 40px;
     color: white;
-    background-color: #B0C4B1
+    background-color: #344960;
 }
 td{
     color: white;
@@ -11,11 +11,56 @@ td{
 rightside{
     display: flex-right;
 }
+/* Table Layout for Services */
+.serlis {
+    padding: 20px;
+    margin: 40px;
+    background-color: white;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+th {
+    background-color: #E3DAD0;
+}
+
+td {
+    background-color: #FBF3EE;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    border-radius: 10px;
+}
+
+td p {
+    color: #344960;
+    font-size: 16px;
+}
+
+td br {
+    margin-bottom: 10px;
+}
+
 
 nav {
     float: bottom;
     background-color: #E3DAD0; /* Soft beige */
     padding: 10px;
+}
 .signup-form form {
     max-width: 600px;
     margin: 0 auto;
@@ -117,7 +162,7 @@ nav ul li {
 nav ul li a {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #cad2c5;
+    background-color: #E3DAD0;
     color: black;
     border-radius: 5px;
     text-decoration: none;
@@ -125,7 +170,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background-color: #B0C4B1;
+    background-color: #E3DAD0;
 }
 
 
@@ -320,3 +365,21 @@ margin: 0 auto;
 .btn:hover {
     background-color: #E3DAD0;
 }
+
+    nav {
+        background-color: #E3DAD0; /* Soft Beige */
+        padding: 10px;
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: #344960;
+        font-size: 18px;
+    }

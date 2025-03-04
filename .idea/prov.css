@@ -40,7 +40,7 @@ menu ul li a {
 }
 
 menu ul li a:hover {
-    background-color: #B0C4B1;
+    background-color: #E3DAD0;
 }
 
 html, body {
@@ -50,7 +50,7 @@ html, body {
 }
 
 body {
-    background-color: #cad2c5;
+    background-color: #E3DAD0;
 }
 
 .review-box {

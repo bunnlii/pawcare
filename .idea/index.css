@@ -330,7 +330,7 @@ menu ul li a {
 }
 
 menu ul li a:hover {
-    background-color: #B0C4B1;
+    background-color: #ddd;
 }
 
 html, body {
@@ -340,7 +340,7 @@ html, body {
 }
 
 body {
-    background-color: #cad2c5;
+    background-color: #ddd;
 }
 
 .review-box {
