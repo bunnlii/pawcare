@@ -10,7 +10,7 @@ box{
 
 menu {
     float: bottom;
-    background: #4A5759;
+    background: #E3DAD0;
     padding: 20px;
     border: 2px solid #000000;
     border-radius: 10px;
@@ -31,15 +31,16 @@ menu ul li {
 
 menu ul li a {
     padding: 10px 20px;
-    background-color: #B0C4B1;
-    color: black;
+    background-color: #CC8561;
+    color: white;
     text-decoration: none;
     border-radius: 5px;
+    border-color: 344960;
     transition: background-color 0.3s ease;
 }
 
 menu ul li a:hover {
-    background-color: #0056b3;
+    background-color: #B0C4B1;
 }
 
 html, body {
@@ -49,5 +50,5 @@ html, body {
 }
 
 body {
-    background-color: #cad2c5; /* Replace with your desired background color */
+    background-color: #cad2c5;
 }
