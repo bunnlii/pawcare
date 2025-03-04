@@ -2,8 +2,8 @@
 
 nav {
     float: bottom;
-    background: #4A5759;
-    padding: 20px;
+    background-color: #E3DAD0; /* Soft beige */
+    padding: 10px;
 }
 
 nav ul {
@@ -11,10 +11,17 @@ nav ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
+    border: 5px;
+    justify-content: center;
+    gap: 20px
+
 }
 
 nav ul li {
     margin: 5px;
+    text-decoration: none;
+    color: #344960; /* Dark Blue */
+    font-size: 18px;
 }
 
 nav ul li a {
@@ -23,6 +30,7 @@ nav ul li a {
     background-color: #cad2c5;
     color: black;
     border-radius: 5px;
+    text-decoration: none;
     transition: background-color 0.3s ease;
 }
 
@@ -39,11 +47,6 @@ rightside{
     display: flex-right;
 }
 
-backstyle{
-background-color: #F7E1D7;
-padding: 20px;
-text-align: center;
-}
 
 body {
     font-family: 'Poppins', sans-serif;
@@ -74,24 +77,6 @@ header h1 {
 }
 
 
-nav {
-    background-color: #E3DAD0; /* Soft beige */
-    padding: 10px;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #344960; /* Dark Blue */
-    font-size: 18px;
-}
-
 h2 {
     color: #344960;
 }
@@ -102,6 +87,32 @@ h2 {
     background-color: #E3DAD0;
     margin: 40px ;
 }
+.serlis {
+text-align: center;
+padding: 20px;
+background-color: #E3DAD0;
+margin: 40px;
+
+        }
+
+.serlis table {
+ width: 100%;
+border-collapse: collapse;
+        }
+.serlis th, .serlis td {
+padding: 10px;
+border: 1px solid #ddd;
+color: #344960;
+        }
+
+.serlis th {
+vertical-align: top;
+        }
+
+.serlis img {
+display: block;
+margin: 0 auto;
+        }
 
 .bl {
     text-align: center;
