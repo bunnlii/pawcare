@@ -1,27 +1,156 @@
-header {
-    text-align: center;
-    padding: 40px;
-    color: white;
-    background-color: #B0C4B1
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #344960; /* Dark Blue */
+    margin: 0;
+    padding: 0;
+    background-color: #EDECEB; /* Light background */
 }
 
+header {
+    background-color: #344960; /* Dark Blue */
+    color: #FBF3EE; /* Light background */
+    padding: 50px 20px; /* Added more padding for emphasis */
+    text-align: center;
+}
+
+.header-content {
+    display: flex;
+    justify-content: center; /* Aligns title and logo horizontally */
+    align-items: center; /* Vertically centers the items */
+}
+
+header h1 {
+    font-family: 'Pacifico', cursive; /* Fun, playful font */
+    font-size: 4rem; /* Larger size for the title */
+    margin: 0;
+    color: #FBF3EE;
+}
+
+
 nav {
-    float: bottom;
-    background: #4A5759;
-    padding: 20px;
+    background-color: #E3DAD0; /* Soft beige */
+    padding: 10px;
 }
 
 nav ul {
-    display:inline-flex;
-    list-style-type: none;
-    padding: 10;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
-td{
+nav ul li a {
+    text-decoration: none;
+    color: #344960; /* Dark Blue */
+    font-size: 18px;
+}
+
+h2 {
+    color: #344960;
+}
+
+/* Section Styles */
+.intro {
+    text-align: center;
+    padding: 50px;
+    background-color: #E3DAD0;
+    margin: 100px ;
+}
+
+.bl {
+    text-align: center;
+    margin: 50px 50px;
+}
+
+.about, .testimonials, .call-to-action {
+    text-align: center;
+    padding: 50px;
+    background-color: white;
+    margin: 20px 0;
+}
+
+.about h2, .testimonials h2, .call-to-action h2 {
+    color: #344960;
+}
+
+.about p, .testimonials p {
+    color: #344960;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Service Cards in About Section */
+.service-cards {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.service-card {
+    background-color: #E3DAD0; /* Soft beige */
+    padding: 20px;
+    border-radius: 10px;
+    width: 250px;
+    text-align: center;
+    margin: 10px;
+}
+
+.service-card h3 {
+    color: #344960; /* Dark Blue */
+    font-size: 18px;
+}
+
+.service-card p {
+    color: #344960; /* Dark Blue */
+    font-size: 14px;
+}
+
+/* Testimonials Section */
+.testimonial {
+    background-color: #E3DAD0; /* Soft beige */
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.testimonial p {
+    color: #344960;
+}
+
+/* Call to Action Section */
+.call-to-action {
+    background-color: #344960; /* Dark Blue */
+    color: #FBF3EE; /* Light background */
+}
+
+.call-to-action p {
+    font-size: 18px;
+}
+
+/* Button Styles */
+.btn {
+    background-color: #CC8561; /* Warm Orange */
     color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
 }
 
-rightside{
-    display: flex-right;
+.btn:hover {
+    background-color: #E3DAD0; /* Soft beige */
 }
 
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #E3DAD0; /* Soft beige */
+    color: #344960; /* Dark Blue */
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
