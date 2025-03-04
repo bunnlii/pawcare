@@ -2,7 +2,7 @@ header {
     text-align: center;
     padding: 40px;
     color: white;
-    background-color: #B0C4B1
+    background-color: #344960
 }
 
 nav {
@@ -64,6 +64,7 @@ header {
     background-color: #344960; /* Dark Blue */
     color: #FBF3EE;
     padding: 50px 20px;
+    padding-color: #344960;
     text-align: center;
 }
 
@@ -77,7 +78,8 @@ header h1 {
     font-family: 'Pacifico', cursive;
     font-size: 4rem;
     margin: 0;
-    color: #FBF3EE;
+    background-color: #344960;
+
 }
 
 
@@ -247,12 +249,7 @@ body {
     color: #333;
 }
 
-/* Header and navigation styling */
-header {
-    background-color: #4CAF50; /* Green header */
-    padding: 20px;
-    color: white;
-}
+
 
 header nav a {
     margin: 0 15px;
