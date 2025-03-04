@@ -1,97 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="prov.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 
-    <link rel="icon" type="image/png" href="image/paw.png">
-    <title>
-        PawCare
-    </title>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-            crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-            integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
-            crossorigin="anonymous"></script>
-
-    <style>
-        header {
-          text-align: center;
-          padding: 40px;
-          color: white;
-          background-color: #B0C4B1
-        }
-
-        nav {
-        float: bottom;
-        background: #4A5759;
-        padding: 20px;
-        }
-
-        nav ul {
-        display:inline-flex;
-        list-style-type: none;
-        padding: 10;
-        }
-
-        td{
-        color: white;
-        }
-
-        rightside{
-        display: flex-right;
-        }
-
-        table, th, td {
-        border:1px solid black;
-        }
-    </style>
-
+    <title>Provider Signup</title>
 </head>
+
 <body>
 <header>
     <h1>PawCare
         <rightside>
             <img src = "image/paw.png" alt ="paw" width = "75" height="75">
         </rightside>
-
     </h1>
-
 </header>
 
 <nav>
     <ul>
         <li><a href="index.html">Home</a></li>
+        <li><a href="ServiceList.html">Services</a></li>
+        <li><a href="SignUp.html">Signup</a></li>
+        <li><a href="Login.html">Login</a> </li>
     </ul>
-
-    <ul>
-        <li><a href="#">About Us</a></li>
-    </ul>
-
-    <ul>
-        <a href="signup.html">Sign up</a></li>
-    </ul>
-
-    <ul>
-        <a href="#">Login</a></li>
-    </ul>
-
 </nav>
 
-<div style = "background-color: #DEDBD2; padding: 20px; text-align: center;">
+
+<div style = "background-color: #cad2c5; padding: 50px; text-align: center; background-size:cover;">
+   <h4> Sign up as Provider:</h4>
     <form action = "EditProvProfile.html" method = "post">
-        First name:<br> <input type= "text" name = "firstname"><br>
-        Last name: <br> <input type = "text" name = "lastname"><br>
-        Username: <br> <input type = "text" name = "username"><br>
-        Password: <br> <input type = "text" name = "password"> <br> <br>
+        First name:<br> <input type= "text" name = "firstname"><br><br>
+        Last name: <br> <input type = "text" name = "lastname"><br><br>
+        Username: <br> <input type = "text" name = "username"><br><br>
+        Password: <br> <input type = "password" name = "password"> <br><br>
+        Re-enter Password: <br> <input type = "password" name = "password"> <br>
+        <br>
+
         <button type="submit">Next</button>
     </form>
+
 </div>
-
-
 </body>
 </html>
 
