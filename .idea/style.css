@@ -1,11 +1,15 @@
-
+header {
+    text-align: center;
+    padding: 40px;
+    color: white;
+    background-color: #B0C4B1
+}
 
 nav {
     float: bottom;
     background-color: #E3DAD0; /* Soft beige */
     padding: 10px;
 }
-
 nav ul {
     display: flex;
     list-style-type: none;
@@ -197,4 +201,72 @@ margin: 0 auto;
 
 .btn:hover {
     background-color: #E3DAD0;
+}
+
+
+<!-- Styling for adminpanel-->
+main {
+    padding: 20px;
+}
+.home_texts {
+    text-align: center;
+    padding: 40px;
+    color: white;
+    background-color: #B0C4B1;
+    position: relative;
+}
+
+
+.admin-section {
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px; /* Space between sections */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for 3D effect */
+}
+
+.admin-section h2 {
+    color: #333; /* Dark color for the title */
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Content inside each section */
+.content-box {
+    background-color: #fff; /* White background for content */
+    padding: 15px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Small shadow for the content box */
+}
+
+/* Add some basic styling for the body */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9; /* Light background color */
+    color: #333;
+}
+
+/* Header and navigation styling */
+header {
+    background-color: #4CAF50; /* Green header */
+    padding: 20px;
+    color: white;
+}
+
+header nav a {
+    margin: 0 15px;
+    color: white;
+    text-decoration: none;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
 }
