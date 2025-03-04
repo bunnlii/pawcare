@@ -197,3 +197,69 @@ footer {
     color: #344960;
     line-height: 1.6;
 }
+/* Services Section */
+.services {
+    background-color: #E3DAD0;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+}
+
+.services h3 {
+    text-align: center;
+    font-size: 2rem;
+    color: #344960;
+}
+
+.services ul {
+    list-style-type: none;
+    padding-left: 0;
+    font-size: 16px;
+}
+
+.services li {
+    color: #344960;
+    margin-bottom: 10px;
+}
+
+/* Reviews Section */
+.reviews {
+    background-color: #E3DAD0;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.reviews h3 {
+    text-align: center;
+    font-size: 2rem;
+    color: #344960;
+}
+
+.reviews ul {
+    list-style-type: none;
+    padding-left: 0;
+    font-size: 16px;
+}
+
+.reviews li {
+    color: #344960;
+    margin-bottom: 10px;
+}
+
+/* Button Styling (optional) */
+.btn {
+    background-color: #CC8561; /* Warm Orange */
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    display: block;
+    width: 200px;
+    margin: 30px auto;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #E3DAD0;
+}
