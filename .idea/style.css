@@ -1,4 +1,3 @@
-/* Global Styles */
 body {
     font-family: 'Poppins', sans-serif;
     color: #344960; /* Dark Blue */
@@ -9,20 +8,20 @@ body {
 
 header {
     background-color: #344960; /* Dark Blue */
-    color: #FBF3EE; /* Light background */
-    padding: 50px 20px; /* Added more padding for emphasis */
+    color: #FBF3EE;
+    padding: 50px 20px;
     text-align: center;
 }
 
 .header-content {
     display: flex;
-    justify-content: center; /* Aligns title and logo horizontally */
-    align-items: center; /* Vertically centers the items */
+    justify-content: center;
+    align-items: center;
 }
 
 header h1 {
-    font-family: 'Pacifico', cursive; /* Fun, playful font */
-    font-size: 4rem; /* Larger size for the title */
+    font-family: 'Pacifico', cursive;
+    font-size: 4rem;
     margin: 0;
     color: #FBF3EE;
 }
@@ -50,7 +49,6 @@ h2 {
     color: #344960;
 }
 
-/* Section Styles */
 .intro {
     text-align: center;
     padding: 50px;
@@ -63,24 +61,24 @@ h2 {
     margin: 50px 50px;
 }
 
-.about, .testimonials, .call-to-action {
+.about, .test, .call {
     text-align: center;
     padding: 50px;
     background-color: white;
     margin: 20px 0;
 }
 
-.about h2, .testimonials h2, .call-to-action h2 {
+.about h2, .test h2, .call h2 {
     color: #344960;
 }
 
-.about p, .testimonials p {
+.about p, .test p {
     color: #344960;
     font-size: 16px;
     line-height: 1.5;
 }
 
-/* Service Cards in About Section */
+
 .service-cards {
     display: flex;
     justify-content: space-around;
@@ -103,36 +101,35 @@ h2 {
 }
 
 .service-card p {
-    color: #344960; /* Dark Blue */
+    color: #344960;
     font-size: 14px;
 }
 
-/* Testimonials Section */
-.testimonial {
-    background-color: #E3DAD0; /* Soft beige */
+
+.test {
+    background-color: #E3DAD0;
     padding: 20px;
     margin: 10px;
     border-radius: 10px;
     font-size: 16px;
 }
 
-.testimonial p {
+.test p {
     color: #344960;
 }
 
-/* Call to Action Section */
-.call-to-action {
-    background-color: #344960; /* Dark Blue */
-    color: #FBF3EE; /* Light background */
+
+.call {
+    background-color: #344960;
+    color: #FBF3EE;
 }
 
 .call-to-action p {
     font-size: 18px;
 }
 
-/* Button Styles */
 .btn {
-    background-color: #CC8561; /* Warm Orange */
+    background-color: #CC8561;
     color: white;
     padding: 10px 20px;
     text-decoration: none;
@@ -141,16 +138,7 @@ h2 {
 }
 
 .btn:hover {
-    background-color: #E3DAD0; /* Soft beige */
+    background-color: #E3DAD0;
 }
 
-/* Footer */
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #E3DAD0; /* Soft beige */
-    color: #344960; /* Dark Blue */
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-}
+
