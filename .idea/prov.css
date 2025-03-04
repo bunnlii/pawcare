@@ -52,3 +52,16 @@ html, body {
 body {
     background-color: #cad2c5;
 }
+
+.review-box {
+background-color: #E3DAD0;
+border: 1px solid #ddd;
+padding: 20px;
+margin: 20px 0;
+border-radius: 10px;
+        }
+
+.review-box textarea {
+width: 50%;
+height: 60px;
+        }
