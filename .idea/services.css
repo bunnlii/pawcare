@@ -177,3 +177,11 @@ td br {
 .service-details button:hover {
     background-color: #E3DAD0;
 }
+.btn {
+    background-color: #CC8561;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
