@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pet Information - PawCare</title>
+  <link rel="stylesheet" href="index.css"> <!-- Include your CSS for styling -->
+</head>
+<body>
+
+<!-- Header Section -->
+<header>
+  <h1>PawCare - Pet Information</h1>
+</header>
+
+<!-- Form for Pet Information -->
+<section class="pet-info">
+  <h2>Tell Us About Your Pet</h2>
+  <form action="profile-confirmation.html" method="POST" enctype="multipart/form-data">
+    <label for="pet-name">Pet Name:</label>
+    <input type="text" id="pet-name" name="pet-name" required>
+
+    <label for="pet-type">Pet Type (e.g., Dog, Cat):</label>
+    <input type="text" id="pet-type" name="pet-type" required>
+
+    <label for="pet-breed">Pet Breed:</label>
+    <input type="text" id="pet-breed" name="pet-breed" required>
+
+    <label for="pet-age">Pet Age:</label>
+    <input type="number" id="pet-age" name="pet-age" required>
+
+    <label for="pet-photo">Upload Pet Photo:</label>
+    <input type="file" id="pet-photo" name="pet-photo" required>
+
+    <button type="submit" class="btn">Submit Pet Info</button>
+  </form>
+</section>
+
+</body>
+</html>

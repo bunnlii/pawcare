@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pet Training Service - PawCare</title>
+  <link rel="stylesheet" href="services.css">
+</head>
+<body>
+
+<!-- Header Section -->
+<header>
+  <h1>PawCare - Pet Training</h1>
+</header>
+
+<!-- Service Details -->
+<section class="service-details">
+  <h2>Training Services for Your Pet</h2>
+  <p>Our certified trainers offer a wide range of training services:</p>
+  <ul>
+    <li>Basic Obedience</li>
+    <li>Behavioral Training</li>
+    <li>Housebreaking</li>
+  </ul>
+  <p>Price: Starting at $30 per session</p>
+  <p>Location: Greensboro</p>
+
+  <h3>Book Your Training Session</h3>
+  <form action="confirmation.html" method="POST">
+    <label for="appointment-date">Select Date:</label>
+    <input type="date" id="appointment-date" name="appointment-date" required>
+
+    <label for="appointment-time">Select Time:</label>
+    <input type="time" id="appointment-time" name="appointment-time" required>
+
+    <button type="submit" class="btn">Book Appointment</button>
+  </form>
+</section>
+
+</body>
+</html>

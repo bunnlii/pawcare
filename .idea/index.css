@@ -182,3 +182,108 @@ nav ul li a {
 .call .btn:hover {
     background-color: #E3DAD0;
 }
+/* Pet Info Form Styles */
+.pet-info {
+    padding: 40px;
+    background-color: #FBF3EE;
+    margin: 40px;
+    border-radius: 10px;
+}
+
+.pet-info h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #344960;
+}
+
+.pet-info label {
+    display: block;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.pet-info input[type="text"], .pet-info input[type="number"], .pet-info input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.pet-info button {
+    background-color: #CC8561; /* Warm Orange */
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    display: block;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.pet-info button:hover {
+    background-color: #E3DAD0;
+}
+/* Review Confirmation Page */
+.review-confirmation {
+    padding: 40px;
+    background-color: #FBF3EE;
+    text-align: center;
+    margin: 40px;
+    border-radius: 10px;
+}
+
+.review-confirmation p {
+    font-size: 18px;
+    color: #344960;
+    margin-bottom: 20px;
+}
+
+.review-confirmation .btn {
+    background-color: #CC8561; /* Warm Orange */
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.review-confirmation .btn:hover {
+    background-color: #E3DAD0;
+}
+/* Confirmation Page Styles */
+.confirmation {
+    padding: 40px;
+    background-color: #FBF3EE;
+    text-align: center;
+    margin: 40px;
+    border-radius: 10px;
+}
+
+.confirmation p {
+    font-size: 18px;
+    color: #344960;
+    margin-bottom: 20px;
+}
+
+.confirmation-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.confirmation .btn {
+    background-color: #CC8561; /* Warm Orange */
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.confirmation .btn:hover {
+    background-color: #E3DAD0; /* Soft Beige */
+}
