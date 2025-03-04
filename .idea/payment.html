@@ -2,9 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - PawCare</title>
+    <link rel="stylesheet" href="CustomerSignup.css"> <!-- Include your CSS -->
 </head>
 <body>
+
+<header>
+    <h1>PawCare - Payment</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="profile.html">Profile</a></li>
+    </ul>
+</nav>
+
+<section class="payment">
+    <h2>Payment Information</h2>
+    <form action="confirmation.html" method="POST">
+        <label for="card-number">Card Number:</label>
+        <input type="text" id="card-number" name="card-number" required>
+
+        <label for="expiration-date">Expiration Date:</label>
+        <input type="text" id="expiration-date" name="expiration-date" required>
+
+        <label for="cvv">CVV:</label>
+        <input type="text" id="cvv" name="cvv" required>
+
+        <button type="submit" class="btn">Submit Payment</button>
+    </form>
+</section>
+
+<footer>
+    <p>&copy; 2025 PawCare. All Rights Reserved.</p>
+</footer>
 
 </body>
 </html>
