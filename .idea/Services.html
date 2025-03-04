@@ -3,25 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Our Services - PawCare</title>
+    <title>Services - PawCare</title>
+    <link rel="stylesheet" href="services.css"> <!-- Link to your services page CSS -->
 </head>
 <body>
+
+<!-- Header Section -->
 <header>
-    <h1><span class="logo">PawCare</span> <img src="image/paw.png" alt="paw logo" width="75" height="75"></h1>
+    <h1>PawCare - Our Services</h1>
 </header>
 
-<nav>
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="CustomerSignup.html">Sign Up</a></li>
-        <li><a href="EditCusProfile.html">Profile</a></li>
-        <li><a href="ProvHome.html">Provider</a></li>
-    </ul>
-</nav>
+<!-- Service Listings Section -->
+<section class="serlis">
+    <table>
+        <tr>
+            <th><a href="#"><img src="image/cat.png" alt="william capy" width="320" height="320"></a></th>
+            <th><a href="#"><img src="image/dog.jpg" alt="kat capy" width="320" height="320"></a></th>
+            <th><a href="#"><img src="image/catduck.jpg" alt="tofu capy" width="320" height="320"></a></th>
+            <th><a href="#"><img src="image/walkdog.webp" alt="snooze capy" width="320" height="320"></a></th>
+        </tr>
 
+        <tr>
+            <td>Service: Vet <br> Location: Greensboro, Wills Rd. <br> Price: starting at $40 <br> Note: Insurance Required</td>
+            <td>Service: Dog Walking <br> Location: Greensboro, Tate St. <br> Price: $12 per hour</td>
+            <td>Service: Pet Sitting <br> Location: High Point <br> Price: $15 per hour <br> Note: Health Concerns Required</td>
+            <td>Service: Dog Walking <br> Location: NC, Charlotte <br> Price: starting at $10 <br> Note: Morning - Evenings Only</td>
+        </tr>
+    </table>
+</section>
+
+<!-- Additional Service Descriptions Section -->
 <section class="services">
-    <h2>Our Services</h2>
     <div class="service-card">
         <h3>Grooming</h3>
         <p>Our grooming service will keep your pet looking fresh and clean. We offer full grooming packages including bath, trim, and nail clipping for all pets.</p>
@@ -47,5 +59,14 @@
         <p>We help facilitate pet adoptions by connecting you with rescue organizations and shelters. Our team can guide you through the adoption process and help you find your new furry family member.</p>
     </div>
 </section>
+
+<!-- Call to Action Section -->
+<section class="call">
+    <h2>Ready to Give Your Pet the Best Care?</h2>
+    <p>Sign up today and experience the best pet care services for your furry friend!</p>
+    <a href="CustomerSignup.html" class="btn">Sign Up Now</a>
+</section>
+
 </body>
 </html>
+
