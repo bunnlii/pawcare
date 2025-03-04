@@ -56,10 +56,26 @@ h2 {
     margin: 100px ;
 }
 
+.intro h1 {
+    font-size: 30px;
+}
+.cus {
+    text-align: center;
+    margin: 100px 100px;
+    font-size: 20px;
+}
+
+.providerhomepg {
+   text-align: center;
+    margin: 100px 100px;
+    font-size: 20px;
+}
+
 .bl {
     text-align: center;
     margin: 50px 50px;
 }
+
 
 .about, .test, .call {
     text-align: center;
