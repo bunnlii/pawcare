@@ -65,3 +65,20 @@ border-radius: 10px;
 width: 50%;
 height: 60px;
         }
+nav {
+    background-color: #E3DAD0; /* Soft Beige */
+    padding: 10px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #344960;
+    font-size: 18px;
+}
