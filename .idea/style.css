@@ -1,9 +1,99 @@
+header {
+    text-align: center;
+    padding: 40px;
+    color: white;
+    background-color: #B0C4B1
+}
+td{
+    color: white;
+}
 
+rightside{
+    display: flex-right;
+}
 
 nav {
     float: bottom;
     background-color: #E3DAD0; /* Soft beige */
     padding: 10px;
+.signup-form form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+}
+
+.signup-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+.signup-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.signup-form button {
+    background-color: #CC8561; /* Warm Orange */
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    width: 100%;
+}
+
+.signup-form button:hover {
+    background-color: #E3DAD0; /* Soft beige */
+}
+
+.service-card {
+    background-color: #E3DAD0; /* Soft beige */
+    padding: 60px;
+    border-radius: 50px;
+    width: 1200px;
+    text-align: center;
+    margin: 110px;
+}
+.service-card h3 {
+    color: #344960; /* Dark Blue */
+    font-size: 30px;
+}
+.services h2 {
+    text-align: center;
+    border-radius: 50px;
+    background-color: #CC8561;
+    padding: 30px;
+    width: 100px;
+    margin: 50px 700px;
+}
+
+.service-card p {
+    color: #344960; /* Dark Blue */
+    font-size: 15px;
+}
+
+
+.profile-info {
+    margin-bottom: 30px;
+}
+
+.profile-info p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.pet-info {
+    margin-bottom: 30px;
+}
+
+.pet-info p {
+    font-size: 18px;
+    margin-bottom: 10px;
 }
 
 nav ul {
@@ -39,12 +129,44 @@ nav ul li a:hover {
 }
 
 
-td{
-    color: white;
+.btn:hover {
+    background-color: #E3DAD0; /* Soft beige */
 }
 
-rightside{
-    display: flex-right;
+.login-form form, .provider-login form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+}
+
+.login-form label, .provider-login label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.login-form input, .provider-login input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-form button, .provider-login button {
+    background-color: #CC8561; /* Warm Orange */
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    width: 100%;
+}
+
+.login-form button:hover, .provider-login button:hover {
+    background-color: #E3DAD0;
 }
 
 
@@ -182,7 +304,7 @@ margin: 0 auto;
     color: #FBF3EE;
 }
 
-.call-to-action p {
+.call p {
     font-size: 18px;
 }
 
