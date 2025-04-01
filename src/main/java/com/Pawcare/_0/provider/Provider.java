@@ -15,20 +15,20 @@ public class Provider{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int providerID;
+
     @Column(nullable = false)
     private String email;
     @Column(nullable = false)
     private String username;
     @Column(nullable = false)
     private String password;
-    private String location;
     private String bio;
 
     //relationships
-    @OneToMany(mappedBy = "provider", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "reviews", cascade = CascadeType.ALL)
     private List<Reviews> reviews;
 
-    @OneToMany(mappedBy = "provider", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "services", cascade = CascadeType.ALL)
     private List<Service> services;
 
     @OneToOne(cascade = CascadeType.ALL)
@@ -37,12 +37,11 @@ public class Provider{
     public Provider(){
     }
 
-    public Provider(String name, int providerID, String email, String username, String password, String location, String bio){
+    public Provider(String name, int providerID, String email, String username, String password,String bio){
         this.name = name;
         this.email = email;
         this.username = username;
         this.password = password;
-        this.location = location;
         this.bio = bio;
     }
 
@@ -79,13 +78,6 @@ public class Provider{
     }
     private void setPassword (String password){
         this.password = password;
-    }
-
-    public String getLocation(){
-        return location;
-    }
-    public void setLocation(String location){
-        this.location = location;
     }
 
     public String getBio(){

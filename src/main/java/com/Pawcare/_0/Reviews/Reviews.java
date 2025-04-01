@@ -12,6 +12,7 @@ public class Reviews {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int reviewID;
+
     @Column(nullable = false)
     public String reviewMsg;
     @Column(nullable = false)
