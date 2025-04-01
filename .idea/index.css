@@ -4,20 +4,22 @@ body {
     color: #344960;
     margin: 0;
     padding: 0;
-    background-color: #EDECEB;
+    background-color: #E3DAD0;
 }
 
 header {
-    background-color: #344960; /* Dark Blue */
-    color: #FBF3EE; /* Light Beige */
-    padding: 50px 20px;
-    text-align: center;
+    background-color: #E3DAD0;
+    color: #344960; /* Light Beige */
+    text-align: left;
+    justify-content: left;
 }
 
 header h1 {
     font-family: 'Pacifico', cursive;
-    font-size: 4rem;
-    margin: 0;
+    font-size: 2rem;
+    text-align: left;
+    display: inline-flex;
+    margin: 0px 0px;
 }
 
 
@@ -27,9 +29,10 @@ nav {
 }
 
 nav ul {
-    list-style: none;
+    text-align: right;
+    display: top;
     display: flex;
-    justify-content: center;
+    justify-content: right;
     gap: 20px;
 }
 
@@ -102,16 +105,38 @@ nav ul li a {
 }
 
 /* About Section */
-.about {
-    text-align: center;
-    padding: 50px;
-    background-color: white;
-    margin: 20px 0;
+.about-content {
+    position: relative;
+    display: inline-block;
+    padding: 50px 50px;
+    background-color: #E3DAD0 ;
 }
 
-.about h2 {
+
+
+.about-content img {
+    width: 100%;
+    display: block;
+}
+
+.overlay-text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color:#344960;
+    font-size: 24px;
+
+}
+
+.about-content p {
     color: #344960;
 }
+
+lol {
+    background-color: #E3DAD0;
+}
+
 
 .service-cards {
     display: flex;
