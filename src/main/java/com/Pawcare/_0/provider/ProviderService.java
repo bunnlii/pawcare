@@ -1,5 +1,6 @@
 package com.Pawcare._0.provider;
 
+import com.Pawcare._0.Service.ServiceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +11,9 @@ public class ProviderService {
 
     @Autowired
     private ProviderRepository ProviderRepository;
+
+    @Autowired
+    private ServiceRepository serviceRepository;
 
     public List<Provider> getAllProvider() {
         return ProviderRepository.findAll();
@@ -38,4 +42,5 @@ public class ProviderService {
     public void deleteById(int providerID) {
         ProviderRepository.deleteById(providerID);
     }
+
 }

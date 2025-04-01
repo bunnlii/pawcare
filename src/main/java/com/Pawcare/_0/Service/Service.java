@@ -22,9 +22,18 @@ public class Service {
     @Column(nullable = false)
     private String location;
 
+    //relationship
     @ManyToOne
-    @JoinColumn(name = "providerID")
+    @JoinColumn(name = "provider_id")
     private Provider provider;
+
+    public Provider getProvider() {
+        return provider;
+    }
+
+    public void setProvider(Provider provider) {
+        this.provider = provider;
+    }
 
 
     public Service(){

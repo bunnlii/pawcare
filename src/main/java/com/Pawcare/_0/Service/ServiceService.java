@@ -13,7 +13,4 @@ public class ServiceService {
         return ServiceRepository.findAll();
     }
 
-    public void addNewService(Service Service) {
-        ServiceRepository.save(Service);
-    }
 }

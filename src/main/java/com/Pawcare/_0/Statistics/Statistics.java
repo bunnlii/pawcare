@@ -1,5 +1,6 @@
 package com.Pawcare._0.Statistics;
 
+import com.Pawcare._0.provider.Provider;
 import jakarta.persistence.*;
 
 
@@ -18,10 +19,15 @@ public class Statistics {
     @Column(nullable = false)
     public int totalService;
 
+    @OneToOne
+    @JoinColumn(name = "provider_id", nullable = false)
+    private Provider provider;
+
+
     public Statistics(){
     }
 
-    public Statistics(int statisticsID, int numCustomer, double avgRating, int totalService){
+    public Statistics(int statisticsID, int providerID, int numCustomer, double avgRating, int totalService){
         this.statisticsID = statisticsID;
         this.numCustomer = numCustomer;
         this.avgRating = avgRating;

@@ -1,18 +1,15 @@
 package com.Pawcare._0.Service;
 
 import com.Pawcare._0.provider.Provider;
+import com.Pawcare._0.provider.ProviderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/service")
-
 public class ServiceController {
     @Autowired
     private ServiceService service;
@@ -22,9 +19,19 @@ public class ServiceController {
         return new ResponseEntity<>(service.getAllService(), HttpStatus.OK);
     }
 
-    @PostMapping("/new")
-    public Object addNewService(@RequestBody Service Service) {
-        service.addNewService(Service);
-        return new ResponseEntity<>(service.getAllService(), HttpStatus.CREATED);
+    @Autowired
+    private ProviderRepository providerRepository;
+
+    @Autowired
+    private ServiceRepository serviceRepository;
+
+    @PostMapping("/{providerID}/add-service")
+    public ResponseEntity<String> addServiceToProvider(
+            @PathVariable int providerID,
+            @RequestBody Service service) {
+        Provider provider = providerRepository.findById(providerID).orElse(null);
+        service.setProvider(provider);
+        serviceRepository.save(service);
+        return new ResponseEntity<>("Service added successfully", HttpStatus.CREATED);
     }
 }

@@ -29,12 +29,12 @@ public class Provider{
     @OneToMany(mappedBy = "provider", cascade = CascadeType.ALL)
     private List<Reviews> reviews;
 
-    @OneToMany(mappedBy = "services", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "provider", cascade = CascadeType.ALL)
 
     private List<Service> services;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "statistics_id")
+    @JoinColumn(name = "provider_id")
     private Statistics statistics;
 
     //constructors
