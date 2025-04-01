@@ -1,0 +1,269 @@
+header {
+    text-align: center;
+    padding: 40px;
+    color: white;
+    background-color: #344960
+}
+
+nav {
+    float: bottom;
+    background-color: #E3DAD0; /* Soft beige */
+    padding: 10px;
+}
+nav ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    border: 5px;
+    justify-content: center;
+    gap: 20px
+
+}
+
+nav ul li {
+    margin: 5px;
+    text-decoration: none;
+    color: #344960; /* Dark Blue */
+    font-size: 18px;
+}
+
+nav ul li a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #cad2c5;
+    color: black;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #B0C4B1;
+}
+
+
+td{
+    color: white;
+}
+
+rightside{
+    display: flex-right;
+}
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #344960; /* Dark Blue */
+    margin: 0;
+    padding: 0;
+    background-color: #EDECEB; /* Light background */
+}
+
+header {
+    background-color: #344960; /* Dark Blue */
+    color: #FBF3EE;
+    padding: 50px 20px;
+    padding-color: #344960;
+    text-align: center;
+}
+
+.header-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 4rem;
+    margin: 0;
+    background-color: #344960;
+
+}
+
+
+h2 {
+    color: #344960;
+}
+
+.intro {
+    text-align: center;
+    padding: 20px;
+    background-color: #E3DAD0;
+    margin: 40px ;
+}
+.serlis {
+text-align: center;
+padding: 20px;
+background-color: #E3DAD0;
+margin: 40px;
+
+        }
+
+.serlis table {
+ width: 100%;
+border-collapse: collapse;
+        }
+.serlis th, .serlis td {
+padding: 10px;
+border: 1px solid #ddd;
+color: #344960;
+        }
+
+.serlis th {
+vertical-align: top;
+        }
+
+.serlis img {
+display: block;
+margin: 0 auto;
+        }
+
+.bl {
+    text-align: center;
+    margin: 50px 50px;
+}
+
+.about, .test, .call {
+    text-align: center;
+    padding: 50px;
+    background-color: white;
+    margin: 20px 0;
+}
+
+.about h2, .test h2, .call h2 {
+    color: #344960;
+}
+
+.about p, .test p {
+    color: #344960;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+
+.service-cards {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.service-card {
+    background-color: #E3DAD0; /* Soft beige */
+    padding: 20px;
+    border-radius: 10px;
+    width: 250px;
+    text-align: center;
+    margin: 10px;
+}
+
+.service-card h3 {
+    color: #344960; /* Dark Blue */
+    font-size: 18px;
+}
+
+.service-card p {
+    color: #344960;
+    font-size: 14px;
+}
+
+
+.test {
+    background-color: #E3DAD0;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.test p {
+    color: #344960;
+}
+
+
+.call {
+    background-color: #344960;
+    color: #FBF3EE;
+}
+
+.call-to-action p {
+    font-size: 18px;
+}
+
+.btn {
+    background-color: #CC8561;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: #E3DAD0;
+}
+
+
+<!-- Styling for adminpanel-->
+main {
+    padding: 20px;
+}
+.home_texts {
+    text-align: center;
+    padding: 40px;
+    color: white;
+    background-color: #B0C4B1;
+    position: relative;
+}
+
+
+.admin-section {
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px; /* Space between sections */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for 3D effect */
+}
+
+.admin-section h2 {
+    color: #333; /* Dark color for the title */
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Content inside each section */
+.content-box {
+    background-color: #fff; /* White background for content */
+    padding: 15px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Small shadow for the content box */
+}
+
+/* Add some basic styling for the body */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9; /* Light background color */
+    color: #333;
+}
+
+
+
+header nav a {
+    margin: 0 15px;
+    color: white;
+    text-decoration: none;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="prov.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png"  href="image/paw.png">
+    <title>Edit/Modify profile for provider</title>
+</head>
+
+<body>
+<header>
+    <h1>PawCare
+        <rightside>
+            <img src="image/paw.png" alt="paw" width="75" height="75">
+        </rightside>
+    </h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="ServiceList.html">Services</a></li>
+        <li><a href="ProvProfile.html">Profile</a></li>
+        <li><a href="ProvHome.html">Settings</a></li>
+        <li><a href="index.html">Logout</a></li>
+    </ul>
+</nav>
+
+<div style="background-color: #cad2c5; padding: 20px; text-align: center;">
+    <form action="ServiceList.html" method="post" onsubmit="return confirmSubmission()">
+        <h4><label>Select Your Service(s):</label></h4>
+
+        <input type="checkbox" id="pet_sitter" name="roles[]" value="pet_sitter">
+        <label for="pet_sitter">Pet Sitter</label><br>
+        <input type="checkbox" id="vet" name="roles[]" value="vet">
+        <label for="vet">Vet</label><br>
+        <input type="checkbox" id="groomer" name="roles[]" value="groomer">
+        <label for="groomer">Groomer</label><br>
+        <input type="checkbox" id="dog_walker" name="roles[]" value="dog_walker">
+        <label for="dog_walker">Dog Walker</label><br>
+        <input type="checkbox" id="special_services" name="roles[]" value="special_services">
+        <label for="special_services">Special Services</label><br>
+        <input type="checkbox" id="pet_trainer" name="roles[]" value="pet_trainer">
+        <label for="pet_trainer">Pet Trainer</label><br><br>
+
+        Price: <br> <input type="text" name="price"><br><br>
+        Note( required documents?): <br> <input type="text" name="note"><br><br>
+
+        <h4><label for="location">Location:</label></h4>
+        Street Address: <br> <input type="text" name="street_address"><br><br>
+        City: <br> <input type="text" name="city"><br><br>
+        State: <br> <input type="text" name="state"><br><br>
+        Zip Code: <br> <input type="text" name="zip_code"><br><br>
+
+        <h4><label for="schedule">Select Available Schedule:</label></h4>
+        Available From: <br> <input type="time" name="start_time"><br><br>
+        Available Until: <br> <input type="time" name="end_time"><br><br>
+
+        <h4><label for="picture">Upload Image (Optional):</label>
+            <input type="file" name="imagedetails" id="imagedetails" accept="image/*"></h4>
+
+        <button type="submit">Next</button>
+
+    </form>
+    <br>
+    <a href="ProvHome.html">Cancel</a>
+
+</div>
+
+<script>
+    function confirmSubmission() {
+        return confirm("Post service?");
+    }
+</script>
+
+</body>
+</html>
