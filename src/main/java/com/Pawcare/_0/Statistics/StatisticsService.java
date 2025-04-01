@@ -15,4 +15,4 @@ public class StatisticsService {
         return StatisticsRepository.findAll();
     }
     }
-}
+
