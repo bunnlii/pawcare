@@ -6,6 +6,8 @@ import com.Pawcare._0.Statistics.Statistics;
 import jakarta.persistence.*;
 import java.util.List;
 
+@Entity
+@Table(name = "provider")
 public class Provider{
 
     //items
@@ -15,7 +17,6 @@ public class Provider{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int providerID;
-
     @Column(nullable = false)
     private String email;
     @Column(nullable = false)
@@ -25,20 +26,24 @@ public class Provider{
     private String bio;
 
     //relationships
-    @OneToMany(mappedBy = "reviews", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "provider", cascade = CascadeType.ALL)
     private List<Reviews> reviews;
 
     @OneToMany(mappedBy = "services", cascade = CascadeType.ALL)
+
     private List<Service> services;
 
     @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "statistics_id")
     private Statistics statistics;
 
+    //constructors
     public Provider(){
     }
 
     public Provider(String name, int providerID, String email, String username, String password,String bio){
         this.name = name;
+        this.providerID = providerID;
         this.email = email;
         this.username = username;
         this.password = password;
@@ -47,9 +52,19 @@ public class Provider{
 
     public Provider(String name, int providerID, String email, String username, String password){
         this.name = name;
+        this.providerID = providerID;
         this.email = email;
         this.username = username;
         this.password = password;
+    }
+
+    //gets and sets
+    public int getProviderID(){
+        return providerID;
+    }
+
+    public void setProviderID(int providerID) {
+        this.providerID = providerID;
     }
 
     public String getName(){
@@ -73,10 +88,10 @@ public class Provider{
         this.username = username;
     }
 
-    private String getPassword (){
+    public String getPassword (){
         return password;
     }
-    private void setPassword (String password){
+    public void setPassword (String password){
         this.password = password;
     }
 

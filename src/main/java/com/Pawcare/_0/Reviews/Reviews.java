@@ -6,6 +6,9 @@ import com.Pawcare._0.provider.Provider;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
+
+@Entity
+@Table(name = "reviews")
 public class Reviews {
 
     //items
@@ -19,10 +22,12 @@ public class Reviews {
     public int reviewRating;
     public String reviewResponse;
 
+    //relationship
     @ManyToOne
     @JoinColumn(name = "providerID")
     private Provider provider;
 
+    //constructors
     public Reviews(){
     }
 
@@ -39,6 +44,7 @@ public class Reviews {
         this.reviewRating = reviewRating;
     }
 
+    //gets and sets
     public int getReviewID(){
         return  reviewID;
     }

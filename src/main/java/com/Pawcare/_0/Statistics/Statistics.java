@@ -1,10 +1,10 @@
 package com.Pawcare._0.Statistics;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
+
+@Entity
+@Table(name = "statistics")
 public class Statistics {
     //items
     @Id
@@ -54,5 +54,14 @@ public class Statistics {
     }
     public void setTotalService(int totalService) {
         this.totalService = totalService;
+    }
+
+    @Override
+    public String toString() {
+        return "Statistics{" +
+                "avg rating=" + avgRating +
+                ", number of customer='" + numCustomer + '\'' +
+                ", total service='" + totalService +
+                '}';
     }
 }

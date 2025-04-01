@@ -3,6 +3,9 @@ package com.Pawcare._0.Service;
 import com.Pawcare._0.provider.Provider;
 import jakarta.persistence.*;
 
+
+@Entity
+@Table(name = "service")
 public class Service {
 
     //items
