@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="prov.css">
+    <link rel="icon" type="image/png" href="image/paw.png">
+    <title>
+        PawCare
+    </title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+            integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+            crossorigin="anonymous"></script>
+
+</head>
+<body>
+<header>
+    <h1>PawCare
+        <rightside>
+            <img src = "image/paw.png" alt ="paw" width = "75" height="75">
+        </rightside>
+
+    </h1>
+
+</header>
+
+<nav>
+    <ul>
+        <li><a title="Takes you to the homepage" href="index.html">Home</a></li>
+        <li><a title="Click here to know more about our services" href="ServiceList.html">Services</a></li>
+        <li><a title="Take you to the signup page" href="SignUp.html">Signup</a></li>
+        <li><a title="Old user? Click here!" href="Login.html">Login</a> </li>
+    </ul>
+</nav>
+
+<section class="admin-section">
+    <h2>Manage user access</h2>
+    <div class="content-box">
+        <p>This section will display options to manage user access and user accounts.</p>
+    </div>
+</section>
+
+<section class="admin-section">
+    <h2>Recent Reports and Tickets</h2>
+    <div class="content-box">
+        <p>This section will display the most recent reports and ticket updates.</p>
+    </div>
+</section>
+
+<section class="admin-section">
+    <h2>Statistics</h2>
+    <div class="content-box">
+        <p>This section will show relevant statistics about the platform.</p>
+    </div>
+</section>
+
+</body>
+</html>
