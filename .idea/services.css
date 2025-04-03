@@ -112,7 +112,7 @@ td br {
 }
 
 .call .btn {
-    background-color: #CC8561; /* Warm Orange */
+    background-color: #CC8561;
     color: white;
     padding: 10px 20px;
     text-decoration: none;
@@ -121,7 +121,7 @@ td br {
 }
 
 .call .btn:hover {
-    background-color: #E3DAD0; /* Soft Beige */
+    background-color: #E3DAD0;
 }
 /*gromming service*/
 /* Service Detail Pages */
@@ -165,7 +165,7 @@ td br {
 }
 
 .service-details button {
-    background-color: #CC8561; /* Warm Orange */
+    background-color: #CC8561;
     color: white;
     padding: 10px 20px;
     border-radius: 5px;
@@ -186,7 +186,7 @@ td br {
     font-weight: bold;
 }
 nav {
-    background-color: #E3DAD0; /* Soft Beige */
+    background-color: #E3DAD0;
     padding: 10px;
 }
 

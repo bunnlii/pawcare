@@ -9,7 +9,7 @@ body {
 
 header {
     background-color: #E3DAD0;
-    color: #344960; /* Light Beige */
+    color: #344960;
     text-align: left;
     justify-content: left;
 }
@@ -24,7 +24,7 @@ header h1 {
 
 
 nav {
-    background-color: #E3DAD0; /* Soft Beige */
+    background-color: #E3DAD0;
     padding: 10px;
 }
 
@@ -56,7 +56,7 @@ nav ul li a {
 }
 
 .intro .btn {
-    background-color: #CC8561; /* Warm Orange */
+    background-color: #CC8561;
     color: white;
     padding: 10px 20px;
     text-decoration: none;
@@ -236,7 +236,7 @@ lol {
 }
 
 .pet-info button {
-    background-color: #CC8561; /* Warm Orange */
+    background-color: #CC8561;
     color: white;
     padding: 10px 20px;
     text-decoration: none;
@@ -266,7 +266,7 @@ lol {
 }
 
 .review-confirmation .btn {
-    background-color: #CC8561; /* Warm Orange */
+    background-color: #CC8561;
     color: white;
     padding: 10px 20px;
     text-decoration: none;
@@ -301,7 +301,7 @@ lol {
 }
 
 .confirmation .btn {
-    background-color: #CC8561; /* Warm Orange */
+    background-color: #CC8561;
     color: white;
     padding: 10px 20px;
     text-decoration: none;
@@ -310,7 +310,6 @@ lol {
 }
 
 .confirmation .btn:hover {
-    background-color: #E3DAD0; /* Soft Beige */
 }
 /*prov*/
 

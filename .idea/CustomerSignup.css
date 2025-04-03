@@ -1,5 +1,5 @@
 nav {
-    background-color: #E3DAD0; /* Soft beige */
+    background-color: #E3DAD0;
     padding: 10px;
 }
 
@@ -12,7 +12,7 @@ nav ul {
 
 nav ul li a {
     text-decoration: none;
-    color: #344960; /* Dark Blue */
+    color: #344960;
     font-size: 18px;
 }
 /* Global Styles */
@@ -116,7 +116,7 @@ footer {
 }
 
 .payment button {
-    background-color: #CC8561; /* Warm Orange */
+    background-color: #CC8561;
     color: white;
     padding: 10px 20px;
     border-radius: 5px;
@@ -125,7 +125,7 @@ footer {
 }
 
 .payment button:hover {
-    background-color: #E3DAD0; /* Soft Beige */
+    background-color: #E3DAD0;
 }
 /* Review Section Styles */
 .review {
@@ -155,7 +155,7 @@ footer {
 }
 
 .review button {
-    background-color: #CC8561; /* Warm Orange */
+    background-color: #CC8561;
     color: white;
     padding: 10px 20px;
     border-radius: 5px;
@@ -164,7 +164,7 @@ footer {
 }
 
 .review button:hover {
-    background-color: #E3DAD0; /* Soft Beige */
+    background-color: #E3DAD0;
 }
 /* Profile Section */
 .profile {
@@ -246,9 +246,9 @@ footer {
     margin-bottom: 10px;
 }
 
-/* Button Styling (optional) */
+/* Button */
 .btn {
-    background-color: #CC8561; /* Warm Orange */
+    background-color: #CC8561;
     color: white;
     padding: 10px 20px;
     text-decoration: none;
