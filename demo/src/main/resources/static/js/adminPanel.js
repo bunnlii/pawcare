@@ -7,19 +7,15 @@ document.addEventListener("DOMContentLoaded", function () {
         if (role) url += `?role=${role}`;
 
         fetch(url)
-            .then(response => response.json())
+            .then(res => res.json())
             .then(users => {
                 tableBody.innerHTML = "";
-
                 if (users.length === 0) {
                     tableBody.innerHTML = "<tr><td colspan='6'>No users found.</td></tr>";
                     return;
                 }
 
                 users.forEach(user => {
-                    const banText = user.status === "BANNED" ? "Unban" : "Ban";
-                    const banClass = user.status === "BANNED" ? "btn-success" : "btn-danger";
-
                     const row = document.createElement("tr");
                     row.innerHTML = `
                         <td>${user.id}</td>
@@ -28,23 +24,19 @@ document.addEventListener("DOMContentLoaded", function () {
                         <td>${user.role}</td>
                         <td>${user.status}</td>
                         <td>
-                            <button class="btn ${banClass} btn-sm toggle-ban" data-user-id="${user.id}">
-                                ${banText}
+                            <button class="btn btn-danger btn-sm toggle-ban" data-user-id="${user.id}">
+                                ${user.status === 'BANNED' ? 'Unban' : 'Ban'}
                             </button>
                         </td>
                     `;
                     tableBody.appendChild(row);
                 });
 
-                document.querySelectorAll(".toggle-ban").forEach(button => {
-                    button.addEventListener("click", () => {
-                        const userId = button.getAttribute("data-user-id");
-
-                        fetch(`/admin/users/${userId}/toggle-ban`, {
-                            method: "PUT"
-                        })
-                            .then(() => fetchAndDisplayUsers(roleFilter.value))
-                            .catch(() => alert("Failed to update user status."));
+                document.querySelectorAll(".toggle-ban").forEach(btn => {
+                    btn.addEventListener("click", () => {
+                        const userId = btn.dataset.userId;
+                        fetch(`/admin/users/${userId}/toggle-ban`, { method: "PUT" })
+                            .then(() => fetchAndDisplayUsers(roleFilter.value));
                     });
                 });
             })
@@ -54,8 +46,5 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     fetchAndDisplayUsers();
-
-    roleFilter.addEventListener("change", () => {
-        fetchAndDisplayUsers(roleFilter.value);
-    });
+    roleFilter.addEventListener("change", () => fetchAndDisplayUsers(roleFilter.value));
 });

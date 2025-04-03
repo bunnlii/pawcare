@@ -1,12 +1,5 @@
-header {
-    text-align: center;
-    padding: 40px;
-    color: white;
-    background-color: #344960
-}
-
 nav {
-    float: bottom;
+    float: right;
     background-color: #E3DAD0; /* Soft beige */
     padding: 10px;
 }
@@ -48,7 +41,9 @@ td{
 }
 
 rightside{
-    display: flex-right;
+    display: flex;
+    justify-content: flex-end;
+
 }
 
 
@@ -61,11 +56,12 @@ body {
 }
 
 header {
-    background-color: #344960; /* Dark Blue */
+    background-color: #344960;
     color: #FBF3EE;
-    padding: 50px 20px;
-    padding-color: #344960;
-    text-align: center;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .header-content {
@@ -206,7 +202,6 @@ margin: 0 auto;
 }
 
 
-<!-- Styling for adminpanel-->
 main {
     padding: 20px;
 }
@@ -266,4 +261,9 @@ footer {
     padding: 10px;
     background-color: #4CAF50;
     color: white;
+}
+
+header img {
+    width: 60px;
+    height: auto;
 }

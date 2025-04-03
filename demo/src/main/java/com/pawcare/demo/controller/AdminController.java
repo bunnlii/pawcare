@@ -6,13 +6,14 @@ import com.pawcare.demo.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.*;
 
-@RestController
+@Controller
 @RequestMapping("/admin")
 public class AdminController {
 
@@ -24,26 +25,21 @@ public class AdminController {
 
     @PostMapping("/login")
     public RedirectView login(@RequestParam String email, @RequestParam String password) {
-        Optional<User> userOptional = userRepository.findByEmail(email);
+        Optional<User> userOptional = userRepository.findByEmailAndRole(email, User.Role.ADMIN);
         RedirectView redirectView = new RedirectView();
 
-        if (userOptional.isPresent()) {
-            User user = userOptional.get();
-            if (!user.getRole().equals(User.Role.ADMIN)) {
-                redirectView.setUrl("/error.html");
-                return redirectView;
-            }
-            if (user.getPassword().equals(password)) {
-                redirectView.setUrl("/adminPanel.html");
-                return redirectView;
-            }
+        if (userOptional.isPresent() && userOptional.get().getPassword().equals(password)) {
+            redirectView.setUrl("/adminPanel.html");
+            return redirectView;
         }
 
         redirectView.setUrl("/error.html");
         return redirectView;
     }
 
+
     @GetMapping("/users")
+    @ResponseBody
     public List<User> getUsers(@RequestParam(required = false) String role) {
         if (role != null) {
             try {
@@ -66,10 +62,5 @@ public class AdminController {
         }
     }
 
-    @GetMapping("/panel")
-    public String showAdminPanel(Model model) {
-        List<User> users = adminService.getAllUsers();
-        model.addAttribute("users", users);
-        return "adminPanel";
-    }
+
 }

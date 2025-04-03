@@ -2,14 +2,14 @@
 box{
     display: inline-block;
     padding: 10px 20px;
-    background-color: #white;
+    background-color: white;
     color: black;
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
 
 menu {
-    float: bottom;
+    float: none;
     background: #E3DAD0;
     padding: 20px;
     border: 2px solid #000000;
@@ -18,7 +18,8 @@ menu {
 }
 
 menu ul {
-    display: center;
+    display: flex;
+    justify-content: flex-end;
     list-style-type: none;
     padding: 10px;
     margin: 10px;
@@ -35,7 +36,7 @@ menu ul li a {
     color: white;
     text-decoration: none;
     border-radius: 5px;
-    border-color: 344960;
+    border-color: #344960;
     transition: background-color 0.3s ease;
 }
 

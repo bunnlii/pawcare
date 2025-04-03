@@ -25,7 +25,6 @@
         }
 
         nav {
-            float: bottom;
             background: #4A5759;
             padding: 20px;
         }
@@ -33,16 +32,12 @@
         nav ul {
             display:inline-flex;
             list-style-type: none;
-            padding: 10;
         }
 
         td{
             color: white;
         }
 
-        rightside{
-            display: flex-right;
-        }
     </style>
 
 </head>
@@ -70,7 +65,7 @@
 <div style = "background-color: #DEDBD2; padding: 20px; text-align: center;">
 
 <h2>Admin Login</h2>
-<form action="http://localhost:8080/admin/login" method="post">
+    <form action="/admin/login" method="post">
     <label for="email">Email :</label>
     <input type="text" id="email" name="email" required><br><br>
     <label for="password">Password:</label>
