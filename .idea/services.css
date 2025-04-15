@@ -1,0 +1,204 @@
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #344960;
+    margin: 0;
+    padding: 0;
+    background-color: #EDECEB;
+}
+
+header {
+    background-color: #344960;
+    color: #FBF3EE;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 4rem;
+    margin: 0;
+}
+
+/* Table Layout for Services */
+.serlis {
+    padding: 20px;
+    margin: 40px;
+    background-color: white;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+th {
+    background-color: #E3DAD0;
+}
+
+td {
+    background-color: #FBF3EE;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    border-radius: 10px;
+}
+
+td p {
+    color: #344960;
+    font-size: 16px;
+}
+
+td br {
+    margin-bottom: 10px;
+}
+
+/* Service Cards Section */
+.services {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 30px;
+    padding: 40px;
+    background-color: white;
+}
+
+.service-card {
+    background-color: #E3DAD0;
+    padding: 20px;
+    border-radius: 10px;
+    width: 280px;
+    text-align: center;
+    margin: 10px;
+}
+
+.service-card h3 {
+    color: #344960;
+    font-size: 18px;
+}
+
+.service-card p {
+    color: #344960;
+    font-size: 14px;
+}
+
+/* Call to Action Section */
+.call {
+    text-align: center;
+    background-color: #344960;
+    color: #FBF3EE;
+    padding: 50px 20px;
+}
+
+.call h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.call p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.call .btn {
+    background-color: #CC8561;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.call .btn:hover {
+    background-color: #E3DAD0;
+}
+/*gromming service*/
+/* Service Detail Pages */
+.service-details {
+    padding: 40px;
+    background-color: #FBF3EE;
+    margin: 40px;
+    border-radius: 10px;
+}
+
+.service-details h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #344960;
+}
+
+.service-details ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.service-details ul li {
+    font-size: 16px;
+    color: #344960;
+    margin-bottom: 10px;
+}
+
+.service-details form {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.service-details label {
+    font-size: 16px;
+}
+
+.service-details input[type="date"], .service-details input[type="time"] {
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+.service-details button {
+    background-color: #CC8561;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.service-details button:hover {
+    background-color: #E3DAD0;
+}
+.btn {
+    background-color: #CC8561;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+nav {
+    background-color: #E3DAD0;
+    padding: 10px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #344960;
+    font-size: 18px;
+}

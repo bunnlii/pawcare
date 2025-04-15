@@ -1,0 +1,265 @@
+nav {
+    background-color: #E3DAD0;
+    padding: 10px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #344960;
+    font-size: 18px;
+}
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #344960;
+    margin: 0;
+    padding: 0;
+    background-color: #E3DAD0;
+}
+
+header {
+    background-color: #344960;
+    color: #FBF3EE;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 4rem;
+    margin: 0;
+    color: #FBF3EE;
+}
+
+/* Signup Form */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #FBF3EE;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+form button {
+    background-color: #CC8561;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    width: 100%;
+}
+
+form button:hover {
+    background-color: #E3DAD0;
+}
+
+/* Page Styling */
+h2 {
+    color: #344960;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #E3DAD0;
+    color: #344960;
+}
+/* Payment Section Styles */
+.payment {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #FBF3EE;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.payment form {
+    display: flex;
+    flex-direction: column;
+}
+
+.payment label {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.payment input {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.payment button {
+    background-color: #CC8561;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    width: 100%;
+}
+
+.payment button:hover {
+    background-color: #E3DAD0;
+}
+/* Review Section Styles */
+.review {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #FBF3EE;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.review form {
+    display: flex;
+    flex-direction: column;
+}
+
+.review label {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.review input, .review textarea {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.review button {
+    background-color: #CC8561;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    width: 100%;
+}
+
+.review button:hover {
+    background-color: #E3DAD0;
+}
+/* Profile Section */
+.profile {
+    padding: 40px;
+    background-color: #FBF3EE;
+    margin: 40px;
+    border-radius: 10px;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+.profile h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #344960;
+}
+
+.profile-info, .pet-info {
+    margin-bottom: 30px;
+}
+
+.profile-info h3, .pet-info h3 {
+    font-size: 2rem;
+    color: #344960;
+    margin-bottom: 10px;
+}
+
+.profile-info p, .pet-info p {
+    font-size: 16px;
+    color: #344960;
+    line-height: 1.6;
+}
+/* Services Section */
+.services {
+    background-color: #E3DAD0;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+}
+
+.services h3 {
+    text-align: center;
+    font-size: 2rem;
+    color: #344960;
+}
+
+.services ul {
+    list-style-type: none;
+    padding-left: 0;
+    font-size: 16px;
+}
+
+.services li {
+    color: #344960;
+    margin-bottom: 10px;
+}
+
+/* Reviews Section */
+.reviews {
+    background-color: #E3DAD0;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.reviews h3 {
+    text-align: center;
+    font-size: 2rem;
+    color: #344960;
+}
+
+.reviews ul {
+    list-style-type: none;
+    padding-left: 0;
+    font-size: 16px;
+}
+
+.reviews li {
+    color: #344960;
+    margin-bottom: 10px;
+}
+
+/* Button */
+.btn {
+    background-color: #CC8561;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    display: block;
+    width: 200px;
+    margin: 30px auto;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #E3DAD0;
+}
