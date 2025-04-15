@@ -8,7 +8,6 @@
 		<version>3.4.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.pawcare</groupId>
 	<artifactId>340</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>340</name>
@@ -27,7 +26,6 @@
 		<url/>
 	</scm>
 	<properties>
-		<java.version>23</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -37,12 +35,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<version>1.18.24</version>
-			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
@@ -65,7 +57,6 @@
 			</plugin>
 		</plugins>
 	</build>
-
 
 
 </project>
