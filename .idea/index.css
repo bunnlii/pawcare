@@ -1,27 +1,31 @@
 /* Global Styles */
 body {
+    color: #FBF3EE;
     font-family: 'Poppins', sans-serif;
     color: #344960;
     margin: 0;
     padding: 0;
-    background-color: #E3DAD0;
 }
 
 header {
-    background-color: #E3DAD0;
-    color: #344960;
-    text-align: left;
-    justify-content: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background-color: #344960;
+    color: #FBF3EE;
+    padding: 50px 20px;
 }
 
 header h1 {
     font-family: 'Pacifico', cursive;
-    font-size: 2rem;
-    text-align: left;
-    display: inline-flex;
-    margin: 0px 0px;
+    font-size: 4rem;
+    margin: 0;
+    color: #FBF3EE;
 }
-
+header h1 img{
+   height: 200px;
+}
 
 nav {
     background-color: #E3DAD0;
@@ -29,10 +33,9 @@ nav {
 }
 
 nav ul {
-    text-align: right;
-    display: top;
+    list-style: none;
     display: flex;
-    justify-content: right;
+    justify-content: center;
     gap: 20px;
 }
 
@@ -46,13 +49,22 @@ nav ul li a {
 .intro {
     text-align: center;
     padding: 40px;
-    background-color: #E3DAD0;
+    background-color: #344960;
     margin: 40px;
 }
+.intro .cus {
 
+}
+.intro .toonlogo{
+
+}
 .intro .cus p {
     font-size: 18px;
-    margin: 20px 0;
+    color: #FBF3EE;
+    margin: 20px 20px;
+}
+.intro .cus h2{
+    color: #FBF3EE;
 }
 
 .intro .btn {
@@ -65,7 +77,7 @@ nav ul li a {
 }
 
 .intro .btn:hover {
-    background-color: #E3DAD0;
+    background-color: #344960;
 }
 
 .providerhomepg p {
@@ -136,7 +148,13 @@ nav ul li a {
 lol {
     background-color: #E3DAD0;
 }
-
+.services h2{
+    font-family: 'Pacifico', cursive;
+    font-size: 2rem;
+    margin: 0;
+    text-align: center;
+    color: #344960;
+}
 
 .service-cards {
     display: flex;
@@ -146,7 +164,7 @@ lol {
 }
 
 .service-card {
-    background-color: #E3DAD0;
+    background-color: #344960;
     padding: 20px;
     border-radius: 10px;
     width: 250px;
@@ -155,16 +173,28 @@ lol {
 }
 
 .service-card h3 {
-    color: #344960;
-    font-size: 18px;
+    color: #FBF3EE;
+    font-size: 20px;
 }
 
 .service-card p {
-    color: #344960;
-    font-size: 14px;
+    color: #FBF3EE;
+    font-size: 18px;
+}
+.service-card .btn {
+    background-color: #CC8561;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
 }
 
-/* Testimonials Section */
+.call .btn:hover {
+    background-color: #E3DAD0;
+}
+
+/* reviews */
 .test {
     text-align: center;
     padding: 20px;
@@ -207,7 +237,7 @@ lol {
 .call .btn:hover {
     background-color: #E3DAD0;
 }
-/* Pet Info Form Styles */
+/* Pet Info */
 .pet-info {
     padding: 40px;
     background-color: #FBF3EE;
@@ -231,7 +261,7 @@ lol {
     width: 100%;
     padding: 10px;
     margin-top: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid;
     border-radius: 5px;
 }
 
@@ -250,7 +280,7 @@ lol {
 .pet-info button:hover {
     background-color: #E3DAD0;
 }
-/* Review Confirmation Page */
+/* Review Page */
 .review-confirmation {
     padding: 40px;
     background-color: #FBF3EE;
@@ -278,7 +308,7 @@ lol {
 .review-confirmation .btn:hover {
     background-color: #E3DAD0;
 }
-/* Confirmation Page Styles */
+/* Confirmation Page */
 .confirmation {
     padding: 40px;
     background-color: #FBF3EE;

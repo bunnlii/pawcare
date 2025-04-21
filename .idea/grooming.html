@@ -9,24 +9,32 @@
 <body>
 
 <header>
-  <h1>PawCare - Grooming Service</h1>
+  <h1>Grooming Service </h1>
+    <img src="image/groom_logo.svg" alt="groom logo" width="100" height="100">
 </header>
 
 
 <section class="service-details">
-  <h2>Professional Grooming for Your Pet</h2>
-  <p>We offer a variety of grooming services to keep your pet looking and feeling fresh. Our grooming services include:</p>
-  <ul>
-    <li>Full Bath</li>
+  <div class="title-service-details">
+  <h2>Professional Grooming for Your Pet </h2>
+  <img src="image/grooming.svg" alt="grooming" class="right-image" width="150" height="150">
+  </div>
+  <div class="info-service-details">
+  <p>We offer a variety of grooming services to
+    keep your pet looking and feeling fresh.
+    Our grooming services include:</p>
+  <lu>
+    <li>Full Bath </li>
     <li>Hair Trimming</li>
     <li>Nail Clipping</li>
     <li>Ear Cleaning</li>
-  </ul>
-  <p>Price: Starting at $40</p>
-  <p>Location: Greensboro, Wills Rd.</p>
-  <p>Insurance required for certain breeds.</p>
-
-  <h3>Book Your Appointment</h3>
+    <li>Price: Starting at $40</li>
+    <li>Location: Greensboro, Wills Rd.</li>
+    <li>Insurance required for certain breeds.</li>
+  </lu>
+  </div>
+  <div class="book-service-details">
+  <h4>Book Your Appointment</h4>
   <form action="payment.html" method="POST">
     <label for="appointment-date">Select Date:</label>
     <input type="date" id="appointment-date" name="appointment-date" required>
@@ -36,6 +44,7 @@
 
     <button type="submit" class="btn">Book Appointment</button>
   </form>
+  </div>
 </section>
 
 </body>
