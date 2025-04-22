@@ -2,18 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Book Service - PawCare</title>
+    <title>${service.title} - PawCare</title>
     <link rel="stylesheet" href="/css/services.css">
 </head>
 <body>
 <header>
-    <h1>Book a Service</h1>
+    <h1>${service.title}</h1>
 </header>
 
 <div class="service-details">
+    <div class="info-service-details">
+        <h2>${service.title}</h2>
+        <p>${service.description}</p>
+    </div>
+    <div class="right-image">
+        <img src="${service.imagePath}" alt="${service.title}" width="260">
+    </div>
+</div>
+
+<div class="book-service-details">
+    <h4>Ready to book this service?</h4>
     <form action="/customer/bookingServices" method="post">
-        <label>Service Type:</label><br>
-        <input type="text" name="serviceType" required><br>
+        <input type="hidden" name="serviceType" value="${service.title}">
         <label>Your Name:</label><br>
         <input type="text" name="customerName" required><br>
         <label>Pet Name:</label><br>
