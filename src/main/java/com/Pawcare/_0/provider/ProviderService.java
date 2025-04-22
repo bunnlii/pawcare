@@ -19,17 +19,17 @@ public class ProviderService {
         return ProviderRepository.findAll();
     }
 
-    public Provider getProviderById(int providerID) {
+    public Provider getProviderByID(int providerID) {
 
         return ProviderRepository.findById(providerID).orElse(null);
     }
 
-    public void addNewProvider(Provider provider) {
-        ProviderRepository.save(provider);
+    public Provider addNewProvider(Provider provider) {
+        return ProviderRepository.save(provider);
     }
 
     public void updateProvider(int providerID, Provider provider) {
-        Provider existing = getProviderById(providerID);
+        Provider existing = getProviderByID(providerID);
         existing.setName(provider.getName());
         existing.setBio(provider.getBio());
         existing.setEmail(provider.getEmail());
