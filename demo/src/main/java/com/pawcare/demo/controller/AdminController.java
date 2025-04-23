@@ -1,5 +1,8 @@
 package com.pawcare.demo.controller;
 
+import com.pawcare.demo.model.Review;
+import com.pawcare.demo.repository.ReviewRepository;
+import com.pawcare.demo.service.UserServices;
 import com.pawcare.demo.model.User;
 import com.pawcare.demo.repository.UserRepository;
 import com.pawcare.demo.service.AdminService;
@@ -18,25 +21,48 @@ import java.util.*;
 public class AdminController {
 
     @Autowired
+    private UserServices userServices;
+
+    @Autowired
     private UserRepository userRepository;
 
     @Autowired
     private AdminService adminService;
 
-    @PostMapping("/login")
-    public RedirectView login(@RequestParam String email, @RequestParam String password) {
-        Optional<User> userOptional = userRepository.findByEmailAndRole(email, User.Role.ADMIN);
-        RedirectView redirectView = new RedirectView();
+    @Autowired
+    private ReviewRepository reviewRepository;
 
-        if (userOptional.isPresent() && userOptional.get().getPassword().equals(password)) {
-            redirectView.setUrl("/adminPanel.html");
-            return redirectView;
-        }
 
-        redirectView.setUrl("/error.html");
-        return redirectView;
+    @GetMapping("/login")
+    public String loginPage() {
+        return "adminLoginPage";
     }
 
+    @PostMapping("/login")
+    public String login(@RequestParam String email, @RequestParam String password, Model model) {
+        Optional<User> userOptional = userRepository.findByEmailAndRole(email, User.Role.ADMIN);
+        if (userOptional.isPresent() && userOptional.get().getPassword().equals(password)) {
+            model.addAttribute("users", userServices.getUsers());
+
+            List<Review> flaggedReviews = reviewRepository.findByIsFlagged(true);
+            model.addAttribute("flaggedReviews", flaggedReviews);
+
+            return "redirect:/admin/adminPanel";
+        }
+        return "error";
+    }
+
+
+    @GetMapping("/adminPanel")
+    public String adminPanel(Model model) {
+        List<User> users = userServices.getUsers();
+        model.addAttribute("users", users);
+
+        List<Review> flaggedReviews = reviewRepository.findByIsFlagged(true);
+        model.addAttribute("flaggedReviews", flaggedReviews);
+
+        return "adminPanel";
+    }
 
     @GetMapping("/users")
     @ResponseBody
@@ -54,13 +80,18 @@ public class AdminController {
 
     @PutMapping("/users/{id}/toggle-ban")
     public ResponseEntity<String> toggleBan(@PathVariable Long id) {
-        String result = adminService.toggleUserBanStatus(id);
-        if (result.contains("updated")) {
-            return ResponseEntity.ok(result);
+        Optional<User> userOptional = userRepository.findById(id);
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            if (user.getStatus() == User.Status.BANNED) {
+                user.setStatus(User.Status.ACTIVE);
+            } else {
+                user.setStatus(User.Status.BANNED);
+            }
+            userRepository.save(user);
+            return ResponseEntity.ok("User status updated.");
         } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(result);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
         }
     }
-
-
 }

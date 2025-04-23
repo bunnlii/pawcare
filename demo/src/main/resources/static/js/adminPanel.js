@@ -1,22 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const tableBody = document.querySelector("#usersTable tbody");
-    const roleFilter = document.getElementById("roleFilter");
+    const tableBody = document.querySelector("#userTableBody");
 
-    function fetchAndDisplayUsers(role = "") {
-        let url = "/admin/users";
-        if (role) url += `?role=${role}`;
-
-        fetch(url)
+    function fetchAndDisplayUsers() {
+        fetch('/admin/users')
             .then(res => res.json())
             .then(users => {
-                tableBody.innerHTML = "";
-                if (users.length === 0) {
-                    tableBody.innerHTML = "<tr><td colspan='6'>No users found.</td></tr>";
-                    return;
-                }
-
+                tableBody.innerHTML = '';
                 users.forEach(user => {
-                    const row = document.createElement("tr");
+                    const row = document.createElement('tr');
                     row.innerHTML = `
                         <td>${user.id}</td>
                         <td>${user.name}</td>
@@ -24,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         <td>${user.role}</td>
                         <td>${user.status}</td>
                         <td>
-                            <button class="btn btn-danger btn-sm toggle-ban" data-user-id="${user.id}">
+                            <button class="btn ${user.status === 'BANNED' ? 'btn-success' : 'btn-danger'} btn-sm toggle-ban" data-user-id="${user.id}">
                                 ${user.status === 'BANNED' ? 'Unban' : 'Ban'}
                             </button>
                         </td>
@@ -32,19 +23,23 @@ document.addEventListener("DOMContentLoaded", function () {
                     tableBody.appendChild(row);
                 });
 
-                document.querySelectorAll(".toggle-ban").forEach(btn => {
-                    btn.addEventListener("click", () => {
-                        const userId = btn.dataset.userId;
-                        fetch(`/admin/users/${userId}/toggle-ban`, { method: "PUT" })
-                            .then(() => fetchAndDisplayUsers(roleFilter.value));
+                document.querySelectorAll('.toggle-ban').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const userId = btn.getAttribute('data-user-id');
+                        fetch(`/admin/users/${userId}/toggle-ban`, { method: 'PUT' })
+                            .then(res => {
+                                if (res.ok) {
+                                    fetchAndDisplayUsers();
+                                } else {
+                                    console.error('Error updating user status');
+                                }
+                            })
+                            .catch(err => console.error('Error:', err));
                     });
                 });
             })
-            .catch(() => {
-                tableBody.innerHTML = "<tr><td colspan='6'>Error loading users.</td></tr>";
-            });
+            .catch(err => console.error('Error fetching users:', err));
     }
 
     fetchAndDisplayUsers();
-    roleFilter.addEventListener("change", () => fetchAndDisplayUsers(roleFilter.value));
 });

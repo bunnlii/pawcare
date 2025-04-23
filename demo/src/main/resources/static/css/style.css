@@ -1,5 +1,12 @@
+header {
+    text-align: center;
+    padding: 40px;
+    color: white;
+    background-color: #344960
+}
+
 nav {
-    float: right;
+    float: bottom;
     background-color: #E3DAD0; /* Soft beige */
     padding: 10px;
 }
@@ -34,7 +41,6 @@ nav ul li a {
 nav ul li a:hover {
     background-color: #B0C4B1;
 }
-
 
 td{
     color: white;
