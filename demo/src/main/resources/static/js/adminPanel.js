@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         <td>${user.name}</td>
                         <td>${user.email}</td>
                         <td>${user.role}</td>
-                        <td>${user.status}</td>
+                        <td id="status-${user.id}">${user.status}</td> 
                         <td>
                             <button class="btn ${user.status === 'BANNED' ? 'btn-success' : 'btn-danger'} btn-sm toggle-ban" data-user-id="${user.id}">
                                 ${user.status === 'BANNED' ? 'Unban' : 'Ban'}
@@ -25,20 +25,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 document.querySelectorAll('.toggle-ban').forEach(btn => {
                     btn.addEventListener('click', () => {
-                        const userId = btn.getAttribute('data-user-id');
+                        const userId = btn.dataset.userId;
+
                         fetch(`/admin/users/${userId}/toggle-ban`, { method: 'PUT' })
-                            .then(res => {
-                                if (res.ok) {
-                                    fetchAndDisplayUsers();
-                                } else {
-                                    console.error('Error updating user status');
+                            .then(response => response.json())
+                            .then(data => {
+                                if (data.status === 'ACTIVE') {
+                                    document.getElementById(`status-${userId}`).textContent = 'ACTIVE';
+                                    btn.textContent = 'Ban';
+                                    btn.classList.remove('btn-success');
+                                    btn.classList.add('btn-danger');
+                                } else if (data.status === 'BANNED') {
+                                    document.getElementById(`status-${userId}`).textContent = 'BANNED';
+                                    btn.textContent = 'Unban';
+                                    btn.classList.remove('btn-danger');
+                                    btn.classList.add('btn-success');
                                 }
                             })
                             .catch(err => console.error('Error:', err));
                     });
                 });
             })
-            .catch(err => console.error('Error fetching users:', err));
+            .catch(error => console.error('Error fetching users:', error));
     }
 
     fetchAndDisplayUsers();

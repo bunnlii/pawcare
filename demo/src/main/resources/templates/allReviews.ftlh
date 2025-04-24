@@ -33,41 +33,32 @@
 </nav>
 
 <section class="admin-section">
-    <h2>Manage user access</h2>
+    <h2>All Reviews</h2>
     <div class="content-box">
-        <p>This section will display options to manage user access and user accounts.</p>
-
-        <label for="roleFilter">Filter by role:</label>
-        <select id="roleFilter">
-            <option value="">All</option>
-            <option value="CUSTOMER">Customer</option>
-            <option value="PROVIDER">Provider</option>
-        </select>
-
-        <table class="table mt-3" id="usersTable">
+        <table class="table mt-3">
             <thead>
             <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Role</th>
-                <th>Status</th>
+                <th>Appointment ID</th>
+                <th>Customer</th>
+                <th>Provider</th>
+                <th>Rating</th>
+                <th>Comment</th>
                 <th>Actions</th>
             </tr>
             </thead>
             <tbody id="userTableBody">
-            <#list users as user>
+            <#list allReviews as review>
                 <tr>
-                    <td>${user.id}</td>
-                    <td>${user.name}</td>
-                    <td>${user.email}</td>
-                    <td>${user.role}</td>
-                    <td>${user.status}</td>
+                    <td><a href="/admin/appointments/${review.id}">Appointment ID: ${review.id}</a></td>
+                    <td>${review.customerId}</td>
+                    <td>${review.providerId}</td>
+                    <td>${review.rating}</td>
+                    <td>${review.comment}</td>
                     <td>
-                        <#if user.status == 'BANNED'>
-                            <button class="btn btn-success btn-sm toggle-ban" data-user-id="${user.id}">Unban</button>
+                        <#if review.isFlagged == true>
+                            <button class="btn btn-warning btn-sm" disabled>Flagged</button>
                         <#else>
-                            <button class="btn btn-danger btn-sm toggle-ban" data-user-id="${user.id}">Ban</button>
+                            <button class="btn btn-warning btn-sm flag-review" data-review-id="${review.id}">Flag</button>
                         </#if>
                     </td>
                 </tr>
@@ -77,21 +68,10 @@
     </div>
 </section>
 
-<section class="admin-section">
-    <h2>Manage user access</h2>
-    <div class="content-box">
-        <p>This section will display options to manage user access and user accounts.</p>
-        <button class="btn btn-primary btn-sm" onclick="window.location.href='/admin/reviews/flagged-reviews'">Manage Flagged Reviews</button>
-    </div>
-</section>
+<div class="text-center mt-3">
+    <a href="/admin/reviews/flagged-reviews" class="btn btn-primary">View Flagged Reviews</a>
+</div>
 
-<section class="admin-section">
-    <h2>Statistics</h2>
-    <div class="content-box">
-        <p>This section will show relevant statistics about the platform.</p>
-    </div>
-</section>
-
-<script src="/js/adminPanel.js"></script>
+<script src="/js/allReviews.js"></script>
 </body>
 </html>

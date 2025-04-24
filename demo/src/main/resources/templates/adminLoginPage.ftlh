@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <link rel="icon" type="image/png" href="/image/paw.png">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/prov.css">
     <title>PawCare</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -20,7 +21,7 @@
             text-align: center;
             padding: 40px;
             color: white;
-            background-color: #B0C4B1
+            background-color: #344960
         }
 
         nav {
