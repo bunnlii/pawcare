@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="prov.css">
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png"  href="image/paw.png">
-    <title>Provider Signup</title>
+    <title>Service Details</title>
 
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/images/paw.png">
 
     <style>
         * {
@@ -92,7 +90,36 @@
             color: #344960;
         }
 
-           .button {
+        table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #344960;
+            color: white;
+        }
+
+        td a {
+            color: #344960;
+            text-decoration: none;
+        }
+
+        td a:hover {
+            text-decoration: underline;
+        }
+
+            .button {
             display: inline-block;
             padding: 10px 20px;
             background-color: #cad2c5;
@@ -116,6 +143,8 @@
 
 .btn-primary {
     background-color: #cad2c5;
+    text-decoration: none;
+    color: white;
 }
 
 .btn-cancel {
@@ -136,6 +165,7 @@
 }
 
     </style>
+
 </head>
 
 <body>
@@ -147,39 +177,38 @@
     <ul>
         <li><a href="/provider/all">Home</a></li>
         <li><a href="/service/all">Services</a></li>
-        <li><a href="/provider/createForm">Signup</a></li>
-        <li><a href="Login.html">Login</a> </li>
+        <li><a href="index.html">Logout</a></li>
+        <li><a href="/provider/update/">Settings</a></li>
+
     </ul>
 </nav>
 
+<div class="content">
+    <h2>Service: ${service.serviceType}</h2>
 
-<div class="container" style="max-width: 500px; margin: 0 auto; padding: 40px;">
-    <h3 style="text-align: center; margin-bottom: 30px;">Sign Up as a Provider</h3>
-
-    <form id="new-provider" action="/provider/new" method="post" style="display: flex; flex-direction: column; gap: 15px;">
-
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" placeholder="Name" required />
-
-        <label for="bio">Bio</label>
-        <input type="text" id="bio" name="bio" placeholder="Short bio" required />
-
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Email" required />
-
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" placeholder="Password" required />
-
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username" placeholder="Username" required />
-
-        <div style="display: flex; justify-content: space-between; margin-top: 20px;">
-           <button type="submit" class="button btn-primary">Save</button>
-            <a href="/provider/all" class="button btn-cancel">Cancel</a>
-        </div>
-    </form>
+        <p>
+            <strong>ID:</strong> ${service.serviceID?c}
+        </p>
+    <p>
+       <strong> Type:</strong> ${service.serviceType}
+    </p>
+    <p>
+        <strong>Price:</strong> ${service.price}
+    </p>
+    <p>
+        <strong>Details:</strong> ${service.details}
+    </p>
+    <p>
+        <strong>Location:</strong> ${service.location}
+    </p>
+        <br>
+        <a href="/service/update/${service.serviceID?c}" class="button btn-primary">Edit Service</a>
+    <a href="/service/delete/${service.serviceID?c}" class="button btn-danger" onclick="return confirmDelete()">Delete Service</a>
 </div>
-
+<script>
+    function confirmDelete() {
+        return confirm("Are you sure you want to delete your profile? This action cannot be undone.");
+    }
+</script>
 </body>
 </html>
-

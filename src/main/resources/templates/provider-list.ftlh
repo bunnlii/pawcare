@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Provider Profile Page</title>
+    <title>Provider List Page</title>
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins&display=swap" rel="stylesheet">
@@ -139,17 +139,14 @@
 <body>
 <header>
     <h1>PawCare</h1>
-    <div class="header-logo">
-    </div>
 </header>
 
 <nav>
     <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="/provider/all">Services</a></li>
-        <li><a href="ProvProfile.html">Profile</a></li>
-        <li><a href="ProvHome.html">Settings</a></li>
-        <li><a href="index.html">Logout</a></li>
+        <li><a href="/provider/all">Home</a></li>
+        <li><a href="/service/all">Services</a></li>
+        <li><a href="/provider/createForm">Signup</a></li>
+        <li><a href="Login.html">Login</a> </li>
     </ul>
 </nav>
 

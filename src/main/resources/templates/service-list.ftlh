@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Provider Profile (Details) Page</title>
+    <title>List of Service Page</title>
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins&display=swap" rel="stylesheet">
@@ -79,62 +79,61 @@
             background-color: #B0C4B1;
         }
 
+
         .content {
             background-color: white;
             padding: 50px;
             text-align: center;
-            height: 100%;
         }
 
         h2 {
             color: #344960;
         }
 
-        table {
-            width: 80%;
-            margin: 0 auto;
-            border-collapse: collapse;
-            border-radius: 10px;
-            overflow: hidden;
-            height: 100%;
-        }
+        .card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px;
+}
 
-        th, td {
-            padding: 15px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
+.card {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  padding: 25px;
+  width: 250px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+  text-align: center;
+}
 
-        th {
-            background-color: #344960;
-            color: white;
-        }
+.card:hover {
+  transform: translateY(-5px);
+}
 
-        td a {
-            color: #344960;
-            text-decoration: none;
-        }
+.card h3 {
+  margin-top: 0;
+  color: #344960;
+}
 
-        td a:hover {
-            text-decoration: underline;
-        }
+.card a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #344960;
+  text-decoration: none;
+  background-color: #cad2c5;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
 
-            .button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #cad2c5;
-            color: black;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-        }
-
-        .button a:hover {
-            background-color: #B0C4B1;
-        }
+.card a:hover {
+  background-color: #B0C4B1;
+}
 
     </style>
-
 </head>
 
 <body>
@@ -146,35 +145,31 @@
     <ul>
         <li><a href="/provider/all">Home</a></li>
         <li><a href="/service/all">Services</a></li>
-        <li><a href="/provider/update/${provider.providerID?c}">Settings</a></li>
-        <li><a href="index.html">Logout</a></li>
+        <li><a href="/provider/createForm">Signup</a></li>
+        <li><a href="Login.html">Login</a> </li>
     </ul>
 </nav>
 
 <div class="content">
-    <h2>Hello ${provider.name}, Welcome To Your Profile</h2>
-
-        <p>
-            <strong>ID:</strong> ${provider.providerID?c}
-        </p>
-    <p>
-       <strong> Name:</strong> ${provider.name}
-    </p>
-    <p>
-        <strong>Username:</strong> ${provider.username}
-    </p>
-    <p>
-        <strong>Password:</strong> ${provider.password}
-    </p>
-    <p>
-        <strong>Email:</strong> ${provider.email}
-    </p>
-    <p>
-        <strong> Bio:</strong> ${provider.bio}
-    </p>
-        <br>
-        <a class="button" href="/provider/update/${provider.providerID?c}">Edit Profile</a>
-        <a class="button" href="/service/${provider.providerID?c}/serviceForm" style="margin-left: 10px;">Create Service</a>
+    <h2>List of Services</h2>
+    <div class="card-container">
+        <#list serviceList as service>
+        <div class="card">
+            <h3>${service.serviceType}</h3>
+            <p><strong>Provider Name:</strong>
+                <#if service.provider??>
+                ${service.provider.name}
+                <#else>
+                No provider assigned
+            </#if>
+            </p>
+            <p><strong>Service:<br></strong> ${service.serviceType}</p>
+            <p><strong>Details:<br></strong> ${service.details}</p>
+            <p><strong>Price:<br></strong> ${service.price}</p>
+            <p><strong>Address:<br></strong> ${service.location}</p>
+            <a href="/service/${service.serviceID?c}">View Service</a>
+        </div>
+    </#list>
 </div>
 
 </body>

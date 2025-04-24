@@ -30,7 +30,6 @@ public class Provider{
     private List<Reviews> reviews;
 
     @OneToMany(mappedBy = "provider", cascade = CascadeType.ALL)
-
     private List<Service> services;
 
     @OneToOne(cascade = CascadeType.ALL)

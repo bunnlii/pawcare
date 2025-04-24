@@ -2,12 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Provider Profile Page</title>
+    <title>Provider Profile Edit/Delete Page</title>
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="/images/paw.png">
-
     <style>
         * {
             box-sizing: border-box;
@@ -123,15 +121,44 @@
             display: inline-block;
             padding: 10px 20px;
             background-color: #cad2c5;
-            color: black;
+            border: none;
             border-radius: 5px;
             text-decoration: none;
             transition: background-color 0.3s ease;
         }
 
-        .button a:hover {
-            background-color: #B0C4B1;
-        }
+        .button:hover {
+    background-color: #B0C4B1;
+}
+
+
+        .button-group {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.btn-primary {
+    background-color: #cad2c5;
+}
+
+.btn-cancel {
+    background-color: #E3DAD0;
+}
+
+.btn-cancel:hover {
+    background-color: #d5c6ba;
+}
+
+.btn-danger {
+    background-color: #e63946;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #d62828;
+}
 
     </style>
 
@@ -140,17 +167,14 @@
 <body>
 <header>
     <h1>PawCare</h1>
-    <div class="header-logo">
-    </div>
 </header>
 
 <nav>
     <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="/provider/all">Services</a></li>
-        <li><a href="ProvProfile.html">Profile</a></li>
-        <li><a href="ProvHome.html">Settings</a></li>
-        <li><a href="index.html">Logout</a></li>
+        <li><a href="/provider/all">Home</a></li>
+        <li><a href="/service/all">Services</a></li>
+        <li><a href="/update/${provider.providerID?c}">Settings</a></li>
+        <li><a href="/all">Logout</a></li>
     </ul>
 </nav>
 
@@ -174,11 +198,21 @@
         <input type="text" id="bio" name="bio" placeholder="Bio" value="${provider.bio}" />
 
         <br><br>
-        <button type="submit" class="btn btn-primary">Save</button>
-        <a href="/provider/${provider.providerID?c}" class="btn btn-outline-danger">Cancel</a>
+        <div class="button-group">
+            <button type="submit" class="button btn-primary">Save</button>
+            <a href="/provider/${provider.providerID?c}" class="button btn-cancel">Cancel</a>
+        </div>
+        <br>
+        <a href="/provider/delete/${provider.providerID?c}" class="button btn-danger" onclick="return confirmDelete()">Delete Profile</a>
     </form>
+
 </div>
 
+<script>
+    function confirmDelete() {
+        return confirm("Are you sure you want to delete your profile? This action cannot be undone.");
+    }
+</script>
 
 </body>
 

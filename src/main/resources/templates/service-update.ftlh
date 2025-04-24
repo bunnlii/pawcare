@@ -1,15 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="prov.css">
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png"  href="image/paw.png">
-    <title>Provider Signup</title>
+    <title>Update Service Page</title>
 
-
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins&display=swap" rel="stylesheet">
     <style>
         * {
             box-sizing: border-box;
@@ -92,7 +88,36 @@
             color: #344960;
         }
 
-           .button {
+        table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #344960;
+            color: white;
+        }
+
+        td a {
+            color: #344960;
+            text-decoration: none;
+        }
+
+        td a:hover {
+            text-decoration: underline;
+        }
+
+            .button {
             display: inline-block;
             padding: 10px 20px;
             background-color: #cad2c5;
@@ -136,6 +161,7 @@
 }
 
     </style>
+
 </head>
 
 <body>
@@ -147,39 +173,47 @@
     <ul>
         <li><a href="/provider/all">Home</a></li>
         <li><a href="/service/all">Services</a></li>
-        <li><a href="/provider/createForm">Signup</a></li>
-        <li><a href="Login.html">Login</a> </li>
+        <li><a href="/update/${provider.providerID?c}">Settings</a></li>
+        <li><a href="/all">Logout</a></li>
     </ul>
 </nav>
 
+<div class="content">
+    <h1>${provider.name}</h1>
+    <form id="update-provider" action="/provider/update/${provider.providerID?c}" method="post">
 
-<div class="container" style="max-width: 500px; margin: 0 auto; padding: 40px;">
-    <h3 style="text-align: center; margin-bottom: 30px;">Sign Up as a Provider</h3>
+        <p><strong>Username:</strong> ${provider.username}</p>
+        <input type="text" id="username" name="username" placeholder="Username" value="${provider.username}" />
 
-    <form id="new-provider" action="/provider/new" method="post" style="display: flex; flex-direction: column; gap: 15px;">
+        <p><strong>Name:</strong> ${provider.name}</p>
+        <input type="text" id="name" name="name" placeholder="Name" value="${provider.name}" />
 
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" placeholder="Name" required />
+        <p><strong>Email:</strong> ${provider.email}</p>
+        <input type="text" id="email" name="email" placeholder="Email" value="${provider.email}" />
 
-        <label for="bio">Bio</label>
-        <input type="text" id="bio" name="bio" placeholder="Short bio" required />
+        <p><strong>Password:</strong> ${provider.password}</p>
+        <input type="text" id="password" name="password" placeholder="Password" value="${provider.password}" />
 
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Email" required />
+        <p><strong>Bio:</strong> ${provider.bio}</p>
+        <input type="text" id="bio" name="bio" placeholder="Bio" value="${provider.bio}" />
 
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" placeholder="Password" required />
-
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username" placeholder="Username" required />
-
-        <div style="display: flex; justify-content: space-between; margin-top: 20px;">
-           <button type="submit" class="button btn-primary">Save</button>
-            <a href="/provider/all" class="button btn-cancel">Cancel</a>
+        <br><br>
+        <div class="button-group">
+            <button type="submit" class="button btn-primary">Save</button>
+            <a href="/provider/${provider.providerID?c}" class="button btn-cancel">Cancel</a>
         </div>
+        <br>
+        <a href="/provider/delete/${provider.providerID?c}" class="button btn-danger" onclick="return confirmDelete()">Delete Profile</a>
     </form>
+
 </div>
 
-</body>
-</html>
+<script>
+    function confirmDelete() {
+        return confirm("Are you sure you want to delete your profile? This action cannot be undone.");
+    }
+</script>
 
+</body>
+
+</html>

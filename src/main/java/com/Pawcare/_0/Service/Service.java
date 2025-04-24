@@ -16,7 +16,7 @@ public class Service {
     @Column(nullable = false)
     private String serviceType;
     @Column(nullable = false)
-    private int price;
+    private double price;
     @Column(nullable = false)
     private String details;
     @Column(nullable = false)
@@ -30,7 +30,6 @@ public class Service {
     public Provider getProvider() {
         return provider;
     }
-
     public void setProvider(Provider provider) {
         this.provider = provider;
     }
@@ -39,7 +38,7 @@ public class Service {
     public Service(){
     }
 
-    public Service(int serviceID, String serviceType, int price, String details, String location){
+    public Service(int serviceID, String serviceType, double price, String details, String location){
         this.serviceID = serviceID;
         this.serviceType = serviceType;
         this.price = price;
@@ -61,10 +60,10 @@ public class Service {
         this.serviceType = serviceType;
     }
 
-    public int getPrice(){
+    public double getPrice(){
         return price;
     }
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
@@ -81,4 +80,6 @@ public class Service {
     public void setLocation(String location) {
         this.location = location;
     }
+
+
 }
