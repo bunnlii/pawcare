@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="prov.css">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png"  href="image/paw.png">
-    <title>Provider Signup</title>
-
+    <title>Create Service</title>
 
     <style>
         * {
@@ -148,38 +144,33 @@
         <li><a href="/provider/all">Home</a></li>
         <li><a href="/service/all">Services</a></li>
         <li><a href="/provider/createForm">Signup</a></li>
-        <li><a href="Login.html">Login</a> </li>
+        <li><a href="/login">Login</a></li>
     </ul>
 </nav>
 
 
-<div class="container" style="max-width: 500px; margin: 0 auto; padding: 40px;">
-    <h3 style="text-align: center; margin-bottom: 30px;">Sign Up as a Provider</h3>
+    <div class="container" style="max-width: 500px; margin: 0 auto; padding: 40px;">
+    <h3 style="text-align: center; margin-bottom: 30px;">Create Service</h3>
 
-    <form id="new-provider" action="/provider/new" method="post" style="display: flex; flex-direction: column; gap: 15px;">
+    <form action="/service/${providerID}/add-service" method="post" style="display: flex; flex-direction: column; gap: 15px;">
+        <label for="serviceType">Service Name</label>
+        <input type="text" id="serviceType" name="serviceType" placeholder="Service Type" required />
 
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" placeholder="Name" required />
+        <label for="details">Description</label>
+        <textarea id="details" name="details" placeholder="Short description" required></textarea>
 
-        <label for="bio">Bio</label>
-        <input type="text" id="bio" name="bio" placeholder="Short bio" required />
+        <label for="price">Price</label>
+        <input type="number" id="price" name="price" step="0.01" placeholder="Price (e.g., 29.99)" required />
 
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Email" required />
-
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" placeholder="Password" required />
-
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username" placeholder="Username" required />
+        <label for="location">Location</label>
+        <input type="text" id="location" name="location" placeholder="1234 UNCG street" required />
 
         <div style="display: flex; justify-content: space-between; margin-top: 20px;">
-           <button type="submit" class="button btn-primary">Save</button>
-            <a href="/provider/all" class="button btn-cancel">Cancel</a>
+            <button type="submit" class="button">Save</button>
+            <a href="/service/all" class="button btn-cancel">Cancel</a>
         </div>
     </form>
 </div>
 
 </body>
 </html>
-

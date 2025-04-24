@@ -1,8 +1,6 @@
 package com.pawcare.Provider;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +16,6 @@ public class ProviderController {
 
     @GetMapping("/all")
     public Object getAllProvider(Model model) {
-        //return new ResponseEntity<>(service.getAllProvider(), HttpStatus.OK);
         model.addAttribute("providerList", service.getAllProvider());
         model.addAttribute("title", "All Providers");
         return "provider-list";
@@ -61,9 +58,10 @@ public class ProviderController {
         return "redirect:/provider/" + providerID;
     }
 
-    @DeleteMapping("/delete/{providerID}")
+    @GetMapping("/delete/{providerID}")
     public Object deleteProviderById(@PathVariable int providerID) {
         service.deleteById(providerID);
-        return new ResponseEntity<>(service.getAllProvider(), HttpStatus.OK);
+        return "redirect:/provider/all";
     }
+
 }
