@@ -64,4 +64,12 @@ public class Booking {
         this.appointmentDate = appointmentDate;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
+
+    @ManyToOne
+    @JoinColumn(name = "service_id")
+    private Service service;
+
 }
