@@ -1,6 +1,5 @@
 package com.pawcare.entity;
 
-
 import jakarta.persistence.*;
 
 @Entity
@@ -17,52 +16,8 @@ public class Booking {
     @Column(name = "pet_name")
     private String petName;
 
-    @Column(name = "service_type")
-    private String serviceType;
-
     @Column(name = "appointment_date")
     private String appointmentDate;
-
-    public Booking() {
-    }
-
-    public Booking(int id, String customerName, String petName, String serviceType, String appointmentDate) {
-        this.id = id;
-        this.customerName = customerName;
-        this.petName = petName;
-        this.serviceType = serviceType;
-        this.appointmentDate = appointmentDate;
-    }
-    public int getId() {
-        return id;
-    }
-    public void setId(int id) {
-        this.id = id;
-    }
-    public String getCustomerName() {
-        return customerName;
-    }
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
-    }
-    public String getPetName() {
-        return petName;
-    }
-    public void setPetName(String petName) {
-        this.petName = petName;
-    }
-    public String getServiceType() {
-        return serviceType;
-    }
-    public void setServiceType(String serviceType) {
-        this.serviceType = serviceType;
-    }
-    public String getAppointmentDate() {
-        return appointmentDate;
-    }
-    public void setAppointmentDate(String appointmentDate) {
-        this.appointmentDate = appointmentDate;
-    }
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
@@ -71,5 +26,63 @@ public class Booking {
     @ManyToOne
     @JoinColumn(name = "service_id")
     private Service service;
+
+    @ManyToOne
+    @JoinColumn(name = "provider_id")
+    private Provider provider;
+
+    public Booking() {
+    }
+
+    public Booking(int id, String customerName, String petName, String appointmentDate, Customer customer, Service service) {
+        this.id = id;
+        this.customerName = customerName;
+        this.petName = petName;
+        this.appointmentDate = appointmentDate;
+        this.customer = customer;
+        this.service = service;
+    }
+
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    public String getPetName() {
+        return petName;
+    }
+    public void setPetName(String petName) {
+        this.petName = petName;
+    }
+
+    public String getAppointmentDate() {
+        return appointmentDate;
+    }
+    public void setAppointmentDate(String appointmentDate) {
+        this.appointmentDate = appointmentDate;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public Service getService() {
+        return service;
+    }
+    public void setService(Service service) {
+        this.service = service;
+    }
 
 }

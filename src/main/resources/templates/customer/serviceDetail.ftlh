@@ -20,18 +20,21 @@
     </div>
 </div>
 
-<div class="book-service-details">
-    <h4>Ready to book this service?</h4>
-    <form action="/customer/bookingServices" method="post">
-        <input type="hidden" name="serviceType" value="${service.title}">
-        <label>Your Name:</label><br>
-        <input type="text" name="customerName" required><br>
-        <label>Pet Name:</label><br>
-        <input type="text" name="petName" required><br>
-        <label>Date:</label><br>
-        <input type="date" name="appointmentDate" required><br>
-        <button type="submit">Book Now</button>
-    </form>
-</div>
+<form action="/customer/services/${service.id}/book" method="post">
+    <label>Choose Provider:</label>
+    <select name="provider.id">
+        <#list providers as provider>
+            <option value="${provider.id}">${provider.name}</option>
+        </#list>
+    </select>
+
+    Name: <input type="text" name="customerName"><br>
+    Pet Name: <input type="text" name="petName"><br>
+    Appointment Date: <input type="text" name="appointmentDate"><br>
+
+    <button type="submit">Book Now</button>
+</form>
+
+
 </body>
 </html>

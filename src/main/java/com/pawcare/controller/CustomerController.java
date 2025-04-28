@@ -2,11 +2,17 @@ package com.pawcare.controller;
 
 import com.pawcare.entity.Booking;
 import com.pawcare.entity.Customer;
+import com.pawcare.entity.Pet;
+import com.pawcare.entity.Review;
+import com.pawcare.entity.Service;
+
 import com.pawcare.repository.BookingRepository;
 import com.pawcare.repository.PetRepository;
 import com.pawcare.repository.ServiceRepository;
 import com.pawcare.repository.ReviewRepository;
 import com.pawcare.service.CustomerService;
+import com.pawcare.service.BookingService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -83,7 +89,7 @@ public class CustomerController {
             return "redirect:/customer/dashboard";
         }
         model.addAttribute("customer", customer);
-        return "edit_customer";
+        return "edit-customer";
     }
 
     @PostMapping("/edit/{id}")
@@ -107,7 +113,7 @@ public class CustomerController {
         Pet pet = new Pet();
         model.addAttribute("pet", pet);
         model.addAttribute("customerId", customerId);
-        return "add_pet";  // Go to add_pet.ftlh
+        return "add-pet";
     }
 
 
@@ -118,7 +124,7 @@ public class CustomerController {
             pet.setCustomer(customer);
             petRepository.save(pet);
         }
-        return "redirect:/customers/profile/" + customerId;  // After adding, go back to profile
+        return "redirect:/customers/profile/" + customerId;
     }
 
     @GetMapping("/add-review/{serviceId}/{customerId}")
@@ -137,14 +143,14 @@ public class CustomerController {
                             @PathVariable("customerId") Long customerId,
                             @ModelAttribute("review") Review review) {
         Customer customer = customerService.getCustomerById(customerId);
-        Service service = serviceRepository.getById(serviceId); // You should have ServiceRepository
+        Service service = serviceRepository.getById(serviceId);
 
         if (customer != null && service != null) {
             review.setCustomer(customer);
             review.setService(service);
             reviewRepository.save(review);
         }
-        return "redirect:/services";  // After review, redirect to services
+        return "redirect:/services";
     }
 
 }
