@@ -10,12 +10,10 @@ import java.util.List;
 @Service
 public class CustomerService {
 
-    public static List<Customer> getAllCustomers;
-
     @Autowired
     private CustomerRepository customerRepository;
 
-    public List<Customer> getAllCustomers(){
+    public List<Customer> getAllCustomers() {
         return customerRepository.findAll();
     }
 
@@ -23,14 +21,18 @@ public class CustomerService {
         return customerRepository.findById(id).orElse(null);
     }
 
-    public Customer updateCustomer(Long id, Customer updated) {
-        Customer customer = customerRepository.findById(id).orElse(null);
-        if (customer != null) {
-            customer.setName(updated.getName());
-            customer.setEmail(updated.getEmail());
-            customer.setPhone(updated.getPhone());
-            customer.setAddress(updated.getAddress());
-            return customerRepository.save(customer);
+    public Customer saveCustomer(Customer customer) {
+        return customerRepository.save(customer);
+    }
+
+    public Customer updateCustomer(Long id, Customer updatedCustomer) {
+        Customer existingCustomer = customerRepository.findById(id).orElse(null);
+        if (existingCustomer != null) {
+            existingCustomer.setName(updatedCustomer.getName());
+            existingCustomer.setEmail(updatedCustomer.getEmail());
+            existingCustomer.setPhone(updatedCustomer.getPhone());
+            existingCustomer.setAddress(updatedCustomer.getAddress());
+            return customerRepository.save(existingCustomer);
         }
         return null;
     }
@@ -39,7 +41,7 @@ public class CustomerService {
         customerRepository.deleteById(id);
     }
 
-    public Customer createCustomer(Customer customer) {
-        return customerRepository.save(customer);
+    public Customer findByEmail(String email) {
+        return customerRepository.findByEmail(email);
     }
 }

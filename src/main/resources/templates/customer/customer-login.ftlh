@@ -32,9 +32,3 @@
         <button type="submit" class="btn">Login</button>
     </form>
 </section>
-
-
-
-</body>
-</html>
-

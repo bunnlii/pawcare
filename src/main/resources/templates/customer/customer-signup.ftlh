@@ -15,16 +15,16 @@
 <nav>
   <ul>
     <li><a href="index.html">Home</a></li>
-    <li><a href="services.html">Services</a></li>
+    <li><a href="services.ftlh">Services</a></li>
     <li><a href="EditCusProfile.html">Profile</a></li>
     <li><a href="ProvHome.html">Provider</a></li>
-    <li><a href="login.html">Login</a></li>
+    <li><a href="customer-login.ftlh">Login</a></li>
   </ul>
 </nav>
 
 <section class="signup-form">
   <h2>Create Your Account</h2>
-  <form action="EditCusProfile.html" method="POST">
+  <form action="/customers/register" method="POST">
     <label for="full-name">Full Name:</label>
     <input type="text" id="full-name" name="full-name" required>
 

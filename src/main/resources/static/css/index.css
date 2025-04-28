@@ -24,7 +24,7 @@ header h1 {
     color: #FBF3EE;
 }
 header h1 img{
-   height: 200px;
+    height: 200px;
 }
 
 nav {
@@ -311,7 +311,7 @@ lol {
 /* Confirmation Page */
 .confirmation {
     padding: 40px;
-    background-color: #FBF3EE;
+    background-color: #E3DAD0;
     text-align: center;
     margin: 40px;
     border-radius: 10px;
