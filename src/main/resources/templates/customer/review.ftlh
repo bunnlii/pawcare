@@ -7,17 +7,20 @@
 <body>
 <h1>Leave a Review</h1>
 
-<form action="/customers/add-review/${serviceId}/${customerId}" method="post">
-    <label>Review Content:</label><br>
-    <textarea name="content" rows="5" cols="40" required></textarea><br><br>
+<form action="/customer/services/${serviceId}/review" method="post">
+    <label for="content">Your Review (optional):</label><br>
+    <textarea id="content" name="content" rows="5" cols="40" placeholder="Write your feedback..."></textarea><br><br>
 
-    <label>Rating (1-5):</label><br>
-    <input type="number" name="rating" min="1" max="5" required><br><br>
+    <label for="rating">Rating (optional):</label><br>
+    <select id="rating" name="rating">
+        <option value="">Select Rating (optional)</option>
+        <option value="5">5 - Excellent</option>
+        <option value="4">4 - Very Good</option>
+        <option value="3">3 - Good</option>
+        <option value="2">2 - Poor</option>
+        <option value="1">1 - Terrible</option>
+    </select><br><br>
 
     <button type="submit">Submit Review</button>
 </form>
 
-<br>
-<a href="/services">Back to Services</a>
-</body>
-</html>

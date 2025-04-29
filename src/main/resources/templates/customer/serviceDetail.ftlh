@@ -33,6 +33,8 @@
     Appointment Date: <input type="text" name="appointmentDate"><br>
 
     <button type="submit">Book Now</button>
+    <a href="/customer/services/${service.id}/review">Leave a Review</a>
+
 </form>
 
 
