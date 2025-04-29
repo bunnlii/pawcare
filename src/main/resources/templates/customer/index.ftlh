@@ -17,10 +17,10 @@
 
 <nav>
     <ul>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="EditCusProfile.html">Profile</a></li>
+        <li><a href="services.ftlh">Services</a></li>
         <li><a href="ProviderSignup.html">Provider</a></li>
-        <li><a href="Login.html">Login</a></li>
+        <li><a href="customer-signup.ftlh">Signup</a></li>
+        <li><a href="customer-login.ftlh">Login</a></li>
     </ul>
 </nav>
 
@@ -36,7 +36,17 @@
 </section>
 
 <section class="services">
-<h2>SERVICES</h2>
+    <h2>SERVICES</h2>
+        <#list services as service>
+            <div class="service-card">
+                <img src="${service.imagePath}" alt="${service.title}" width="200" height="200">
+                <h3>${service.title}</h3>
+                <p>Price: $${service.price}</p>
+                <p>${service.description}</p>
+                <a href="/customer/services/${service.id}" class="btn">View more</a>
+            </div>
+        </#list>
+    </section>
     <div class="service-cards">
         <div class="service-card">
             <h3>Grooming</h3>

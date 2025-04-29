@@ -2,10 +2,11 @@ package com.pawcare.controller;
 
 import com.pawcare.entity.Booking;
 import com.pawcare.entity.Service;
+import com.pawcare.Provider.ProviderRepository;
 import com.pawcare.repository.BookingRepository;
+import com.pawcare.Provider.Provider;
 
 import com.pawcare.repository.ServiceRepository;
-import com.pawcare.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -11,7 +11,6 @@ import com.pawcare.repository.PetRepository;
 import com.pawcare.repository.ServiceRepository;
 import com.pawcare.repository.ReviewRepository;
 import com.pawcare.service.CustomerService;
-import com.pawcare.service.BookingService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

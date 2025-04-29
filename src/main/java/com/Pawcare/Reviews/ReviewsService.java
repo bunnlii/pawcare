@@ -1,4 +1,4 @@
-package com.Pawcare._0.Reviews;
+package com.pawcare.Reviews;
 
 import org.springframework.stereotype.Service;
 

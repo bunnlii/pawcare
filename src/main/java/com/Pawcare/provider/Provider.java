@@ -1,8 +1,8 @@
-package com.Pawcare._0.provider;
+package com.pawcare.Provider;
 
-import com.Pawcare._0.Reviews.Reviews;
-import com.Pawcare._0.Service.Service;
-import com.Pawcare._0.Statistics.Statistics;
+import com.pawcare.Reviews.Reviews;
+import com.pawcare.service.Service;
+import com.pawcare.Statistics.Statistics;
 import jakarta.persistence.*;
 import java.util.List;
 

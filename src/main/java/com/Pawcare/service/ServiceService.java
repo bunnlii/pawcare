@@ -1,4 +1,4 @@
-package com.Pawcare._0.Service;
+package com.pawcare.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -7,7 +7,7 @@ import java.util.List;
 public class ServiceService {
 
     @Autowired
-    private ServiceRepository ServiceRepository;
+    private ServiceRepository serviceRepository;
 
     public List<Service> getAllService() {
         return ServiceRepository.findAll();

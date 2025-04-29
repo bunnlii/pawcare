@@ -1,7 +1,8 @@
-package com.Pawcare._0.Service;
+package com.pawcare.service;
 
-import com.Pawcare._0.provider.Provider;
-import com.Pawcare._0.provider.ProviderRepository;
+import com.pawcare.Provider.Provider;
+import com.pawcare.Provider.ProviderRepository;
+import com.pawcare.repository.ServiceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

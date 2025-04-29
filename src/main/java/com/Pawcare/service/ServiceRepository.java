@@ -1,4 +1,4 @@
-package com.Pawcare._0.Service;
+package com.pawcare.service;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

@@ -1,9 +1,6 @@
-package com.Pawcare._0.Reviews;
+package com.pawcare.Reviews;
 
-import com.Pawcare._0.Service.Service;
-import com.Pawcare._0.Statistics.Statistics;
-import com.Pawcare._0.provider.Provider;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.pawcare.Provider.Provider;
 import jakarta.persistence.*;
 
 
