@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Page Not Found - PawCare</title>
-    <link rel="stylesheet" href="/css/index.css"> <!-- Or your main CSS -->
+    <link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
 <section class="confirmation">
