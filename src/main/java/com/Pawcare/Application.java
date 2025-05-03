@@ -1,4 +1,4 @@
-package com.pawcare;
+package com.Pawcare;
 
 import com.pawcare.entity.Service;
 import com.pawcare.repository.ServiceRepository;

@@ -1,8 +1,8 @@
-package com.pawcare.Provider;
+package com.Pawcare.provider;
 
-import com.pawcare.Reviews.Reviews;
-import com.pawcare.service.Service;
-import com.pawcare.Statistics.Statistics;
+import com.Pawcare.Reviews.Reviews;
+import com.Pawcare.providerservice.ProvService;
+import com.Pawcare.Statistics.Statistics;
 import jakarta.persistence.*;
 import java.util.List;
 
@@ -30,7 +30,7 @@ public class Provider{
     private List<Reviews> reviews;
 
     @OneToMany(mappedBy = "provider", cascade = CascadeType.ALL)
-    private List<Service> services;
+    private List<ProvService> services;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "provider_id")

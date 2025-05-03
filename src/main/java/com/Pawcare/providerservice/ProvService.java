@@ -1,12 +1,13 @@
-package com.pawcare.service;
+package com.Pawcare.providerservice;
 
-import com.pawcare.Provider.Provider;
+import com.Pawcare.provider.Provider;
+import com.Pawcare.providerservice.ProvService;
 import jakarta.persistence.*;
 
 
 @Entity
 @Table(name = "service")
-public class Service {
+public class ProvService {
 
     //items
     @Id
@@ -34,16 +35,16 @@ public class Service {
         this.provider = provider;
     }
 
-
-    public Service(){
+    public ProvService(){
     }
 
-    public Service(int serviceID, String serviceType, double price, String details, String location){
+    public ProvService(int serviceID, String serviceType, double price, String details, String location, Provider provider){
         this.serviceID = serviceID;
         this.serviceType = serviceType;
         this.price = price;
         this.details = details;
         this.location = location;
+        this.provider = provider;
     }
 
     public int getServiceID (){

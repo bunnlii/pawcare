@@ -1,30 +1,26 @@
-package com.pawcare.service;
+package com.Pawcare.providerservice;
 
-import com.pawcare.Provider.Provider;
-import com.pawcare.Provider.ProviderRepository;
-import com.pawcare.repository.ServiceRepository;
+import com.Pawcare.provider.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
 
 @Controller
 @RequestMapping("/service")
-public class ServiceController {
+public class ProvServiceController {
     @Autowired
-    private ServiceService service;
+    private ProvServiceService service;
 
     @Autowired
     private ProviderRepository providerRepository;
 
     @Autowired
-    private ServiceRepository serviceRepository;
+    private ProvServiceRepository serviceRepository;
 
 
     @PostMapping("/{providerID}/add-service")
-    public String addServiceToProvider(@PathVariable int providerID, @ModelAttribute Service service) {
+    public String addServiceToProvider(@PathVariable int providerID, @ModelAttribute ProvService service) {
         Provider provider = providerRepository.findById(providerID).orElse(null);
         service.setProvider(provider);
         serviceRepository.save(service);
@@ -34,7 +30,7 @@ public class ServiceController {
 
     @GetMapping("/{providerID}/serviceForm")
     public String showCreateServiceForm(@PathVariable int providerID, Model model) {
-        Service service = new Service();
+        ProvService service = new ProvService();
         model.addAttribute("service", service);
         model.addAttribute("providerID", providerID);
         model.addAttribute("title", "Create New Service");
@@ -62,7 +58,7 @@ public class ServiceController {
     }
 
     @PostMapping("/update/{serviceID}")
-    public Object updateService(@PathVariable int serviceID, Service service) {
+    public Object updateService(@PathVariable int serviceID, ProvService service) {
         return "redirect:/service/" + serviceID;
     }
 }

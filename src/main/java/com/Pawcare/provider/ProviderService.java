@@ -1,6 +1,6 @@
-package com.pawcare.Provider;
+package com.Pawcare.provider;
 
-import com.pawcare.service.ServiceRepository;
+import com.Pawcare.providerservice.ProvServiceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +13,7 @@ public class ProviderService {
     private ProviderRepository ProviderRepository;
 
     @Autowired
-    private ServiceRepository serviceRepository;
+    private ProvServiceRepository serviceRepository;
 
     public List<Provider> getAllProvider() {
         return ProviderRepository.findAll();
