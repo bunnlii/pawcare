@@ -1,7 +1,7 @@
-package com.pawcare.service;
+package com.Pawcare.service;
 
-import com.pawcare.entity.Customer;
-import com.pawcare.repository.CustomerRepository;
+import com.Pawcare.entity.Customer;
+import com.Pawcare.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

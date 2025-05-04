@@ -1,6 +1,6 @@
-package com.pawcare.Provider;
+package com.Pawcare.provider;
 
-import com.pawcare.service.ServiceRepository;
+import com.Pawcare.providerservice.ProvServiceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,23 +13,23 @@ public class ProviderService {
     private ProviderRepository ProviderRepository;
 
     @Autowired
-    private ServiceRepository serviceRepository;
+    private ProvServiceRepository serviceRepository;
 
     public List<Provider> getAllProvider() {
         return ProviderRepository.findAll();
     }
 
-    public Provider getProviderById(int providerID) {
+    public Provider getProviderByID(int providerID) {
 
         return ProviderRepository.findById(providerID).orElse(null);
     }
 
-    public void addNewProvider(Provider provider) {
-        ProviderRepository.save(provider);
+    public Provider addNewProvider(Provider provider) {
+        return ProviderRepository.save(provider);
     }
 
     public void updateProvider(int providerID, Provider provider) {
-        Provider existing = getProviderById(providerID);
+        Provider existing = getProviderByID(providerID);
         existing.setName(provider.getName());
         existing.setBio(provider.getBio());
         existing.setEmail(provider.getEmail());

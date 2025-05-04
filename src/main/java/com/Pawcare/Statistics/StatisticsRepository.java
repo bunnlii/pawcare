@@ -1,4 +1,4 @@
-package com.pawcare.Statistics;
+package com.Pawcare.Statistics;
 
 
 import org.springframework.data.jpa.repository.JpaRepository;

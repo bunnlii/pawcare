@@ -1,4 +1,4 @@
-package com.pawcare.Statistics;
+package com.Pawcare.Statistics;
 
 import com.pawcare.Provider.Provider;
 import jakarta.persistence.*;

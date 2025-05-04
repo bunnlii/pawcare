@@ -1,4 +1,4 @@
-package com.pawcare.service;
+package com.Pawcare.service;
 
 public class BookingService {
 }
