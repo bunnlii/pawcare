@@ -16,7 +16,7 @@ public class Provider{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int providerID;
+    private Integer providerID;
     @Column(nullable = false)
     private String email;
     @Column(nullable = false)
@@ -30,7 +30,7 @@ public class Provider{
     private List<Reviews> reviews;
 
     @OneToMany(mappedBy = "provider", cascade = CascadeType.ALL)
-    private List<ProvService> services;
+    private List<ProvService>  services;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "provider_id")
@@ -40,7 +40,7 @@ public class Provider{
     public Provider(){
     }
 
-    public Provider(String name, int providerID, String email, String username, String password,String bio){
+    public Provider(String name, Integer providerID, String email, String username, String password,String bio){
         this.name = name;
         this.providerID = providerID;
         this.email = email;
@@ -49,7 +49,7 @@ public class Provider{
         this.bio = bio;
     }
 
-    public Provider(String name, int providerID, String email, String username, String password){
+    public Provider(String name, Integer providerID, String email, String username, String password){
         this.name = name;
         this.providerID = providerID;
         this.email = email;
@@ -58,7 +58,7 @@ public class Provider{
     }
 
     //gets and sets
-    public int getProviderID(){
+    public Integer getProviderID(){
         return providerID;
     }
 

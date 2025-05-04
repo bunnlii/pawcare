@@ -30,7 +30,7 @@ public class ProviderController {
 
 
     @PostMapping("/new")
-    public Object addNewProvider(Provider provider) {
+    public Object addNewProvider(@ModelAttribute Provider provider) {
         Provider savedProvider = service.addNewProvider(provider);
         return "redirect:/provider/" + savedProvider.getProviderID();
     }
