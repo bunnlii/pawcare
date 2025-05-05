@@ -4,7 +4,6 @@ import com.pawcare.entity.Booking;
 import com.pawcare.entity.Service;
 import com.pawcare.provider.ProviderRepository;
 import com.pawcare.repository.BookingRepository;
-import com.pawcare.provider.Provider;
 
 import com.pawcare.repository.ServiceRepository;
 import org.springframework.beans.factory.annotation.Autowired;

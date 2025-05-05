@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
 @Controller
 @RequestMapping("/customers")
 public class CustomerController {
@@ -38,24 +39,18 @@ public class CustomerController {
     @Autowired
     private BookingRepository bookingRepository;
 
-
-    @GetMapping("/services")
-    public String viewServices(Model model) {
-        List<Service> services = serviceRepository.findAll();
-        model.addAttribute("services", services);
-        return "services";
-    }
-
-
+    // Home page showing services
     @GetMapping("/index")
     public String home(Model model) {
-        return "redirect:/customer/index";  // make sure you have index.ftlh
+        List<Service> services = serviceRepository.findAll();
+        model.addAttribute("services", services);
+        return "index";
     }
 
     @GetMapping("/register")
     public String showRegistrationForm(Model model) {
         model.addAttribute("customer", new Customer());
-        return "customer-signup";  // Match your ftlh file
+        return "customer-signup";
     }
 
     @PostMapping("/register")
@@ -95,11 +90,12 @@ public class CustomerController {
         model.addAttribute("bookings", bookings);
         return "appointments";
     }
+
     @GetMapping("/edit/{id}")
     public String showEditProfileForm(@PathVariable("id") Long id, Model model) {
         Customer customer = customerService.getCustomerById(id);
         if (customer == null) {
-            return "redirect:/customer/dashboard";
+            return "redirect:/customers/index";
         }
         model.addAttribute("customer", customer);
         return "edit-customer";
@@ -108,14 +104,14 @@ public class CustomerController {
     @PostMapping("/edit/{id}")
     public String updateProfile(@PathVariable("id") Long id, @ModelAttribute("customer") Customer updatedCustomer) {
         customerService.updateCustomer(id, updatedCustomer);
-        return "redirect:/customers/dashboard";
+        return "redirect:/customers/profile/" + id;
     }
 
     @GetMapping("/profile/{id}")
     public String viewProfile(@PathVariable("id") Long id, Model model) {
         Customer customer = customerService.getCustomerById(id);
         if (customer == null) {
-            return "error";
+            return "login";
         }
         model.addAttribute("customer", customer);
         return "customer-profile";
@@ -128,7 +124,6 @@ public class CustomerController {
         model.addAttribute("customerId", customerId);
         return "add-pet";
     }
-
 
     @PostMapping("/add-pet/{customerId}")
     public String addPet(@PathVariable("customerId") Long customerId, @ModelAttribute("pet") Pet pet) {
@@ -147,10 +142,9 @@ public class CustomerController {
         model.addAttribute("review", review);
         model.addAttribute("serviceId", serviceId);
         model.addAttribute("customerId", customerId);
-        return "add_review";
+        return "add-review";
     }
 
-    // Save Review
     @PostMapping("/add-review/{serviceId}/{customerId}")
     public String addReview(@PathVariable("serviceId") Long serviceId,
                             @PathVariable("customerId") Long customerId,
@@ -163,7 +157,13 @@ public class CustomerController {
             review.setService(service);
             reviewRepository.save(review);
         }
-        return "redirect:/services";
+        return "redirect:/customers/index";
+    }
+    @GetMapping("/reviews")
+    public String showReviewsPage(Model model) {
+        List<Review> reviews = reviewRepository.findAll(); // or findByServiceId if specific
+        model.addAttribute("reviews", reviews);
+        return "add-review";
     }
 
 }
