@@ -36,23 +36,23 @@ public class BookingController {
         return "customer/services";
     }
 
-    //sevices details
-    @GetMapping("/services/{id}")
-    public String showServiceDetail(@PathVariable Long id, Model model) {
-        Optional<Service> serviceOptional = serviceRepository.findById(id);
-        if (serviceOptional.isPresent()) {
-            Service service = serviceOptional.get();
-            List<Provider> providers = providerRepository.findByService(service);
-
-            model.addAttribute("service", service);
-            model.addAttribute("providers", providers);
-            model.addAttribute("booking", new Booking());
-
-            return "customer/serviceDetail";
-        } else {
-            return "redirect:/customer/services";
-        }
-    }
+//    //sevices details
+//    @GetMapping("/services/{id}")
+//    public String showServiceDetail(@PathVariable Long id, Model model) {
+//        Optional<Service> serviceOptional = serviceRepository.findById(id);
+//        if (serviceOptional.isPresent()) {
+//            Service service = serviceOptional.get();
+//            List<Provider> providers = providerRepository.findByService(service);
+//
+//            model.addAttribute("service", service);
+//            model.addAttribute("providers", providers);
+//            model.addAttribute("booking", new Booking());
+//
+//            return "customer/serviceDetail";
+//        } else {
+//            return "redirect:/customer/services";
+//        }
+//    }
 
     //book a service
     @PostMapping("/services/{id}/book")

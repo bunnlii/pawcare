@@ -1,6 +1,6 @@
 package com.Pawcare.Statistics;
 
-import com.pawcare.Provider.Provider;
+import com.Pawcare.provider.Provider;
 import jakarta.persistence.*;
 
 
