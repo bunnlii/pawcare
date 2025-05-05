@@ -1,4 +1,4 @@
-package com.Pawcare.entity;
+package com.pawcare.entity;
 
 import jakarta.persistence.*;
 

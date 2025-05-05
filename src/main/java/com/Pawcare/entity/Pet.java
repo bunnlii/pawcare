@@ -1,4 +1,4 @@
-package com.Pawcare.entity;
+package com.pawcare.entity;
 
 import jakarta.persistence.*;
 
@@ -42,5 +42,5 @@ public class Pet {
     public void setAge(int age) { this.age = age; }
 
     public Customer getCustomer() { return customer; }
-    public void setCustomer(Customer customer) { this.customer = customer; }
+    public void setCustomer(com.pawcare.entity.Customer customer) { this.customer = customer; }
 }

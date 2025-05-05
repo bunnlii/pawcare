@@ -1,4 +1,4 @@
-package com.Pawcare._0;
+package com.pawcare._0;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
