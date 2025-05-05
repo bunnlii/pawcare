@@ -15,8 +15,8 @@
     <ul>
         <li><a href="/customer/services">Services</a></li>
         <li><a href="/customer/profile">Profile</a></li>
-        <li><a href="/provider">Provider</a></li>
-        <li><a href="/login">Login</a></li>
+        <li><a href="/provider/createForm">Provider</a></li>
+        <li><a href="/customers/login">Login</a></li>
     </ul>
 </nav>
 

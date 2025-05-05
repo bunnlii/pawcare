@@ -38,6 +38,20 @@ public class CustomerController {
     @Autowired
     private BookingRepository bookingRepository;
 
+
+    @GetMapping("/services")
+    public String viewServices(Model model) {
+        List<Service> services = serviceRepository.findAll();
+        model.addAttribute("services", services);
+        return "services";
+    }
+
+
+    @GetMapping("/index")
+    public String home(Model model) {
+        return "redirect:/customer/index";  // make sure you have index.ftlh
+    }
+
     @GetMapping("/register")
     public String showRegistrationForm(Model model) {
         model.addAttribute("customer", new Customer());
