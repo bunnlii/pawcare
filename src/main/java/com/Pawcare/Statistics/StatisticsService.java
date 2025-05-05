@@ -1,4 +1,4 @@
-package com.Pawcare.Statistics;
+package com.pawcare.Statistics;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

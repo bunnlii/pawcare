@@ -1,16 +1,16 @@
-package com.Pawcare.controller;
+package com.pawcare.controller;
 
-import com.Pawcare.entity.Booking;
-import com.Pawcare.entity.Customer;
-import com.Pawcare.entity.Pet;
-import com.Pawcare.entity.Review;
-import com.Pawcare.entity.Service;
+import com.pawcare.entity.Booking;
+import com.pawcare.entity.Customer;
+import com.pawcare.entity.Pet;
+import com.pawcare.entity.Review;
+import com.pawcare.entity.Service;
 
-import com.Pawcare.repository.BookingRepository;
-import com.Pawcare.repository.PetRepository;
-import com.Pawcare.repository.ServiceRepository;
-import com.Pawcare.repository.ReviewRepository;
-import com.Pawcare.service.CustomerService;
+import com.pawcare.repository.BookingRepository;
+import com.pawcare.repository.PetRepository;
+import com.pawcare.repository.ServiceRepository;
+import com.pawcare.repository.ReviewRepository;
+import com.pawcare.service.CustomerService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

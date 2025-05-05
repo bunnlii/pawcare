@@ -1,6 +1,6 @@
-package com.Pawcare.repository;
+package com.pawcare.repository;
 
-import com.Pawcare.entity.Review;
+import com.pawcare.entity.Review;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

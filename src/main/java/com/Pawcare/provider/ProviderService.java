@@ -1,6 +1,6 @@
-package com.Pawcare.provider;
+package com.pawcare.provider;
 
-import com.Pawcare.providerservice.ProvServiceRepository;
+import com.pawcare.providerservice.ProvServiceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

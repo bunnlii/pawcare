@@ -1,4 +1,4 @@
-package com.Pawcare.controller;
+package com.pawcare.controller;
 
 public class ReviewController {
 }

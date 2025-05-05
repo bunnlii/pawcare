@@ -1,6 +1,6 @@
-package com.Pawcare.Reviews;
+package com.pawcare.Reviews;
 
-import com.Pawcare.provider.Provider;
+import com.pawcare.provider.Provider;
 import jakarta.persistence.*;
 
 

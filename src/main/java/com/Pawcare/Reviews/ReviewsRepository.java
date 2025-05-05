@@ -1,4 +1,4 @@
-package com.Pawcare.Reviews;
+package com.pawcare.Reviews;
 
 public class ReviewsRepository {
 }

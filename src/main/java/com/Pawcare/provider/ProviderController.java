@@ -1,4 +1,4 @@
-package com.Pawcare.provider;
+package com.pawcare.provider;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

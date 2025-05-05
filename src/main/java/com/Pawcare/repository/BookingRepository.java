@@ -1,6 +1,6 @@
-package com.Pawcare.repository;
+package com.pawcare.repository;
 
-import com.Pawcare.entity.Booking;
+import com.pawcare.entity.Booking;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

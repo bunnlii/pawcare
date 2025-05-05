@@ -1,6 +1,6 @@
-package com.Pawcare.repository;
+package com.pawcare.repository;
 
-import com.Pawcare.entity.Pet;
+import com.pawcare.entity.Pet;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

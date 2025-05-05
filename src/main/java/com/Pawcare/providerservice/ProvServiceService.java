@@ -1,4 +1,4 @@
-package com.Pawcare.providerservice;
+package com.pawcare.providerservice;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

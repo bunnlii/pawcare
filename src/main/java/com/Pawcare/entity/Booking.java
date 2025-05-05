@@ -1,6 +1,6 @@
-package com.Pawcare.entity;
+package com.pawcare.entity;
 
-import com.Pawcare.provider.Provider;
+import com.pawcare.provider.Provider;
 import jakarta.persistence.*;
 
 @Entity

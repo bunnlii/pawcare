@@ -1,6 +1,8 @@
-package com.Pawcare.providerservice;
+package com.pawcare.providerservice;
 
-import com.Pawcare.provider.*;
+import com.pawcare.provider.*;
+import com.pawcare.provider.Provider;
+import com.pawcare.provider.ProviderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;

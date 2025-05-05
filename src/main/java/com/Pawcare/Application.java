@@ -1,4 +1,4 @@
-package com.Pawcare;
+package com.pawcare;
 
 
 import org.springframework.boot.SpringApplication;
