@@ -21,18 +21,17 @@ public class ProvServiceService {
         return serviceRepository.findById(serviceID).orElse(null);
     }
 
-    public void updateService(int serviceID, ProvService service) {
+    public void updateService(int serviceID, ProvService updatedService) {
         ProvService existing = getServiceByID(serviceID);
         if (existing != null) {
-            existing.setServiceType(service.getServiceType());
-            existing.setPrice(service.getPrice());
-            existing.setDetails(service.getDetails());
-            existing.setLocation(service.getLocation());
-            existing.setProvider(service.getProvider());
-
+            existing.setServiceType(updatedService.getServiceType());
+            existing.setPrice(updatedService.getPrice());
+            existing.setDetails(updatedService.getDetails());
+            existing.setLocation(updatedService.getLocation());
             serviceRepository.save(existing);
         }
     }
+
     public List<ProvService> searchByKeyword(String keyword) {
         return serviceRepository.findByServiceTypeContainingIgnoreCaseOrDetailsContainingIgnoreCase(keyword, keyword);
     }
@@ -48,6 +47,8 @@ public class ProvServiceService {
     public Provider getProviderByID(int id) {
         return providerRepository.findById(id).orElse(null);
     }
+
+
 }
 
 
