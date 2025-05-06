@@ -31,29 +31,32 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
-
         HttpSessionRequestCache requestCache = new HttpSessionRequestCache();
         requestCache.setMatchingRequestParameterName(null);
+
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests((authorize) -> authorize
-                        .dispatcherTypeMatchers(DispatcherType.FORWARD,
-                                DispatcherType.ERROR).permitAll()
-                        .requestMatchers("/home","/provider/createForm","/provider/new", "/provider/login").permitAll()
-                        .requestMatchers("/services/**").hasAuthority("ROLE_PROVIDER")
+                        .dispatcherTypeMatchers(DispatcherType.FORWARD, DispatcherType.ERROR).permitAll()
+                        .requestMatchers(
+                                "/home",
+                                "/provider/createForm",
+                                "/provider/new",
+                                "/provider/login",
+                                "/services/**",       // already included
+                                "/service/all"        // explicitly add this path
+                        ).permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
-                        //.loginPage("/provider/login")     take out to use own but it currently doesnt work
                         .defaultSuccessUrl("/provider/home", true)
-                        .failureUrl("/provider/login?error=true") // Redirect if login fails
+                        .failureUrl("/provider/login?error=true")
                         .permitAll()
                 );
 
-
-
         return http.build();
     }
+
 
 
     @Bean

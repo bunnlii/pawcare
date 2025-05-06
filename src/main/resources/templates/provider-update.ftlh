@@ -175,7 +175,7 @@
     <ul>
         <li><a href="/home">Home</a></li>
         <li><a href="/service/all">Services</a></li>
-        <li><a href="/provider/update/${provider.providerID}">Settings</a></li>
+        <li><a href="/provider/${provider.providerID}">View Profile</a></li>
         <li><a href="/provider/statistics">Statistics</a></li>
         <li><a href="/provider/${provider.providerID}/services">My Services</a></li>
         <li><a href="/logout">Logout</a></li>

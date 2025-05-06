@@ -174,14 +174,16 @@
     <ul>
         <li><a href="/home">Home</a></li>
         <li><a href="/service/all">Services</a></li>
+        <li><a href="/provider/${provider.providerID}">View Profile</a></li>
         <li><a href="/provider/statistics">Statistics</a></li>
+        <li><a href="/provider/${provider.providerID}/services">My Services</a></li>
         <li><a href="/logout">Logout</a></li>
     </ul>
 </nav>
 
 <div class="content">
-    <h2>Update Service:</h2>
-    <form id="update-service" action="/service/update/${service.serviceID?c}" method="post">
+    <h2>Hello ${provider.providerID}, Update Service:</h2>
+    <form id="service-update" action="/service/update/${service.serviceID}/${provider.providerID}" method="post">
 
         <p><strong>Current Service Type:</strong> ${service.serviceType}</p>
         <input type="text" id="serviceType" name="serviceType" placeholder="Service Type" value="${service.serviceType}" />
@@ -198,10 +200,10 @@
         <br><br>
         <div class="button-group">
             <button type="submit" class="button btn-primary">Save</button>
-            <a href="/service/all" class="button btn-cancel">Cancel</a>
+            <a href="/service/${service.serviceID?c}" class="button btn-cancel">Cancel</a>
         </div>
         <br>
-        <a href="/service/delete/${service.serviceID?c}" class="button btn-danger" onclick="return confirmDelete()">Delete Service</a>
+        <a href="/service/delete/${provider.providerID}/${service.serviceID?c}" class="button btn-danger" onclick="return confirmDelete()">Delete Service</a>
     </form>
 </div>
 
