@@ -2,7 +2,7 @@
 box{
     display: inline-block;
     padding: 10px 20px;
-    background-color: #E3DAD0;
+    background-color: #white;
     color: black;
     border-radius: 5px;
     transition: background-color 0.3s ease;
@@ -40,7 +40,7 @@ menu ul li a {
 }
 
 menu ul li a:hover {
-    background-color: #E3DAD0;
+    background-color: #B0C4B1;
 }
 
 html, body {
@@ -50,7 +50,7 @@ html, body {
 }
 
 body {
-    background-color: #E3DAD0;
+    background-color: #cad2c5;
 }
 
 .review-box {
@@ -65,20 +65,3 @@ border-radius: 10px;
 width: 50%;
 height: 60px;
         }
-nav {
-    background-color: #E3DAD0;
-    padding: 10px;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #344960;
-    font-size: 18px;
-}
