@@ -157,7 +157,7 @@
         <input type="text" id="serviceType" name="serviceType" placeholder="Service Type" required />
 
         <label for="details">Description</label>
-        <textarea id="details" name="details" placeholder="Short description" required></textarea>
+        <input type="text" id="details" name="details" placeholder="Short description" required/>
 
         <label for="price">Price</label>
         <input type="number" id="price" name="price" step="0.01" placeholder="Price (e.g., 29.99)" required />
