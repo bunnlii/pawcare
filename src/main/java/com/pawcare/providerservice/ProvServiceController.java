@@ -23,11 +23,14 @@ public class ProvServiceController {
 
 
     @PostMapping("/{providerID}/add-service")
-    public String addServiceToProvider(@PathVariable int providerID, @ModelAttribute ProvService service) {
+    public String addServiceToProvider(@PathVariable int providerID,
+                                       @ModelAttribute ProvService service) {
         Provider provider = providerRepository.findById(providerID).orElse(null);
+
         service.setProvider(provider);
-        serviceRepository.save(service);
-        return "redirect:/service/" + service.getServiceID();
+        ProvService savedService = serviceRepository.save(service);
+
+        return "redirect:/service/" + providerID + "/"+ savedService.getServiceID();
     }
 
 
@@ -55,24 +58,38 @@ public class ProvServiceController {
         return "service-list";
     }
 
-    @GetMapping("/{serviceID}")
-    public Object getServiceByID(@PathVariable int serviceID, Model model) {
+    @GetMapping("/{providerID}/{serviceID}")
+    public Object getServiceByID(@PathVariable int serviceID,
+                                 @PathVariable int providerID,
+                                 Model model) {
         model.addAttribute("service", service.getServiceByID(serviceID));
+        model.addAttribute("provider", service.getProviderByID(providerID));
         model.addAttribute("title", "Service #: " + serviceID);
-        return "service-details";
+        return "providerservice-details";
     }
 
-    @GetMapping("/delete/{serviceID}")
-    public Object deleteServiceByID(@PathVariable int serviceID) {
+
+    @GetMapping("/delete/{providerID}/{serviceID}")
+    public String deleteServiceByID(@PathVariable int providerID,
+                                    @PathVariable int serviceID) {
         service.deleteServiceByID(serviceID);
-        return "redirect:/service/all";
+        return "redirect:/provider/" + providerID + "/services";
     }
 
 
-    @GetMapping("/update/{serviceID}")
-    public Object updateProvider(@PathVariable int serviceID, Model model) {
+
+    @GetMapping("/update/form/{serviceID}/{providerID}")
+    public Object showServiceForm(@PathVariable int serviceID, @PathVariable int providerID, Model model) {
         model.addAttribute("service", service.getServiceByID(serviceID));
+        model.addAttribute("provider", service.getProviderByID(providerID));
         model.addAttribute("title", "Update Service");
         return "service-update";
     }
+
+    @PostMapping("/update/{serviceID}/{providerID}")
+    public Object updateService(@PathVariable int serviceID, ProvService provservice, @PathVariable int providerID, Model model) {
+        service.updateService(serviceID, provservice);
+        return "redirect:/service/" + providerID + "/" + serviceID;
+    }
+
 }

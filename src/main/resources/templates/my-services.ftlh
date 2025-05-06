@@ -159,9 +159,9 @@
     <ul>
         <li><a href="/home">Home</a></li>
         <li><a href="/service/all">Services</a></li>
-        <li><a href="/provider/update/${provider.providerID}">Settings</a></li>
+        <li><a href="/provider/${provider.providerID}">View Profile</a></li>
         <li><a href="/provider/statistics">Statistics</a></li>
-        <li><a href="/${provider.providerID}/serviceForm">Create Service</a></li>
+        <li><a href="/provider/${provider.providerID}/services">My Services</a></li>
         <li><a href="/logout">Logout</a></li>
     </ul>
 </nav>
@@ -179,7 +179,7 @@
         <p><strong>Details:</strong> ${service.details}</p>
         <p><strong>Price:</strong> ${service.price}</p>
         <p><strong>Location:</strong> ${service.location}</p>
-        <a href="/service/update/${service.serviceID}">Edit Service</a>
+        <a href="/service/update/form/${service.serviceID}/${provider.providerID}">Edit Service</a>
     </div>
 </#list>
 </div>

@@ -174,15 +174,15 @@
 </header>
 
 <nav>
-    <ul>
-        <li><a href="/home">Home</a></li>
-        <li><a href="/service/all">Services</a></li>
-        <li><a href="/provider/update/${provider.providerID}">Settings</a></li>
-        <li><a href="/provider/statistics">Statistics</a></li>
-        <li><a href="/provider/${provider.providerID}/services">My Services</a></li>
-        <li><a href="/logout">Logout</a></li>
 
-    </ul>
+        <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/service/all">Services</a></li>
+            <li><a href="/provider/${provider.providerID}">View Profile</a></li>
+            <li><a href="/provider/statistics">Statistics</a></li>
+            <li><a href="/provider/${provider.providerID}/services">My Services</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
 </nav>
 
 <div class="content">
@@ -204,12 +204,12 @@
         <strong>Location:</strong> ${service.location}
     </p>
         <br>
-        <a href="/service/update/${service.serviceID?c}" class="button btn-primary">Edit Service</a>
-    <a href="/service/delete/${service.serviceID?c}" class="button btn-danger" onclick="return confirmDelete()">Delete Service</a>
+        <a href="/service/update/form/${service.serviceID?c}/${provider.providerID}" class="button btn-primary">Edit Service</a>
+    <a href="/service/delete/${provider.providerID}/${service.serviceID?c}" class="button btn-danger" onclick="return confirmDelete()">Delete Service</a>
 </div>
 <script>
     function confirmDelete() {
-        return confirm("Are you sure you want to delete your serviceproviderservice-details.ftlh? This action cannot be undone.");
+        return confirm("Are you sure you want to delete your Service? This action cannot be undone.");
     }
 </script>
 </body>
