@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>${service.title} - PawCare</title>
+    <link rel="stylesheet" href="/css/unified-style.css">
     <link rel="stylesheet" href="/css/services.css">
 </head>
 <body>

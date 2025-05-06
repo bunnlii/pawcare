@@ -202,4 +202,10 @@
         <strong>Location:</strong> ${service.location}
     </p>
         <br>
+    <div style="margin-top: 20px;">
+        <a href="/customer/bookingServices?serviceId=${service.serviceID}">
+            <button>Book This Service</button>
+        </a>
+    </div>
+
 </html>

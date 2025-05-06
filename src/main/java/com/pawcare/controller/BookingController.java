@@ -60,11 +60,18 @@ public class BookingController {
         bookingRepository.save(booking);
         return "redirect:/customer/confirmation";
     }
+
     @GetMapping("/bookingServices")
-    public String showBooking(Model model) {
-        model.addAttribute("booking", new Booking());
-        return "bookingService";
+    public String showBooking(@RequestParam("serviceId") Integer serviceId, Model model) {
+        ProvService service = provServiceRepository.findById(serviceId).orElse(null);
+        Booking booking = new Booking();
+        booking.setService(service);
+
+        model.addAttribute("booking", booking);
+        model.addAttribute("service", service);
+        return "bookingService"; // this is your booking form view
     }
+
 
     @PostMapping("/bookingServices")
     public String submitBooking(@ModelAttribute Booking booking) {
