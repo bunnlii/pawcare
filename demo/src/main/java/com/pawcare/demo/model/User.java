@@ -2,6 +2,8 @@ package com.pawcare.demo.model;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Table(name = "users")
 public class User {
@@ -26,7 +28,9 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Status status = Status.ACTIVE;
 
-    // Getters and setters (or use Lombok if you prefer)
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
+
     public Long getId() { return id; }
 
     public String getName() { return name; }
@@ -46,6 +50,9 @@ public class User {
 
     public Status getStatus() { return status; }
     public void setStatus(Status status) { this.status = status; }
+
+    public LocalDateTime getCreatedAt() { return createdAt; }
+    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
 
     public enum Role {
         CUSTOMER, PROVIDER, ADMIN

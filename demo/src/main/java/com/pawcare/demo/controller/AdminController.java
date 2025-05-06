@@ -14,6 +14,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.*;
 
 @Controller
@@ -41,25 +44,59 @@ public class AdminController {
     @PostMapping("/login")
     public String login(@RequestParam String email, @RequestParam String password, Model model) {
         Optional<User> userOptional = userRepository.findByEmailAndRole(email, User.Role.ADMIN);
-        if (userOptional.isPresent() && userOptional.get().getPassword().equals(password)) {
-            model.addAttribute("users", userServices.getUsers());
 
-            List<Review> flaggedReviews = reviewRepository.findByIsFlagged(true);
-            model.addAttribute("flaggedReviews", flaggedReviews);
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
 
-            return "redirect:/admin/adminPanel";
+            if (user.getStatus() == User.Status.BANNED) {
+                model.addAttribute("errorMessage", "Your account is banned. Please contact support.");
+                return "redirect:/banned.html";
+            }
+
+            if (user.getPassword().equals(password)) {
+                model.addAttribute("users", userRepository.findAll());
+                return "redirect:/admin/adminPanel";
+            } else {
+                model.addAttribute("errorMessage", "Invalid password");
+                return "redirect:/error.html";
+            }
         }
-        return "error";
-    }
 
+        model.addAttribute("errorMessage", "Admin not found");
+        return "redirect:/error.html";
+    }
 
     @GetMapping("/adminPanel")
     public String adminPanel(Model model) {
+        List<Review> reviews = reviewRepository.findAll();
+        List<User> customers = userRepository.findByRole(User.Role.CUSTOMER);
+        List<User> providers = userRepository.findByRole(User.Role.PROVIDER);
+        List<Review> appointments = reviewRepository.findAll();
+
         List<User> users = userServices.getUsers();
         model.addAttribute("users", users);
 
         List<Review> flaggedReviews = reviewRepository.findByIsFlagged(true);
         model.addAttribute("flaggedReviews", flaggedReviews);
+
+        long totalUsers = users.size();
+        long totalReviews = reviews.size();
+        long flaggedReviewsCount = flaggedReviews.size();
+        long totalCustomers = customers.size();
+        long totalProviders = providers.size();
+        long totalAppointments = appointments.size();
+        LocalDateTime oneMonthAgo = LocalDateTime.now().minusMonths(1);
+        long newUsersInLastMonth = users.stream()
+                .filter(user -> user.getCreatedAt() != null && user.getCreatedAt().isAfter(oneMonthAgo))
+                .count();
+
+        model.addAttribute("totalUsers", totalUsers);
+        model.addAttribute("totalReviews", totalReviews);
+        model.addAttribute("flaggedReviewsCount", flaggedReviewsCount);
+        model.addAttribute("totalCustomers", totalCustomers);
+        model.addAttribute("totalProviders", totalProviders);
+        model.addAttribute("totalAppointments", totalAppointments);
+        model.addAttribute("newUsersInLastMonth", newUsersInLastMonth);
 
         return "adminPanel";
     }

@@ -22,7 +22,7 @@ nav ul {
 nav ul li {
     margin: 5px;
     text-decoration: none;
-    color: #344960; /* Dark Blue */
+    color: #344960;
     font-size: 18px;
 }
 
@@ -271,3 +271,13 @@ header img {
     width: 60px;
     height: auto;
 }
+
+#userChart {
+    max-width: 300px;
+    max-height: 300px;
+    width: 100%;
+    height: auto;
+    margin: 1rem auto;
+    display: block;
+}
+

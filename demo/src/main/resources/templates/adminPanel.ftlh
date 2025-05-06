@@ -80,18 +80,58 @@
 <section class="admin-section">
     <h2>Manage user access</h2>
     <div class="content-box">
-        <p>This section will display options to manage user access and user accounts.</p>
+        <p>This section will allow you to manage flagged reviews</p>
         <button class="btn btn-primary btn-sm" onclick="window.location.href='/admin/reviews/flagged-reviews'">Manage Flagged Reviews</button>
     </div>
 </section>
 
 <section class="admin-section">
     <h2>Statistics</h2>
-    <div class="content-box">
-        <p>This section will show relevant statistics about the platform.</p>
+    <div class="content-box" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 2rem; flex-wrap: wrap;">
+        <div>
+            <p>This section will show relevant statistics about the platform.</p>
+            <p>Total Users: ${totalUsers!0}</p>
+            <p>Total Reviews: ${totalReviews}</p>
+            <p>Flagged Reviews: <strong>${flaggedReviewsCount}</strong></p>
+            <p>Total Customers: ${totalCustomers}</p>
+            <p>Total Providers: ${totalProviders}</p>
+            <p>Total Appointments: ${totalAppointments}</p>
+            <p>New Users in Last Month: ${newUsersInLastMonth}</p>
+        </div>
+
+        <div style="width: 300px; height: 300px;">
+            <canvas id="userChart"></canvas>
+        </div>
+
+
     </div>
+
 </section>
 
 <script src="/js/adminPanel.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const ctx = document.getElementById('userChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Customers', 'Providers'],
+            datasets: [{
+                label: 'User Types',
+                data: [${totalCustomers}, ${totalProviders}],
+                backgroundColor: ['#f06292', '#64b5f6'],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { position: 'bottom' },
+                title: { display: true, text: 'User Distribution' }
+            }
+        }
+    });
+</script>
 </body>
 </html>
