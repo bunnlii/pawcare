@@ -2,15 +2,21 @@ package com.pawcare.provider;
 
 import com.pawcare.providerservice.ProvServiceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
 
 @Service
 public class ProviderService {
 
     @Autowired
     private ProviderRepository ProviderRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Autowired
     private ProvServiceRepository serviceRepository;
@@ -24,8 +30,9 @@ public class ProviderService {
         return ProviderRepository.findById(providerID).orElse(null);
     }
 
-    public Provider addNewProvider(Provider provider) {
-        return ProviderRepository.save(provider);
+    public void addNewProvider(Provider provider) {
+        provider.setPassword(passwordEncoder.encode(provider.getPassword()));
+        ProviderRepository.save(provider);
     }
 
     public void updateProvider(int providerID, Provider provider) {
@@ -41,6 +48,15 @@ public class ProviderService {
 
     public void deleteById(int providerID) {
         ProviderRepository.deleteById(providerID);
+    }
+
+    public Provider getProviderByUsername(String username) {
+        return ProviderRepository.findByUsername(username)
+                .orElseThrow(() -> new UsernameNotFoundException("Provider not found"));
+    }
+
+    public void save(Provider provider) {
+        ProviderRepository.save(provider);
     }
 
 }

@@ -146,7 +146,7 @@
         <li><a href="/provider/all">Home</a></li>
         <li><a href="/service/all">Services</a></li>
         <li><a href="/provider/createForm">Signup</a></li>
-        <li><a href="Login.html">Login</a> </li>
+        <li><a href="/login">Login</a> </li>
     </ul>
 </nav>
 
@@ -167,7 +167,7 @@
             <p><strong>Details:<br></strong> ${service.details}</p>
             <p><strong>Price:<br></strong> ${service.price}</p>
             <p><strong>Address:<br></strong> ${service.location}</p>
-            <a href="/service/${service.serviceID?c}">View Service</a>
+            <a href="/service/view/${service.serviceID?c}">View Service</a>
         </div>
     </#list>
 </div>

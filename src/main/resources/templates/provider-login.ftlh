@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Provider Profile Edit/Delete Page</title>
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="prov.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png"  href="image/paw.png">
+    <title>Provider Signup</title>
+
+
     <style>
         * {
             box-sizing: border-box;
@@ -88,36 +92,7 @@
             color: #344960;
         }
 
-        table {
-            width: 80%;
-            margin: 0 auto;
-            border-collapse: collapse;
-            border-radius: 10px;
-            overflow: hidden;
-            height: 100%;
-        }
-
-        th, td {
-            padding: 15px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-
-        th {
-            background-color: #344960;
-            color: white;
-        }
-
-        td a {
-            color: #344960;
-            text-decoration: none;
-        }
-
-        td a:hover {
-            text-decoration: underline;
-        }
-
-          .button {
+.button {
     display: inline-block;
     padding: 10px 20px;
     background-color: #cad2c5;
@@ -161,9 +136,63 @@
     background-color: #d62828;
 }
 
+.login-box {
+    max-width: 350px;
+    margin: 60px auto;
+    padding: 30px;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.login-box h2 {
+    margin-bottom: 20px;
+    color: #2b2d42;
+}
+
+.login-box input[type="text"],
+.login-box input[type="password"] {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.login-box button {
+    padding: 10px 20px;
+    background-color: #cad2c5;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    color: black;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.login-box button:hover {
+    background-color: #B0C4B1;
+}
+
+.alt-login {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.alt-login a {
+    color: #B0C4B1;
+    text-decoration: none;
+}
+
+.alt-login a:hover {
+    text-decoration: underline;
+}
 
     </style>
-
 </head>
 
 <body>
@@ -173,51 +202,33 @@
 
 <nav>
     <ul>
-        <li><a href="/home">Home</a></li>
+        <li><a href="/provider/all">Home</a></li>
         <li><a href="/service/all">Services</a></li>
-        <li><a href="/provider/update/${provider.providerID}">Settings</a></li>
-        <li><a href="/provider/statistics">Statistics</a></li>
-        <li><a href="/provider/${provider.providerID}/services">My Services</a></li>
-        <li><a href="/logout">Logout</a></li>
+        <li><a href="/provider/createForm">Signup</a></li>
+        <li><a href="/login">Login</a> </li>
     </ul>
 </nav>
 
-<div class="content">
-    <h1>${provider.name}</h1>
-    <form id="update-provider" action="/provider/update/${provider.providerID?c}" method="post">
 
-        <p><strong>Username:</strong> ${provider.username}</p>
-        <input type="text" id="username" name="username" placeholder="Username" value="${provider.username}" />
+<div class="container" style="max-width: 500px; margin: 0 auto; padding: 40px;">
+    <div class="login-box">
+        <form action="/provider/home" method="post">
+            <h2>Login as Provider</h2>
 
-        <p><strong>Name:</strong> ${provider.name}</p>
-        <input type="text" id="name" name="name" placeholder="Name" value="${provider.name}" />
+            <input type="text" name="username" placeholder="Username" required />
+            <input type="password" name="password" placeholder="Password" required />
 
-        <p><strong>Email:</strong> ${provider.email}</p>
-        <input type="text" id="email" name="email" placeholder="Email" value="${provider.email}" />
+            <button type="submit">Log In</button>
 
-        <p><strong>Password:</strong> ${provider.password}</p>
-        <input type="text" id="password" name="password" placeholder="Password" value="${provider.password}" />
+            <p class="alt-login">
+                Not a provider? <a href="/customer/login">Log in as Customer</a>
+            </p>
+        </form>
+    </div>
 
-        <p><strong>Bio:</strong> ${provider.bio}</p>
-        <input type="text" id="bio" name="bio" placeholder="Bio" value="${provider.bio}" />
-
-        <br><br>
-        <div class="button-group">
-            <button type="submit" class="button btn-primary">Save</button>
-            <a href="/provider/${provider.providerID?c}" class="button btn-cancel">Cancel</a>
-        </div>
-        <br>
-        <a href="/provider/delete/${provider.providerID?c}" class="button btn-danger" onclick="return confirmDelete()">Delete Profile</a>
-    </form>
 
 </div>
 
-<script>
-    function confirmDelete() {
-        return confirm("Are you sure you want to delete your profile? This action cannot be undone.");
-    }
-</script>
-
 </body>
-
 </html>
+

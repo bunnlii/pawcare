@@ -146,7 +146,7 @@
         <li><a href="/provider/all">Home</a></li>
         <li><a href="/service/all">Services</a></li>
         <li><a href="/provider/createForm">Signup</a></li>
-        <li><a href="Login.html">Login</a> </li>
+        <li><a href="/login">Login</a> </li>
     </ul>
 </nav>
 

@@ -2,8 +2,9 @@ package com.pawcare.provider;
 
 import com.pawcare.Reviews.Reviews;
 import com.pawcare.providerservice.ProvService;
-import com.pawcare.Statistics.Statistics;
 import jakarta.persistence.*;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -17,36 +18,46 @@ public class Provider{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer providerID;
+
     @Column(nullable = false)
     private String email;
-    @Column(nullable = false)
+
+    @Column(name = "username", unique = true, nullable = false)
     private String username;
-    @Column(nullable = false)
+
+    @Column(name = "password", nullable = false)
     private String password;
+
+    @Column(name="bio")
     private String bio;
+
+    @Column(name = "role")  // Renamed to 'role' instead of 'PROVIDER'
+    private String role;
 
     //relationships
     @OneToMany(mappedBy = "provider", cascade = CascadeType.ALL)
     private List<Reviews> reviews;
 
     @OneToMany(mappedBy = "provider", cascade = CascadeType.ALL)
-    private List<ProvService>  services;
+    private List<ProvService>  services = new ArrayList<>();
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "provider_id")
-    private Statistics statistics;
+    public List<ProvService> getServices() {
+        return services;
+    }
 
     //constructors
     public Provider(){
     }
 
-    public Provider(String name, Integer providerID, String email, String username, String password,String bio){
+    public Provider(String name, Integer providerID, String email, String username, String password,String bio, String role){
         this.name = name;
         this.providerID = providerID;
         this.email = email;
         this.username = username;
         this.password = password;
         this.bio = bio;
+        this.role = role;
+
     }
 
     public Provider(String name, Integer providerID, String email, String username, String password){
@@ -58,6 +69,14 @@ public class Provider{
     }
 
     //gets and sets
+    public void setRole(String role){
+        this.role = role;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
     public Integer getProviderID(){
         return providerID;
     }

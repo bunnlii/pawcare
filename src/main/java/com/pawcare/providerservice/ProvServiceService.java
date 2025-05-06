@@ -1,5 +1,7 @@
 package com.pawcare.providerservice;
 
+import com.pawcare.provider.Provider;
+import com.pawcare.provider.ProviderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -9,6 +11,7 @@ public class ProvServiceService {
 
     @Autowired
     private ProvServiceRepository serviceRepository;
+
 
     public List<ProvService> getAllService() {
         return serviceRepository.findAll();
@@ -30,8 +33,21 @@ public class ProvServiceService {
             serviceRepository.save(existing);
         }
     }
+    public List<ProvService> searchByKeyword(String keyword) {
+        return serviceRepository.findByServiceTypeContainingIgnoreCaseOrDetailsContainingIgnoreCase(keyword, keyword);
+    }
+
 
     public void deleteServiceByID(int serviceID) {
         serviceRepository.deleteById(serviceID);
     }
+
+    @Autowired
+    private ProviderRepository providerRepository;
+
+    public Provider getProviderByID(int id) {
+        return providerRepository.findById(id).orElse(null);
+    }
 }
+
+

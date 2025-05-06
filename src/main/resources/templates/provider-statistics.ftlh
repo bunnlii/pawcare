@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Provider Profile Edit/Delete Page</title>
+    <title>Update Service Page</title>
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins&display=swap" rel="stylesheet">
@@ -117,7 +117,7 @@
             text-decoration: underline;
         }
 
-          .button {
+ .button {
     display: inline-block;
     padding: 10px 20px;
     background-color: #cad2c5;
@@ -161,6 +161,35 @@
     background-color: #d62828;
 }
 
+        .stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    margin: 40px auto;
+    width: 80%;
+}
+
+.stat-box {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.stat-box h3 {
+    color: #344960;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.stat-box p {
+    font-size: 24px;
+    color: #2b2d42;
+    font-weight: bold;
+}
+
 
     </style>
 
@@ -183,41 +212,30 @@
 </nav>
 
 <div class="content">
-    <h1>${provider.name}</h1>
-    <form id="update-provider" action="/provider/update/${provider.providerID?c}" method="post">
+    <h1>Hello ${provider.name}, Welcome To Your Statistics</h1>
 
-        <p><strong>Username:</strong> ${provider.username}</p>
-        <input type="text" id="username" name="username" placeholder="Username" value="${provider.username}" />
-
-        <p><strong>Name:</strong> ${provider.name}</p>
-        <input type="text" id="name" name="name" placeholder="Name" value="${provider.name}" />
-
-        <p><strong>Email:</strong> ${provider.email}</p>
-        <input type="text" id="email" name="email" placeholder="Email" value="${provider.email}" />
-
-        <p><strong>Password:</strong> ${provider.password}</p>
-        <input type="text" id="password" name="password" placeholder="Password" value="${provider.password}" />
-
-        <p><strong>Bio:</strong> ${provider.bio}</p>
-        <input type="text" id="bio" name="bio" placeholder="Bio" value="${provider.bio}" />
-
-        <br><br>
-        <div class="button-group">
-            <button type="submit" class="button btn-primary">Save</button>
-            <a href="/provider/${provider.providerID?c}" class="button btn-cancel">Cancel</a>
+    <div class="stats-container">
+        <div class="stat-box">
+            <h3>Services Offered</h3>
+            <p>${provider.services?size}</p>
         </div>
-        <br>
-        <a href="/provider/delete/${provider.providerID?c}" class="button btn-danger" onclick="return confirmDelete()">Delete Profile</a>
-    </form>
+        <div class="stat-box">
+            <h3>Total Reviews</h3>
+            <p>20</p>
+<!--            ${provider.reviews?size}-->
+        </div>
+        <div class="stat-box">
+            <h3>Average Rating</h3>
+            <p>3.5</p>
+<!--            ${provider.statistics.averageRating?string("0.0")}-->
+        </div>
+        <div class="stat-box">
+            <h3>Total Appointments</h3>
+            <p>3</p>
+<!--            ${provider.statistics.totalAppointments}-->
+        </div>
+    </div>
 
-</div>
 
-<script>
-    function confirmDelete() {
-        return confirm("Are you sure you want to delete your profile? This action cannot be undone.");
-    }
-</script>
-
-</body>
 
 </html>

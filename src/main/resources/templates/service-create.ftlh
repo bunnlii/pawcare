@@ -87,23 +87,23 @@
         h2 {
             color: #344960;
         }
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #cad2c5;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    font-size: 16px;  /* Set a consistent font size */
+    text-align: center;  /* Ensure text is centered */
+}
 
-           .button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #cad2c5;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-        }
-
-        .button:hover {
+.button:hover {
     background-color: #B0C4B1;
 }
 
-
-        .button-group {
+.button-group {
     display: flex;
     gap: 10px;
     justify-content: center;
@@ -131,6 +131,7 @@
     background-color: #d62828;
 }
 
+
     </style>
 </head>
 
@@ -141,10 +142,12 @@
 
 <nav>
     <ul>
-        <li><a href="/provider/all">Home</a></li>
+        <li><a href="/home">Home</a></li>
         <li><a href="/service/all">Services</a></li>
-        <li><a href="/provider/createForm">Signup</a></li>
-        <li><a href="/login">Login</a></li>
+        <li><a href="/provider/update/${provider.providerID}">Settings</a></li>
+        <li><a href="/provider/statistics">Statistics</a></li>
+        <li><a href="/provider/${provider.providerID}/services">My Services</a></li>
+        <li><a href="/logout">Logout</a></li>
     </ul>
 </nav>
 
@@ -167,7 +170,7 @@
 
         <div style="display: flex; justify-content: space-between; margin-top: 20px;">
             <button type="submit" class="button">Save</button>
-            <a href="/service/all" class="button btn-cancel">Cancel</a>
+            <a href="/home" class="button btn-cancel">Cancel</a>
         </div>
     </form>
 </div>

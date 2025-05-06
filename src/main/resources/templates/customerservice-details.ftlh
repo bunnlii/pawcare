@@ -119,22 +119,23 @@
             text-decoration: underline;
         }
 
-            .button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #cad2c5;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-        }
+  .button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #cad2c5;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    font-size: 16px;  /* Set a consistent font size */
+    text-align: center;  /* Ensure text is centered */
+}
 
-        .button:hover {
+.button:hover {
     background-color: #B0C4B1;
 }
 
-
-        .button-group {
+.button-group {
     display: flex;
     gap: 10px;
     justify-content: center;
@@ -143,8 +144,6 @@
 
 .btn-primary {
     background-color: #cad2c5;
-    text-decoration: none;
-    color: white;
 }
 
 .btn-cancel {
@@ -164,6 +163,7 @@
     background-color: #d62828;
 }
 
+
     </style>
 
 </head>
@@ -175,10 +175,10 @@
 
 <nav>
     <ul>
-        <li><a href="/provider/all">Home</a></li>
+        <li><a href="/home">Home</a></li>
         <li><a href="/service/all">Services</a></li>
-        <li><a href="index.html">Logout</a></li>
-        <li><a href="/provider/update/">Settings</a></li>
+        <li><a href="/">link for cust</a></li>
+        <li><a href="/logout">linked for cust</a></li>
 
     </ul>
 </nav>
@@ -202,13 +202,4 @@
         <strong>Location:</strong> ${service.location}
     </p>
         <br>
-        <a href="/service/update/${service.serviceID?c}" class="button btn-primary">Edit Service</a>
-    <a href="/service/delete/${service.serviceID?c}" class="button btn-danger" onclick="return confirmDelete()">Delete Service</a>
-</div>
-<script>
-    function confirmDelete() {
-        return confirm("Are you sure you want to delete your profile? This action cannot be undone.");
-    }
-</script>
-</body>
 </html>
