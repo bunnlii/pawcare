@@ -16,6 +16,7 @@ public class Customer {
     private String password;
     private String phone;
     private String address;
+    private String role;
 
     public Customer() {}
 
@@ -78,6 +79,14 @@ public class Customer {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public List<Pet> getPets() { return pets; }

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/unified-style.css">
     <title>Customer Dashboard</title>
 </head>
 <body>
@@ -10,12 +11,12 @@
 <p>You are now logged in to PawCare.</p>
 
 <ul>
-    <li><a href="/services">View Available Services</a></li>
+    <li><a href="/service/all">View Available Services</a></li>
     <li><a href="/customer/profile">Edit Profile</a></li>
-    <li><a href="/customer/logout">Logout</a></li>
+    <li><a href="/customers/logout">Logout</a></li>
 </ul>
-
-<a href="/customers/edit/${customer.id}">Edit My Profile</a>
+<p>Your email: ${customer.email}</p>
+<a href="/logout">Logout</a>
 
 </body>
 </html>

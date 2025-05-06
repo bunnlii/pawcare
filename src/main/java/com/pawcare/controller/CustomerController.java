@@ -13,6 +13,9 @@ import com.pawcare.repository.ReviewRepository;
 import com.pawcare.service.CustomerService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +26,9 @@ import java.util.List;
 @Controller
 @RequestMapping("/customers")
 public class CustomerController {
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Autowired
     private ProvServiceRepository provServiceRepository;
@@ -64,7 +70,11 @@ public class CustomerController {
     }
 
     @PostMapping("/register")
-    public String registerCustomer(@ModelAttribute("customer") Customer customer) {
+    public String registerCustomer(@ModelAttribute Customer customer) {
+        if (customer.getRole() == null || customer.getRole().trim().isEmpty()) {
+            customer.setRole("ROLE_USER");
+        }
+        customer.setPassword(passwordEncoder.encode(customer.getPassword()));
         customerService.saveCustomer(customer);
         return "redirect:/customers/login";
     }
@@ -73,6 +83,7 @@ public class CustomerController {
     public String showLoginForm() {
         return "customer-login";
     }
+
 
     @PostMapping("/login")
     public String loginCustomer(@RequestParam("email") String email,
@@ -101,7 +112,7 @@ public class CustomerController {
         return "appointments";
     }
 
-    @GetMapping("/edit/{id}")
+    @GetMapping("/customers/edit/{id}")
     public String showEditProfileForm(@PathVariable("id") Long id, Model model) {
         Customer customer = customerService.getCustomerById(id);
         if (customer == null) {
@@ -111,11 +122,12 @@ public class CustomerController {
         return "edit-customer";
     }
 
-    @PostMapping("/edit/{id}")
-    public String updateProfile(@PathVariable("id") Long id, @ModelAttribute("customer") Customer updatedCustomer) {
-        customerService.updateCustomer(id, updatedCustomer);
-        return "redirect:/customers/profile/" + id;
+    @PostMapping("/edit/{customerID}")
+    public String updateCustomer(@PathVariable Long customerID, @ModelAttribute Customer updatedCustomer) {
+        customerService.updateCustomer(customerID, updatedCustomer);
+        return "redirect:/customers/profile";
     }
+
 
    /** @GetMapping("/profile/{id}")
     public String viewProfile(@PathVariable("id") Long id, Model model) {
@@ -141,8 +153,6 @@ public class CustomerController {
        model.addAttribute("bookings", bookings);
        return "customer-profile";
    }
-
-
 
 
     @GetMapping("/add-pet/{customerId}")
@@ -193,6 +203,12 @@ public class CustomerController {
         List<Review> reviews = reviewRepository.findAll(); // or findByServiceId if specific
         model.addAttribute("reviews", reviews);
         return "add-review";
+    }
+    @GetMapping("/dashboard")
+    public String dashboard(@AuthenticationPrincipal UserDetails userDetails, Model model) {
+        Customer customer = customerService.findByEmail(userDetails.getUsername());
+        model.addAttribute("customer", customer);
+        return "customer-dashboard";
     }
 
 }

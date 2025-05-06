@@ -4,6 +4,7 @@ import com.pawcare.entity.Customer;
 import com.pawcare.providerservice.ProvServiceRepository;
 import com.pawcare.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,6 +18,9 @@ public class CustomerService {
     @Autowired
     private ProvServiceRepository provServiceRepository;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     public List<Customer> getAllCustomers() {
         return customerRepository.findAll();
     }
@@ -26,6 +30,7 @@ public class CustomerService {
     }
 
     public Customer saveCustomer(Customer customer) {
+        customer.setPassword(passwordEncoder.encode(customer.getPassword()));
         return customerRepository.save(customer);
     }
 
