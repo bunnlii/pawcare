@@ -16,9 +16,9 @@
   <ul>
     <li><a href="/customers/index">Home</a></li>
     <li><a href="/service/all">Services</a></li>
-    <li><a href="/">Profile</a></li>
-    <li><a href="ProvHome.html">Provider</a></li>
-    <li><a href="customer-login.ftlh">Login</a></li>
+    <li><a href="/customers/profile/{id}">Profile</a></li>
+    <li><a href="/provider/createForm">Provider</a></li>
+    <li><a href="customers/login">Login</a></li>
   </ul>
 </nav>
 
