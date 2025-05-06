@@ -16,6 +16,14 @@ header {
     color: #FBF3EE;
     padding: 50px 20px;
 }
+.test {
+    background-color: #E3DAD0;
+    color: #344960;
+    margin: 20px auto;
+    padding: 20px;
+    width: 60%;
+    border-radius: 10px;
+}
 
 header h1 {
     font-family: 'Pacifico', cursive;
