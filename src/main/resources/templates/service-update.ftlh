@@ -117,7 +117,7 @@
             text-decoration: underline;
         }
 
-            .button {
+        .button {
             display: inline-block;
             padding: 10px 20px;
             background-color: #cad2c5;
@@ -125,40 +125,41 @@
             border-radius: 5px;
             text-decoration: none;
             transition: background-color 0.3s ease;
+            font-size: 16px;  /* Set a consistent font size */
+            text-align: center;  /* Ensure text is centered */
         }
 
         .button:hover {
-    background-color: #B0C4B1;
-}
-
+            background-color: #B0C4B1;
+        }
 
         .button-group {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    margin-bottom: 20px;
-}
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
 
-.btn-primary {
-    background-color: #cad2c5;
-}
+        .btn-primary {
+            background-color: #cad2c5;
+        }
 
-.btn-cancel {
-    background-color: #E3DAD0;
-}
+        .btn-cancel {
+            background-color: #E3DAD0;
+        }
 
-.btn-cancel:hover {
-    background-color: #d5c6ba;
-}
+        .btn-cancel:hover {
+            background-color: #d5c6ba;
+        }
 
-.btn-danger {
-    background-color: #e63946;
-    color: white;
-}
+        .btn-danger {
+            background-color: #e63946;
+            color: white;
+        }
 
-.btn-danger:hover {
-    background-color: #d62828;
-}
+        .btn-danger:hover {
+            background-color: #d62828;
+        }
 
     </style>
 
@@ -168,49 +169,45 @@
 <header>
     <h1>PawCare</h1>
 </header>
-
+<!--provider id doesnt work-->
 <nav>
     <ul>
-        <li><a href="/provider/all">Home</a></li>
+        <li><a href="/home">Home</a></li>
         <li><a href="/service/all">Services</a></li>
-        <li><a href="/update/${provider.providerID?c}">Settings</a></li>
-        <li><a href="/all">Logout</a></li>
+        <li><a href="/provider/statistics">Statistics</a></li>
+        <li><a href="/logout">Logout</a></li>
     </ul>
 </nav>
 
 <div class="content">
-    <h1>${provider.name}</h1>
-    <form id="update-provider" action="/provider/update/${provider.providerID?c}" method="post">
+    <h2>Update Service:</h2>
+    <form id="update-service" action="/service/update/${service.serviceID?c}" method="post">
 
-        <p><strong>Username:</strong> ${provider.username}</p>
-        <input type="text" id="username" name="username" placeholder="Username" value="${provider.username}" />
+        <p><strong>Current Service Type:</strong> ${service.serviceType}</p>
+        <input type="text" id="serviceType" name="serviceType" placeholder="Service Type" value="${service.serviceType}" />
 
-        <p><strong>Name:</strong> ${provider.name}</p>
-        <input type="text" id="name" name="name" placeholder="Name" value="${provider.name}" />
+        <p><strong>Current Details:</strong> ${service.details}</p>
+        <input type="text" id="details" name="details" placeholder="Details" value="${service.details}" />
 
-        <p><strong>Email:</strong> ${provider.email}</p>
-        <input type="text" id="email" name="email" placeholder="Email" value="${provider.email}" />
+        <p><strong>Current Price:</strong> ${service.price}</p>
+        <input type="text" id="price" name="price" placeholder="Price" value="${service.price}" />
 
-        <p><strong>Password:</strong> ${provider.password}</p>
-        <input type="text" id="password" name="password" placeholder="Password" value="${provider.password}" />
-
-        <p><strong>Bio:</strong> ${provider.bio}</p>
-        <input type="text" id="bio" name="bio" placeholder="Bio" value="${provider.bio}" />
+        <p><strong>Current Location:</strong> ${service.location}</p>
+        <input type="text" id="location" name="location" placeholder="Location" value="${service.location}" />
 
         <br><br>
         <div class="button-group">
             <button type="submit" class="button btn-primary">Save</button>
-            <a href="/provider/${provider.providerID?c}" class="button btn-cancel">Cancel</a>
+            <a href="/service/all" class="button btn-cancel">Cancel</a>
         </div>
         <br>
-        <a href="/provider/delete/${provider.providerID?c}" class="button btn-danger" onclick="return confirmDelete()">Delete Profile</a>
+        <a href="/service/delete/${service.serviceID?c}" class="button btn-danger" onclick="return confirmDelete()">Delete Service</a>
     </form>
-
 </div>
 
 <script>
     function confirmDelete() {
-        return confirm("Are you sure you want to delete your profile? This action cannot be undone.");
+        return confirm("Are you sure you want to delete this service? This action cannot be undone.");
     }
 </script>
 

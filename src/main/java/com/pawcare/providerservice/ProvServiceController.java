@@ -1,12 +1,12 @@
 package com.pawcare.providerservice;
 
-import com.pawcare.provider.*;
 import com.pawcare.provider.Provider;
 import com.pawcare.provider.ProviderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
+
 
 
 @Controller
@@ -27,18 +27,26 @@ public class ProvServiceController {
         Provider provider = providerRepository.findById(providerID).orElse(null);
         service.setProvider(provider);
         serviceRepository.save(service);
-        return "redirect:/service/all";
+        return "redirect:/service/" + service.getServiceID();
     }
 
 
     @GetMapping("/{providerID}/serviceForm")
     public String showCreateServiceForm(@PathVariable int providerID, Model model) {
-        ProvService service = new ProvService();
-        model.addAttribute("service", service);
-        model.addAttribute("providerID", providerID);
+        Provider provider = service.getProviderByID(providerID); // your service class
+        if (provider == null) {
+            throw new RuntimeException("Provider not found with ID: " + providerID);
+        }
+
+        ProvService newService = new ProvService();
+        model.addAttribute("service", newService);
+        model.addAttribute("provider", provider);
         model.addAttribute("title", "Create New Service");
+
         return "service-create";
     }
+
+
 
     @GetMapping("/all")
     public String getAllService(Model model) {
@@ -60,8 +68,11 @@ public class ProvServiceController {
         return "redirect:/service/all";
     }
 
-    @PostMapping("/update/{serviceID}")
-    public Object updateService(@PathVariable int serviceID, ProvService service) {
-        return "redirect:/service/" + serviceID;
+
+    @GetMapping("/update/{serviceID}")
+    public Object updateProvider(@PathVariable int serviceID, Model model) {
+        model.addAttribute("service", service.getServiceByID(serviceID));
+        model.addAttribute("title", "Update Service");
+        return "service-update";
     }
 }

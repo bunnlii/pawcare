@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Provider Profile Edit/Delete Page</title>
+    <title>Service Details</title>
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/images/paw.png">
+
     <style>
         * {
             box-sizing: border-box;
@@ -117,7 +119,7 @@
             text-decoration: underline;
         }
 
-          .button {
+  .button {
     display: inline-block;
     padding: 10px 20px;
     background-color: #cad2c5;
@@ -179,45 +181,36 @@
         <li><a href="/provider/statistics">Statistics</a></li>
         <li><a href="/provider/${provider.providerID}/services">My Services</a></li>
         <li><a href="/logout">Logout</a></li>
+
     </ul>
 </nav>
 
 <div class="content">
-    <h1>${provider.name}</h1>
-    <form id="update-provider" action="/provider/update/${provider.providerID?c}" method="post">
+    <h2>Service: ${service.serviceType}</h2>
 
-        <p><strong>Username:</strong> ${provider.username}</p>
-        <input type="text" id="username" name="username" placeholder="Username" value="${provider.username}" />
-
-        <p><strong>Name:</strong> ${provider.name}</p>
-        <input type="text" id="name" name="name" placeholder="Name" value="${provider.name}" />
-
-        <p><strong>Email:</strong> ${provider.email}</p>
-        <input type="text" id="email" name="email" placeholder="Email" value="${provider.email}" />
-
-        <p><strong>Password:</strong> ${provider.password}</p>
-        <input type="text" id="password" name="password" placeholder="Password" value="${provider.password}" />
-
-        <p><strong>Bio:</strong> ${provider.bio}</p>
-        <input type="text" id="bio" name="bio" placeholder="Bio" value="${provider.bio}" />
-
-        <br><br>
-        <div class="button-group">
-            <button type="submit" class="button btn-primary">Save</button>
-            <a href="/provider/${provider.providerID?c}" class="button btn-cancel">Cancel</a>
-        </div>
+        <p>
+            <strong>ID:</strong> ${service.serviceID?c}
+        </p>
+    <p>
+       <strong> Type:</strong> ${service.serviceType}
+    </p>
+    <p>
+        <strong>Price:</strong> ${service.price}
+    </p>
+    <p>
+        <strong>Details:</strong> ${service.details}
+    </p>
+    <p>
+        <strong>Location:</strong> ${service.location}
+    </p>
         <br>
-        <a href="/provider/delete/${provider.providerID?c}" class="button btn-danger" onclick="return confirmDelete()">Delete Profile</a>
-    </form>
-
+        <a href="/service/update/${service.serviceID?c}" class="button btn-primary">Edit Service</a>
+    <a href="/service/delete/${service.serviceID?c}" class="button btn-danger" onclick="return confirmDelete()">Delete Service</a>
 </div>
-
 <script>
     function confirmDelete() {
-        return confirm("Are you sure you want to delete your profile? This action cannot be undone.");
+        return confirm("Are you sure you want to delete your serviceproviderservice-details.ftlh? This action cannot be undone.");
     }
 </script>
-
 </body>
-
 </html>

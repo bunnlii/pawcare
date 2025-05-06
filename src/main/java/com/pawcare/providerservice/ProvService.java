@@ -13,18 +13,18 @@ public class ProvService {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int serviceID;
 
-    @Column(nullable = false)
+    @Column(name = "serviceType", nullable = false)
     private String serviceType;
-    @Column(nullable = false)
+    @Column(name = "price", nullable = false)
     private double price;
-    @Column(nullable = false)
+    @Column(name = "details", nullable = false)
     private String details;
-    @Column(nullable = false)
+    @Column(name = "location", nullable = false)
     private String location;
 
     //relationship
     @ManyToOne
-    @JoinColumn(name = "provider_id")
+    @JoinColumn(name = "providerID")
     private Provider provider;
 
     public Provider getProvider() {
