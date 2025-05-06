@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pet Sitting Service - PawCare</title>
+  <link rel="stylesheet" href="services.css">
+</head>
+<body>
+
+
+<header>
+  <h1>Pet Sitting</h1>
+  <img src="image/pet_sit_logo.svg" alt="sitting logo" width="100" height="100">
+</header>
+
+
+<section class="service-details">
+  <div class="title-service-details">
+  <h2>Pet Sitting</h2>
+    <img src="image/pet_sit.svg" alt="pet sit" class="right-image" width="150" height="150">
+  </div>
+  <div class="info-service-details">
+  <p>Our pet sitting service ensures that your pet is well taken care of while you’re away. Whether it’s for a day or a week, we’ve got your pet covered:</p>
+  <lu>
+    <li>Daily Visits</li>
+    <li>Overnight Stays</li>
+    <li>Feeding and Playtime</li>
+    <li>Health Monitoring</li>
+  <li>Price: Starting at $20 per visit</li>
+  <li>Location: High Point</li>
+  <li>Note: Health concerns must be disclosed beforehand.</li>
+  </lu>
+  </div>
+  <div class="book-service-details">
+  <h3>Book Your Pet Sitting Service</h3>
+  <form action="payment.html" method="POST">
+    <label for="appointment-date">Select Date:</label>
+    <input type="date" id="appointment-date" name="appointment-date" required>
+
+    <label for="appointment-time">Select Time:</label>
+    <input type="time" id="appointment-time" name="appointment-time" required>
+
+    <button type="submit" class="btn">Book Appointment</button>
+  </form>
+  </div>
+</section>
+
+</body>
+</html>

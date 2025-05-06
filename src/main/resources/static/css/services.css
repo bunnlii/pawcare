@@ -1,0 +1,230 @@
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #344960;
+    margin: 0;
+    padding: 0;
+    background-color: #EDECEB;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background-color: #344960;
+    color: #FBF3EE;
+    padding: 30px 10px;
+
+}
+
+header h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 4rem;
+    margin: 0px ;
+}
+header h1 img {
+    height: 200px;
+}
+
+/* Table Layout for Services */
+.serlis {
+    padding: 20px;
+    margin: 40px;
+    background-color: white;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+th {
+    background-color: #E3DAD0;
+}
+
+td {
+    background-color: #FBF3EE;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    border-radius: 10px;
+}
+
+td p {
+    color: #344960;
+    font-size: 16px;
+}
+
+td br {
+    margin-bottom: 10px;
+}
+
+/* Service Cards Section */
+.services {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 30px;
+    padding: 40px;
+    background-color: white;
+}
+
+.service-card {
+    background-color: #E3DAD0;
+    padding: 20px;
+    border-radius: 10px;
+    width: 280px;
+    text-align: center;
+    margin: 10px;
+}
+
+.service-card h3 {
+    color: #344960;
+    font-size: 18px;
+}
+
+.service-card p {
+    color: #344960;
+    font-size: 14px;
+}
+
+/* Call to Action Section */
+.call {
+    text-align: center;
+    background-color: #344960;
+    color: #FBF3EE;
+    padding: 50px 20px;
+}
+
+.call h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.call p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.call .btn {
+    background-color: #CC8561;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.call .btn:hover {
+    background-color: #E3DAD0;
+}
+/*gromming service*/
+/* Service Detail Pages */
+.service-details {
+    display: flex;
+    padding: 40px;
+    background-color: #e3dad0;
+    margin: 40px;
+    border-radius: 10px;
+}
+
+.service-details h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #344960;
+}
+.right-image {
+    display: flex;
+    align-items: center;
+    width: 260px;
+    height: auto;
+    border-radius: 10px;
+}
+.info-service-details p {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 25px;
+    color: #344960;
+}
+
+.info-service-details lu {
+    font-size: 1rem;
+    padding-left: 0;
+}
+
+.info-service-details lu li {
+    font-size: 23px;
+    color: #344960;
+    margin-bottom: 10px;
+}
+.book-service-details h4{
+    text-align: center;
+    margin-top: 50px;
+    font-size: 23px ;
+}
+
+.service-details form {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.service-details label {
+    font-size: 16px;
+}
+
+.service-details input[type="date"], .service-details input[type="time"] {
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.service-details button {
+    background-color: #CC8561;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    margin-top: 50px;
+    width: 75%;
+}
+
+.service-details button:hover {
+    background-color: #E3DAD0;
+}
+.btn {
+    background-color: #CC8561;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+nav {
+    background-color: #E3DAD0;
+    padding: 10px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #344960;
+    font-size: 18px;
+}
