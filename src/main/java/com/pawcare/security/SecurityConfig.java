@@ -44,7 +44,8 @@ public class SecurityConfig {
                                 "/provider/new",
                                 "/provider/login",
                                 "/services/**",       // already included
-                                "/service/all"        // explicitly add this path
+                                "/service/all",
+                                "/customers/**"// explicitly add this path
                         ).permitAll()
                         .anyRequest().authenticated()
                 )

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="/css/unified-style.css">
     <meta charset="UTF-8">
     <title>Customer Dashboard</title>
 </head>
