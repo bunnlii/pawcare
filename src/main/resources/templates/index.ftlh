@@ -31,7 +31,7 @@
     <div class="cus">
         <h2>Your Pet Deserves the Best Care</h2>
         <p>Professional and loving care for your furry friend.</p>
-        <a href="/customers/services" class="btn">Explore Our Services</a>
+        <a href="/service/all" class="btn">Explore Our Services</a>
     </div>
 </section>
 
@@ -44,18 +44,24 @@
                 <h3>${service.title}</h3>
                 <p>Price: $${service.price}</p>
                 <p>${service.description}</p>
-                <a href="/customers/services/${service.id}" class="btn">View More</a>
+                <a href="/services/${service.id}" class="btn">View More</a>
             </div>
         </#list>
     </div>
 </section>
 
-<#list reviews as review>
-    <div class="test">
-        <p>"${review.message}"</p>
-        <p>- ${review.customer.name}, ${review.service.title}</p>
-    </div>
-</#list>
+<#if reviews?? && (reviews?size > 0)>
+    <#list reviews as review>
+        <div class="test">
+            <p>${review.message}</p>
+            <p>${review.customer.name}, ${review.service.title}</p>
+        </div>
+    </#list>
+<#else>
+    <p>"PawCare has been a lifesaver for me. Their grooming services are top-notch, and my dog loves the vets!"</p>
+    <p>- Sarah J., Happy Customer</p>
+</#if>
+
 
 
 <section class="call">

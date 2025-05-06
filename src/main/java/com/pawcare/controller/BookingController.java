@@ -1,11 +1,11 @@
 package com.pawcare.controller;
 
 import com.pawcare.entity.Booking;
-import com.pawcare.entity.Service;
 import com.pawcare.provider.ProviderRepository;
+import com.pawcare.providerservice.ProvService;
+import com.pawcare.providerservice.ProvServiceRepository;
 import com.pawcare.repository.BookingRepository;
 
-import com.pawcare.repository.ServiceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,7 +21,7 @@ public class BookingController {
     private BookingRepository bookingRepository;
 
     @Autowired
-    private ServiceRepository serviceRepository;
+    private ProvServiceRepository provServiceRepository;
 
     @Autowired
     private ProviderRepository providerRepository;
@@ -30,21 +30,20 @@ public class BookingController {
     //view list of services
     @GetMapping("/services")
     public String showServices(Model model) {
-        List<Service> services = serviceRepository.findAll();
+        List<ProvService> services = provServiceRepository.findAll();
         model.addAttribute("services", services);
-        return "customer/services";
+        return "services";
     }
 
 //    //sevices details
-//    @GetMapping("/services/{id}")
-//    public String showServiceDetail(@PathVariable Long id, Model model) {
-//        Optional<Service> serviceOptional = serviceRepository.findById(id);
+//   @GetMapping("/services/{id}")
+//    public String showServiceDetail(@PathVariable Integer id, Model model) {
+//        Optional<ProvService> serviceOptional = provServiceRepository.findById(id);
 //        if (serviceOptional.isPresent()) {
-//            Service service = serviceOptional.get();
-//            List<Provider> providers = providerRepository.findByService(service);
+//            ProvService service = serviceOptional.get();
 //
 //            model.addAttribute("service", service);
-//            model.addAttribute("providers", providers);
+//            model.addAttribute("provider", service.getProvider());
 //            model.addAttribute("booking", new Booking());
 //
 //            return "customer/serviceDetail";
@@ -55,8 +54,8 @@ public class BookingController {
 
     //book a service
     @PostMapping("/services/{id}/book")
-    public String bookService(@PathVariable Long id, @ModelAttribute Booking booking) {
-        Service service = serviceRepository.findById(id).orElse(null);
+    public String bookService(@PathVariable Integer id, @ModelAttribute Booking booking) {
+        ProvService service = provServiceRepository.findById(id).orElse(null);
         booking.setService(service);
         bookingRepository.save(booking);
         return "redirect:/customer/confirmation";
@@ -64,18 +63,18 @@ public class BookingController {
     @GetMapping("/bookingServices")
     public String showBooking(Model model) {
         model.addAttribute("booking", new Booking());
-        return "customer/bookingService";
+        return "bookingService";
     }
 
     @PostMapping("/bookingServices")
     public String submitBooking(@ModelAttribute Booking booking) {
         bookingRepository.save(booking);
-        return "redirect:/customer/confirmation";
+        return "redirect:/confirmation";
     }
 
     @GetMapping("/confirmation")
     public String showConfirmation(Model model) {
-        return "customer/confirmation";
+        return "confirmation";
     }
 }
 

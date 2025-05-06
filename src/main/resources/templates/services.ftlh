@@ -22,14 +22,12 @@
 
 <section class="services">
     <#list services as service>
-        <div class="service-card">
-            <img src="${service.imagePath}" alt="${service.title}" width="200" height="200">
-            <h3>${service.title}</h3>
-            <p>Price: $${service.price}</p>
-            <p>${service.description}</p>
-            <a href="/customer/services/${service.id}" class="btn">View more</a>
-        </div>
+        ${service.serviceType}
+        ${service.price}
+        ${service.details}
+        ${service.location}
     </#list>
+
 </section>
 
 <section class="call">

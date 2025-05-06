@@ -1,8 +1,10 @@
 package com.pawcare.entity;
 
+import com.pawcare.providerservice.ProvService;
 import jakarta.persistence.*;
 
 @Entity
+
 public class Review {
 
     @Id
@@ -17,12 +19,12 @@ public class Review {
     private Customer customer;
 
     @ManyToOne
-    @JoinColumn(name = "service_id")
-    private Service service;
+    @JoinColumn(name = "service_id") //, referencedColumnName = "serviceID")
+    private ProvService service;
 
     public Review() {}
 
-    public Review(String content, int rating, Customer customer, Service service) {
+    public Review(String content, int rating, Customer customer, ProvService service) {
         this.content = content;
         this.rating = rating;
         this.customer = customer;
@@ -40,6 +42,6 @@ public class Review {
     public Customer getCustomer() { return customer; }
     public void setCustomer(Customer customer) { this.customer = customer; }
 
-    public Service getService() { return service; }
-    public void setService(Service service) { this.service = service; }
+    public ProvService getService() { return service; }
+    public void setService(ProvService service) { this.service = service; }
 }

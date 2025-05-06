@@ -4,11 +4,11 @@ import com.pawcare.entity.Booking;
 import com.pawcare.entity.Customer;
 import com.pawcare.entity.Pet;
 import com.pawcare.entity.Review;
-import com.pawcare.entity.Service;
 
+import com.pawcare.providerservice.ProvService;
+import com.pawcare.providerservice.ProvServiceRepository;
 import com.pawcare.repository.BookingRepository;
 import com.pawcare.repository.PetRepository;
-import com.pawcare.repository.ServiceRepository;
 import com.pawcare.repository.ReviewRepository;
 import com.pawcare.service.CustomerService;
 
@@ -25,7 +25,7 @@ import java.util.List;
 public class CustomerController {
 
     @Autowired
-    private ServiceRepository serviceRepository;
+    private ProvServiceRepository provServiceRepository;
 
     @Autowired
     private ReviewRepository reviewRepository;
@@ -39,11 +39,21 @@ public class CustomerController {
     @Autowired
     private BookingRepository bookingRepository;
 
+
+    @GetMapping("/services")
+    public String showAllServices(Model model) {
+        List<ProvService> services = provServiceRepository.findAll();
+        model.addAttribute("services", services);
+        return "service-list";
+    }
+
     // Home page showing services
     @GetMapping("/index")
     public String home(Model model) {
-        List<Service> services = serviceRepository.findAll();
+        List<ProvService> services = provServiceRepository.findAll();
         model.addAttribute("services", services);
+        List<Review> reviews = reviewRepository.findAll();
+        model.addAttribute("reviews", reviews);
         return "index";
     }
 
@@ -107,7 +117,7 @@ public class CustomerController {
         return "redirect:/customers/profile/" + id;
     }
 
-    @GetMapping("/profile/{id}")
+   /** @GetMapping("/profile/{id}")
     public String viewProfile(@PathVariable("id") Long id, Model model) {
         Customer customer = customerService.getCustomerById(id);
         if (customer == null) {
@@ -115,7 +125,25 @@ public class CustomerController {
         }
         model.addAttribute("customer", customer);
         return "customer-profile";
-    }
+    }**/
+
+   @GetMapping("/profile/{id}")
+   public String viewProfile(@PathVariable("id") Long id, Model model) {
+       Customer customer = customerService.getCustomerById(id);
+       if (customer == null) {
+           return "login";
+       }
+
+       List<Booking> bookings = bookingRepository.findByCustomerId(id);
+       List<Review> reviews = customer.getReviews();
+       model.addAttribute("reviews", reviews);
+       model.addAttribute("customer", customer);
+       model.addAttribute("bookings", bookings);
+       return "customer-profile";
+   }
+
+
+
 
     @GetMapping("/add-pet/{customerId}")
     public String showAddPetForm(@PathVariable("customerId") Long customerId, Model model) {
@@ -146,11 +174,11 @@ public class CustomerController {
     }
 
     @PostMapping("/add-review/{serviceId}/{customerId}")
-    public String addReview(@PathVariable("serviceId") Long serviceId,
+    public String addReview(@PathVariable("serviceId") Integer serviceId,
                             @PathVariable("customerId") Long customerId,
                             @ModelAttribute("review") Review review) {
         Customer customer = customerService.getCustomerById(customerId);
-        Service service = serviceRepository.getById(serviceId);
+        ProvService service = provServiceRepository.findById(serviceId).orElse(null);
 
         if (customer != null && service != null) {
             review.setCustomer(customer);
@@ -159,6 +187,7 @@ public class CustomerController {
         }
         return "redirect:/customers/index";
     }
+
     @GetMapping("/reviews")
     public String showReviewsPage(Model model) {
         List<Review> reviews = reviewRepository.findAll(); // or findByServiceId if specific

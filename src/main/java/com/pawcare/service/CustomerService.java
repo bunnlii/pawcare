@@ -1,6 +1,7 @@
 package com.pawcare.service;
 
 import com.pawcare.entity.Customer;
+import com.pawcare.providerservice.ProvServiceRepository;
 import com.pawcare.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +13,9 @@ public class CustomerService {
 
     @Autowired
     private CustomerRepository customerRepository;
+
+    @Autowired
+    private ProvServiceRepository provServiceRepository;
 
     public List<Customer> getAllCustomers() {
         return customerRepository.findAll();
