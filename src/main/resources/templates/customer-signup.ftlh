@@ -14,9 +14,9 @@
 
 <nav>
   <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="services.ftlh">Services</a></li>
-    <li><a href="EditCusProfile.html">Profile</a></li>
+    <li><a href="/customers/index">Home</a></li>
+    <li><a href="/service/all">Services</a></li>
+    <li><a href="/">Profile</a></li>
     <li><a href="ProvHome.html">Provider</a></li>
     <li><a href="customer-login.ftlh">Login</a></li>
   </ul>
@@ -24,9 +24,9 @@
 
 <section class="signup-form">
   <h2>Create Your Account</h2>
-  <form action="/customers/register" method="POST">
-    <label for="full-name">Full Name:</label>
-    <input type="text" id="name" name="name" required>
+  <form id="customer-signup" action="/customers/register" method="POST">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
 
     <label for="email">Email:</label>
     <input type="email" id="email" name="email" required>
