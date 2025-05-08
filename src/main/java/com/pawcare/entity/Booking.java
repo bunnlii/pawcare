@@ -87,4 +87,7 @@ public class Booking {
         this.service = service;
     }
 
+    public Provider getProvider() {return provider;}
+    public void setProvider(Provider provider) {this.provider = provider;}
+
 }

@@ -54,7 +54,7 @@
         @PostMapping("/new")
         public String addNewProvider(@ModelAttribute Provider provider) {
             if (provider.getRole() == null || provider.getRole().trim().isEmpty()) {
-                provider.setRole("ROLE_PROVIDER");
+                provider.setRole("PROVIDER");
             }
             provider.setPassword(passwordEncoder.encode(provider.getPassword()));
             service.save(provider);

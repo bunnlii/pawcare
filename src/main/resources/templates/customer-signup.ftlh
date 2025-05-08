@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/css/unified-style.css">
+  <link rel="stylesheet" href="/css/all.css">
   <title>Signup</title>
 </head>
 <body>
 <header>
-  <h1>PawCare</h1>
-  <img src="image/paw_logo_main.svg" alt="paw logo" width="100" height="100">
+  <h1>Signup</h1>
+  <img src="/image/logo_pet_care.svg" alt="paw logo" width="100" height="100">
 </header>
 
 <nav>

@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Provider List Page</title>
+    <link rel="stylesheet" href="/css/all.css">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="/images/paw.png">
+  <!--  <link rel="icon" type="image/png" href="/images/paw.png">-->
 
-    <style>
+   <!--<style>
         * {
             box-sizing: border-box;
         }
@@ -133,25 +134,38 @@
   background-color: #B0C4B1;
 }
 
-    </style>
+    </style>-->
 </head>
 
+<</head>
 <body>
-<header>
-    <h1>PawCare</h1>
+
+<header class="main-header">
+    <h1 class="logo">PawCare</h1>
+    <img src="/image/paw_logo_main.svg" alt="Paw Logo" width="60" height="60">
 </header>
 
-<nav>
+<nav class="main-nav">
     <ul>
-        <li><a href="/home">Home</a></li>
-        <li><a href="/service/all">Services</a></li>
-        <li><a href="/provider/createForm">Signup</a></li>
-        <li><a href="/login">Login</a> </li>
+        <li><a href="/service/all">All Services</a></li>
+        <li><a href="/provider/createForm">Create Account</a></li>
+        <li><a href="/provider/login">Login</a></li>
+        <li><a href="/logout">Logout</a></li>
     </ul>
 </nav>
 
+<section class="dashboard-container">
+    <h1>Welcome, ${provider.username}!</h1>
+    <p><strong>Email:</strong> ${provider.email}</p>
+    <p><strong>Specialty:</strong> ${provider.specialty!"Not specified"}</p>
 
+    <div class="profile-actions">
+        <a href="/provider/${provider.providerID}/services" class="btn">View My Services</a>
+        <a href="/service/${provider.providerID}/serviceForm" class="btn">Add New Service</a>
+        <a href="/provider/update/${provider.providerID}" class="btn">Edit Profile</a>
+        <a href="/provider/delete/${provider.providerID}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete your account?')">Delete My Account</a>
+    </div>
+</section>
 
 </body>
-
 </html>

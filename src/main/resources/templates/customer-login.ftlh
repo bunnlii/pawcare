@@ -1,15 +1,16 @@
+<#-- customer-login.ftlh -->
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - PawCare</title>
-    <link rel="stylesheet" href="/css/unified-style.css">
+    <link rel="stylesheet" href="/css/all.css">
 </head>
 <body>
 
 <header>
     <h1>Login</h1>
+    <img src="/image/logocare.svg" alt="paw logo" width="100" height="100">
 </header>
 
 <nav>
@@ -22,19 +23,15 @@
 
 <section class="login">
     <h2>Login</h2>
-    <form action="/customers/login" method="post">
-        <label for="username">Email:</label>
-        <input type="text" name="username" required />
 
-        <label for="password">Password:</label>
-        <input type="password" name="password" required />
-
+    <form action="/login" method="post">
+        <input type="text" name="username" placeholder="Email" required />
+        <input type="password" name="password" placeholder="Password" required />
         <button type="submit">Login</button>
     </form>
 
-    <#if error??>
-        <p style="color: darkslateblue;">Login failed. Please try again.</p>
-    </#if>
-
-
 </section>
+
+</body>
+</html>
+

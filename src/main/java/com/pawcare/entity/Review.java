@@ -22,6 +22,11 @@ public class Review {
     @JoinColumn(name = "service_id") //, referencedColumnName = "serviceID")
     private ProvService service;
 
+    @ManyToOne
+    @JoinColumn(name = "booking_id")
+    private Booking booking;
+
+
     public Review() {}
 
     public Review(String content, int rating, Customer customer, ProvService service) {
@@ -44,4 +49,8 @@ public class Review {
 
     public ProvService getService() { return service; }
     public void setService(ProvService service) { this.service = service; }
+
+    public Booking getBooking() {return booking;}
+    public void setBooking(Booking booking) {this.booking = booking;}
+
 }

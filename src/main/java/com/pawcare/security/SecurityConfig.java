@@ -1,94 +1,44 @@
 package com.pawcare.security;
 
-
-import com.pawcare.provider.ProviderRepository;
-import jakarta.servlet.DispatcherType;
+import com.pawcare.security.CustomerUserDetailsService;
+import com.pawcare.security.CustomProviderDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.context.annotation.*;
+import org.springframework.security.authentication.*;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.authentication.configuration.*;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
+import org.springframework.security.core.userdetails.*;
 
+import java.util.List;
 
 @Configuration
-@EnableWebSecurity
 public class SecurityConfig {
-
-    @Autowired
-    private CustomProviderDetailsService providerDetailsService;
-
-    @Autowired
-    private ProviderRepository providerRepository;
 
     @Autowired
     private CustomerUserDetailsService customerUserDetailsService;
 
-    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-
-
-        HttpSessionRequestCache requestCache = new HttpSessionRequestCache();
-        requestCache.setMatchingRequestParameterName(null);
-        http
-                .csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests((authorize) -> authorize
-                        .dispatcherTypeMatchers(DispatcherType.FORWARD,
-                                DispatcherType.ERROR).permitAll()
-                        .requestMatchers("/home","/provider/createForm","/provider/new", "/provider/login", "/customers/register", "/customers/login","/css/**", "/images").permitAll()
-                        .requestMatchers("/services/**").hasAuthority("ROLE_PROVIDER")
-                        .anyRequest().authenticated()
-                )
-                .addFilterBefore(new CustomAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class)
-                .formLogin(form -> form
-                                .loginPage("/login")                //customer login page
-                                .loginProcessingUrl("/login")                 //where form submits
-                                .defaultSuccessUrl("/customers/dashboard", true)  //where customer goes after login
-                                .failureUrl("/customers/login?error=true")
-                                .permitAll()
-                )
-                .formLogin(form -> form
-                        .loginPage("/provider/login")     //take out to use own but it currently doesnt work
-                        .loginProcessingUrl("/provider/login")
-                        .defaultSuccessUrl("/provider/home", true)
-                       .failureUrl("/provider/login?error=true") // Redirect if login fails
-                        .permitAll()
-                );
-
-
-
-        return http.build();
-    }
-
+    @Autowired
+    private CustomProviderDetailsService customProviderDetailsService;
 
     @Bean
-    public PasswordEncoder passwordEncoder() {
+    public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
+    // ✅ Provide both authentication providers
     @Bean
-    public AuthenticationManager authenticationManager(HttpSecurity http) throws Exception {
-        AuthenticationManagerBuilder auth = http.getSharedObject(AuthenticationManagerBuilder.class);
-
-        // Customer login
-        auth.authenticationProvider(customerAuthenticationProvider());
-
-        // Provider login
-        auth.authenticationProvider(providerAuthenticationProvider());
-
-        return auth.build();
+    public AuthenticationManager authenticationManager(
+            DaoAuthenticationProvider customerAuthenticationProvider,
+            DaoAuthenticationProvider providerAuthenticationProvider
+    ) {
+        return new ProviderManager(List.of(customerAuthenticationProvider, providerAuthenticationProvider));
     }
+
     @Bean
-    public AuthenticationProvider customerAuthenticationProvider() {
+    public DaoAuthenticationProvider customerAuthenticationProvider() {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
         provider.setUserDetailsService(customerUserDetailsService);
         provider.setPasswordEncoder(passwordEncoder());
@@ -96,11 +46,36 @@ public class SecurityConfig {
     }
 
     @Bean
-    public AuthenticationProvider providerAuthenticationProvider() {
+    public DaoAuthenticationProvider providerAuthenticationProvider() {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
-        provider.setUserDetailsService(providerDetailsService);
+        provider.setUserDetailsService(customProviderDetailsService);
         provider.setPasswordEncoder(passwordEncoder());
         return provider;
     }
 
+
+    // ✅ Main security config
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+                .csrf().disable()
+                .authorizeHttpRequests()
+                .requestMatchers("/customers/loginn", "/customers/login","/css/**", "/js/**","/image/**").permitAll()
+                .requestMatchers("/customers/**").hasRole("USER")
+                .requestMatchers("/provider/**").hasRole("PROVIDER")
+                .anyRequest().authenticated()
+                .and()
+                .formLogin()
+                .loginPage("/customers/loginn")
+                .loginProcessingUrl("/login") // default Spring Security POST URL
+                .defaultSuccessUrl("/customers/dashboard", true)
+                .permitAll()
+                .and()
+                .logout()
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/customers/loginn")
+                .permitAll();
+
+        return http.build();
+    }
 }

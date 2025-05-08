@@ -4,7 +4,7 @@ import com.pawcare.entity.Booking;
 import com.pawcare.entity.Customer;
 import com.pawcare.entity.Pet;
 import com.pawcare.entity.Review;
-
+import com.pawcare.provider.Provider;
 import com.pawcare.providerservice.ProvService;
 import com.pawcare.providerservice.ProvServiceRepository;
 import com.pawcare.repository.BookingRepository;
@@ -14,6 +14,7 @@ import com.pawcare.service.CustomerService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -21,7 +22,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
 
 @Controller
 @RequestMapping("/customers")
@@ -45,24 +45,7 @@ public class CustomerController {
     @Autowired
     private BookingRepository bookingRepository;
 
-
-    @GetMapping("/services")
-    public String showAllServices(Model model) {
-        List<ProvService> services = provServiceRepository.findAll();
-        model.addAttribute("services", services);
-        return "service-list";
-    }
-
-    // Home page showing services
-    @GetMapping("/index")
-    public String home(Model model) {
-        List<ProvService> services = provServiceRepository.findAll();
-        model.addAttribute("services", services);
-        List<Review> reviews = reviewRepository.findAll();
-        model.addAttribute("reviews", reviews);
-        return "index";
-    }
-
+    // ============ REGISTER ============
     @GetMapping("/register")
     public String showRegistrationForm(Model model) {
         model.addAttribute("customer", new Customer());
@@ -72,89 +55,115 @@ public class CustomerController {
     @PostMapping("/register")
     public String registerCustomer(@ModelAttribute Customer customer) {
         if (customer.getRole() == null || customer.getRole().trim().isEmpty()) {
-            customer.setRole("ROLE_USER");
+            customer.setRole("USER");
         }
+
+        // Encrypt the password
         customer.setPassword(passwordEncoder.encode(customer.getPassword()));
+
+        // Save the customer
         customerService.saveCustomer(customer);
-        return "redirect:/customers/login";
+
+        // Re-fetch the customer to get the generated ID
+        Customer savedCustomer = customerService.findByUsername(customer.getUsername());
+
+        // Redirect to profile page
+        return "redirect:/customers/profile/" + savedCustomer.getId();
     }
 
-    @GetMapping("/login")
+
+
+    // ============ LOGIN PAGE ============
+    @GetMapping("/loginn")
     public String showLoginForm() {
         return "customer-login";
     }
 
+    @GetMapping("/test")
+    public String testPage() {
+        return "test";
+    }
 
-    @PostMapping("/login")
-    public String loginCustomer(@RequestParam("email") String email,
-                                @RequestParam("password") String password,
-                                Model model) {
-        Customer customer = customerService.findByEmail(email);
 
-        if (customer == null) {
-            model.addAttribute("errorMessage", "No account found with that email.");
-            return "customer-login";
+    // ============ DASHBOARD (AFTER LOGIN) ============
+    @GetMapping("/dashboard")
+    public String dashboard(@AuthenticationPrincipal UserDetails userDetails, Model model) {
+        if (userDetails == null) {
+            return "redirect:/customers/loginn";
         }
 
-        if (!customer.getPassword().equals(password)) {
-            model.addAttribute("errorMessage", "Incorrect password. Please try again.");
-            return "customer-login";
+        Customer customer = customerService.findByUsername(userDetails.getUsername());
+        if (customer == null) {
+            return "redirect:/customers/loginn";
         }
 
         model.addAttribute("customer", customer);
-        return "customer-dashboard";
+        return "customer-dashboard"; // or whatever your .ftlh file is called
     }
 
-    @GetMapping("/appointments")
-    public String viewAppointments(@RequestParam("customerId") Long customerId, Model model) {
-        List<Booking> bookings = bookingRepository.findByCustomerId(customerId);
+
+
+    // ============ HOME REDIRECT ============
+    @GetMapping("/home")
+    public String showCustomerHome() {
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        Customer customer = customerService.findByUsername(username);
+        return "redirect:/customers/profile/" + customer.getId();
+    }
+
+    // ============ PROFILE VIEW ============
+    @GetMapping("/profile/{id}")
+    public String viewProfile(@PathVariable("id") Long id, Model model) {
+        Customer customer = customerService.getCustomerById(id);
+        if (customer == null) {
+            return "redirect:/customers/loginn";
+        }
+        List<Booking> bookings = bookingRepository.findByCustomerId(id);
+        List<Review> reviews = customer.getReviews();
+
+        model.addAttribute("customer", customer);
+        model.addAttribute("reviews", reviews);
         model.addAttribute("bookings", bookings);
-        return "appointments";
+        return "customer-profile";
     }
 
-    @GetMapping("/customers/edit/{id}")
+    // ============ EDIT PROFILE ============
+    @GetMapping("/edit/{id}")
     public String showEditProfileForm(@PathVariable("id") Long id, Model model) {
         Customer customer = customerService.getCustomerById(id);
         if (customer == null) {
-            return "redirect:/customers/index";
+            return "redirect:/customers/loginn";
         }
         model.addAttribute("customer", customer);
         return "edit-customer";
     }
 
-    @PostMapping("/edit/{customerID}")
-    public String updateCustomer(@PathVariable Long customerID, @ModelAttribute Customer updatedCustomer) {
-        customerService.updateCustomer(customerID, updatedCustomer);
-        return "redirect:/customers/profile";
+    @PostMapping("/edit/{id}")
+    public String updateCustomer(@PathVariable("id") Long id, @ModelAttribute Customer updatedCustomer) {
+        customerService.updateCustomer(id, updatedCustomer);
+        return "redirect:/customers/profile/" + id;
+    }
+
+    // ============ DELETE ACCOUNT ============
+    @GetMapping("/delete/{id}")
+    public String deleteCustomer(@PathVariable("id") Long id) {
+        customerService.deleteCustomerById(id);
+        return "redirect:/index";
     }
 
 
-   /** @GetMapping("/profile/{id}")
-    public String viewProfile(@PathVariable("id") Long id, Model model) {
-        Customer customer = customerService.getCustomerById(id);
-        if (customer == null) {
-            return "login";
-        }
-        model.addAttribute("customer", customer);
-        return "customer-profile";
-    }**/
+    // ============ VIEW SERVICES ============
+    @GetMapping("/index")
+    public String home(Model model) {
+        List<ProvService> services = provServiceRepository.findAll();
+        List<Review> reviews = reviewRepository.findAll();
 
-   @GetMapping("/profile/{id}")
-   public String viewProfile(@PathVariable("id") Long id, Model model) {
-       Customer customer = customerService.getCustomerById(id);
-       if (customer == null) {
-           return "login";
-       }
+        model.addAttribute("services", services);
+        model.addAttribute("reviews", reviews);
+        return "index";
+    }
 
-       List<Booking> bookings = bookingRepository.findByCustomerId(id);
-       List<Review> reviews = customer.getReviews();
-       model.addAttribute("reviews", reviews);
-       model.addAttribute("customer", customer);
-       model.addAttribute("bookings", bookings);
-       return "customer-profile";
-   }
-
-
+    // ============ ADD PET ============
     @GetMapping("/add-pet/{customerId}")
     public String showAddPetForm(@PathVariable("customerId") Long customerId, Model model) {
         Pet pet = new Pet();
@@ -173,6 +182,7 @@ public class CustomerController {
         return "redirect:/customers/profile/" + customerId;
     }
 
+    // ============ ADD REVIEW ============
     @GetMapping("/add-review/{serviceId}/{customerId}")
     public String showAddReviewForm(@PathVariable("serviceId") Long serviceId,
                                     @PathVariable("customerId") Long customerId, Model model) {
@@ -198,17 +208,19 @@ public class CustomerController {
         return "redirect:/customers/index";
     }
 
+    // ============ VIEW BOOKINGS ============
+    @GetMapping("/appointments")
+    public String viewAppointments(@RequestParam("customerId") Long customerId, Model model) {
+        List<Booking> bookings = bookingRepository.findByCustomerId(customerId);
+        model.addAttribute("bookings", bookings);
+        return "appointments";
+    }
+
+    // ============ ALL REVIEWS PAGE ============
     @GetMapping("/reviews")
     public String showReviewsPage(Model model) {
-        List<Review> reviews = reviewRepository.findAll(); // or findByServiceId if specific
+        List<Review> reviews = reviewRepository.findAll();
         model.addAttribute("reviews", reviews);
         return "add-review";
     }
-    @GetMapping("/dashboard")
-    public String dashboard(@AuthenticationPrincipal UserDetails userDetails, Model model) {
-        Customer customer = customerService.findByEmail(userDetails.getUsername());
-        model.addAttribute("customer", customer);
-        return "customer-dashboard";
-    }
-
 }

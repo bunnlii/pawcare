@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
 
+import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 
 
 @Controller
@@ -58,7 +59,19 @@ public class ProvServiceController {
         return "service-list";
     }
 
-    @GetMapping("/{providerID}/{serviceID}")
+    @GetMapping("/view/{id}")
+    public String viewService(@PathVariable("id") Integer id, Model model) {
+        ProvService service = serviceRepository.findById(id).orElse(null);
+        if (service == null) {
+            return "redirect:/error";
+        }
+        model.addAttribute("service", service);
+        return "customerservice-details";
+    }
+
+
+
+    @GetMapping("/provider/{providerID}/{serviceID}")
     public Object getServiceByID(@PathVariable int serviceID,
                                  @PathVariable int providerID,
                                  Model model) {

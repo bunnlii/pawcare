@@ -11,17 +11,20 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+  //  private String username;
+  @Column(name = "username", unique = true, nullable = false)
+    private String username;
     private String email;
     private String password;
     private String phone;
     private String address;
     private String role;
 
+
     public Customer() {}
 
-    public Customer(String name, String email, String password, String phone, String address) {
-        this.name = name;
+    public Customer(String username, String email, String password, String phone, String address) {
+        this.username = username;
         this.email = email;
         this.password = password;
         this.phone = phone;
@@ -41,12 +44,12 @@ public class Customer {
         return id;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getEmail() {

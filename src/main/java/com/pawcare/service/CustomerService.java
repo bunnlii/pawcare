@@ -46,11 +46,11 @@ public class CustomerService {
         return null;
     }
 
-    public void deleteCustomer(Long id) {
+    public void deleteCustomerById(Long id) {
         customerRepository.deleteById(id);
     }
 
-    public Customer findByEmail(String email) {
-        return customerRepository.findByEmail(email);
+    public Customer findByUsername(String username) {
+        return customerRepository.findByUsername(username);
     }
 }
